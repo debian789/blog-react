@@ -1,0 +1,35 @@
+{
+  "name": "blog-react",
+  "version": "1.0.0",
+  "description": "Blog implementando react",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "copy-files": "cp cliente/index.html public/",
+    "dist": "babel server/server.js server/**/*.js  --out-dir dist --presets es2015,react",
+    "browserify": "NODE_PATH=. browserify -t [ babelify --presets [ es2015 react ] ] cliente/index.js -o public/bundle.js",
+    "server2": "NODE_PATH=. babel-node  server/server --presets es2015,react ",
+    "server": "NODE_PATH=./dist node dist/server/server.js",
+    "start": " npm run browserify && npm run dist && npm run server2"
+  },
+  "author": "Miguel Suescun <debian789@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "babel-cli": "^6.3.13",
+    "babel-preset-es2015": "^6.1.18",
+    "babel-preset-react": "^6.3.13",
+    "babelify": "^7.2.0",
+    "body-parser": "^1.14.1",
+    "browserify": "^12.0.1",
+    "client-request": "^1.0.1",
+    "express": "^4.13.3",
+    "history": "^1.13.1",
+    "hjs": "0.0.6",
+    "mongoose": "^4.2.9",
+    "react": "^0.13.3",
+    "react-engine": "^2.6.0",
+    "react-router": "^0.13.5",
+    "reactify": "^1.1.1",
+    "require-globify": "^1.3.0"
+  }
+}
