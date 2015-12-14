@@ -7,10 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "copy-files": "cp cliente/index.html public/",
     "dist": "babel server/server.js server/**/*.js  --out-dir dist --presets es2015,react",
-    "browserify": "NODE_PATH=. browserify -t [ babelify --presets [ es2015 react ] ] cliente/index.js -o public/bundle.js",
+    "browserify": "NODE_PATH=. browserify -t [ babelify --presets [ es2015 react ] ] cliente/router.js -o public/bundle.js",
     "server2": "NODE_PATH=. babel-node  server/server --presets es2015,react ",
     "server": "NODE_PATH=./dist node dist/server/server.js",
-    "start": " npm run browserify && npm run dist && npm run server2"
+    "stylusGenerar": "stylus -c cliente/stylus/style.stly -o public/css",
+    "start": " npm run browserify && npm run stylusGenerar && npm run dist && npm run server2"
   },
   "author": "Miguel Suescun <debian789@gmail.com>",
   "license": "ISC",
@@ -26,10 +27,11 @@
     "history": "^1.13.1",
     "hjs": "0.0.6",
     "mongoose": "^4.2.9",
-    "react": "^0.13.3",
-    "react-engine": "^2.6.0",
-    "react-router": "^0.13.5",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3",
+    "react-router": "^1.0.2",
     "reactify": "^1.1.1",
-    "require-globify": "^1.3.0"
+    "require-globify": "^1.3.0",
+    "stylus": "^0.52.4"
   }
 }

@@ -9,21 +9,15 @@ import path from 'path'
 
 const app = express()
 
+app.use(require('stylus').middleware(path.join(__dirname, 'public')))
 app.use(express.static('public'))
 
 // middleware para el manejo de datos de formulario body
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-// implementar react-engine para el render de react
-// app.engine('.jsx', engine.server.create({
-//  routes: require('server/views/routes.jsx'),
-//  routesFilePath: 'server/views/routes.jsx'
-// }))
-
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'hjs')
-// app.set('view', engine.expressView)
 
 // respuesta HTML - render react
 app.use('/', blog)
@@ -37,5 +31,5 @@ app.use('/', blog)
 // respuestas json
 app.use('/api', blogApi)
 
-app.listen(3001)
+app.listen(3000)
 console.log('server iniciado puerto 3000')
