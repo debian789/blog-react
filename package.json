@@ -11,6 +11,7 @@
     "server2": "NODE_PATH=. babel-node  server/server --presets es2015,react ",
     "server": "NODE_PATH=./dist node dist/server/server.js",
     "stylusGenerar": "stylus -c cliente/stylus/style.stly -o public/css",
+    "stylus": "stylus -w -c cliente/stylus/style.stly -o public/css",
     "start": " npm run browserify && npm run stylusGenerar && npm run dist && npm run server2"
   },
   "author": "Miguel Suescun <debian789@gmail.com>",

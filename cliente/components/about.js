@@ -1,9 +1,12 @@
 import React from 'react'
+import Layout from 'cliente/components/layout'
 
 module.exports = class About extends React.Component {
   render () {
     return (
-      <div>About !!!!</div>
+      <Layout>
+        <div>About !!!!</div>
+      </Layout>
     )
   }
 }
