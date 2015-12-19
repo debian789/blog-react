@@ -227,21 +227,31 @@ module.exports = (function (_React$Component) {
             'article',
             null,
             _react2.default.createElement(
-              'figure',
-              null,
-              _react2.default.createElement('img', { src: 'http://placehold.it/300x300' })
+              'div',
+              { className: 'cuadroImagen' },
+              _react2.default.createElement(
+                'figure',
+                null,
+                _react2.default.createElement('img', { src: 'http://placehold.it/300x300' })
+              ),
+              _react2.default.createElement(
+                'span',
+                null,
+                'Miguel Suescun s',
+                _react2.default.createElement(
+                  'span',
+                  { className: 'profecionClass' },
+                  ' '
+                ),
+                ' '
+              )
             ),
-            _react2.default.createElement(
-              'span',
-              { className: 'autorNombre' },
-              'Miguel Suescun '
-            ),
-            _react2.default.createElement('hr', { className: 'lineaAutor' }),
             _react2.default.createElement(
               'p',
               null,
               'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
             ),
+            _react2.default.createElement('hr', { className: 'lineaAutor' }),
             _react2.default.createElement(
               'a',
               { href: '', className: 'iconSocial' },

@@ -5,13 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "copy-files": "cp cliente/index.html public/",
+    "cp-static": "cp -r  cliente/static/ public/static",
     "dist": "babel server/server.js server/**/*.js  --out-dir dist --presets es2015,react",
     "browserify": "NODE_PATH=. browserify -t [ babelify --presets [ es2015 react ] ] cliente/router.js -o public/bundle.js",
     "server2": "NODE_PATH=. babel-node  server/server --presets es2015,react ",
     "server": "NODE_PATH=./dist node dist/server/server.js",
     "stylusGenerar": "stylus -c cliente/stylus/style.stly -o public/css",
-    "stylus": "stylus -w -c cliente/stylus/style.stly -o public/css",
+    "stylus": "stylus -w -c cliente/stylus/style.stly -o public/static/css",
     "start": " npm run browserify && npm run stylusGenerar && npm run dist && npm run server2"
   },
   "author": "Miguel Suescun <debian789@gmail.com>",

@@ -74,8 +74,8 @@ p
       width 100%
   .itemBlog
     border-radius 4px
-    margin-bottom 1.5em
-    border-bottom 3px solid #4787DF
+    margin-top 1.5em
+    border-bottom 5px solid #ccc//#4787DF
     background-color white
     padding 1% 2% 2% 2%
     box-shadow -2px 3px 10px #ccc
@@ -86,29 +86,51 @@ p
   padding 1em 1% 1em 1%
   position fixed
   height 94%
-  text-align center
+  //text-align center
   //border 1px solid red
   width 23%
   display inline-block
   vertical-align top
-  background-color #0E1B2D
-  color white
-  figure
-    border-radius 50%
-    width 60%
-    margin auto auto 1em auto
-    //border 1px solid red
+  background-color white// #0E1B2D
+  //color white
+  .cuadroImagen
     position relative
-    overflow hidden
+    border-radius 5px
+    //border 1px solid white
+    background-color white
+    height 6em
+    background-image url(http://4.bp.blogspot.com/-hQX5tLSruRk/VnE2IgpFahI/AAAAAAAACBA/rtqTmug5IoY/s000/about-block-bg2.jpg)
+    figure
+      border-radius 50%
+      width 35%
+      margin 1em 0 1em 1em
+      //padding-bottom -3px
 
-    img
-      width 100%
-  .autorNombre
-    font-size 2em
+      position relative
+      overflow hidden
+      border 8px solid white //#0E1B2D
+      display inline-block
+
+      img
+        width 100%
+
+    span
+        display inline-block
+        //border 1px solid blue
+        vertical-align top
+        margin 1.6em 0 0 0.3em
+        color #ccc
+        //font-size 1.1em
+        .profecionClass
+          border 1px solid red
+
   .lineaAutor
     width 50%
     margin 1em auto 1em auto
     border 1px solid #ccc
+  p
+    width 90%
+    margin 3em auto
   .iconSocial
     display inline-block
     border-radius 50%
