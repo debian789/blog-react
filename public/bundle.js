@@ -59,6 +59,10 @@ var _layout = require('cliente/components/layout');
 
 var _layout2 = _interopRequireDefault(_layout);
 
+var _clientRequest = require('client-request');
+
+var _clientRequest2 = _interopRequireDefault(_clientRequest);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -70,51 +74,88 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 module.exports = (function (_React$Component) {
   _inherits(DetalleBlog, _React$Component);
 
-  function DetalleBlog() {
+  function DetalleBlog(props) {
     _classCallCheck(this, DetalleBlog);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(DetalleBlog).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(DetalleBlog).call(this, props));
+
+    _this.state = {
+      datos: [],
+      estado: false
+    };
+    return _this;
   }
 
   _createClass(DetalleBlog, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      var _this2 = this;
+
+      console.log('http://loclahost:3000/api/blog/' + this.props.params.id);
+      console.log('ruta llamada');
+      (0, _clientRequest2.default)({
+        uri: 'http://localhost:3000/api/blog/' + this.props.params.id,
+        method: 'GET',
+        json: true
+      }, function (err, response, body) {
+        if (err) {
+          console.log(err);
+        } else {
+          _this2.setState({ datos: body });
+          _this2.setState({ estado: true });
+        }
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
-      return _react2.default.createElement(
-        _layout2.default,
+      var itemBlog = 'No se pudo cargar los datos';
+      var componente = _react2.default.createElement(
+        'div',
         null,
-        _react2.default.createElement(
+        itemBlog
+      );
+      if (this.state.estado) {
+
+        componente = _react2.default.createElement(
           'article',
           { className: 'itemBlog' },
           _react2.default.createElement(
             'h2',
             null,
-            this.props.titulo
+            this.state.datos.titulo
           ),
           _react2.default.createElement(
             'span',
             null,
-            this.props.fechaCreacion
+            this.state.datos.fechaCreacion
           ),
           _react2.default.createElement(
             'span',
             null,
             ' by ',
-            this.props.creador
+            this.state.datos.creador
           ),
           _react2.default.createElement('hr', null),
           _react2.default.createElement(
             'figure',
             null,
-            _react2.default.createElement('img', { src: this.props.itemBlogImagen })
+            _react2.default.createElement('img', { src: this.state.datos.itemBlogImagen })
           ),
           _react2.default.createElement('hr', null),
           _react2.default.createElement(
             'p',
             null,
-            this.props.descripcion
+            this.state.datos.descripcion
           ),
           _react2.default.createElement('div', null)
-        )
+        );
+      }
+
+      return _react2.default.createElement(
+        _layout2.default,
+        null,
+        componente
       );
     }
   }]);
@@ -122,7 +163,7 @@ module.exports = (function (_React$Component) {
   return DetalleBlog;
 })(_react2.default.Component);
 
-},{"cliente/components/layout":5,"react":451}],3:[function(require,module,exports){
+},{"client-request":243,"cliente/components/layout":5,"react":451}],3:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');
@@ -183,10 +224,7 @@ module.exports = _react2.default.createClass({
       _layout2.default,
       null,
       this.state.datos.map(function (datos) {
-        return _react2.default.createElement(_itemBlog2.default, { titulo: 'Programacion react', fechaCreacion: '12-223-4', itemBlogImagen: 'http://placehold.it/900x300', descripcion: descripcion });
-      }),
-      this.state.datos.map(function (datos) {
-        return _react2.default.createElement(_itemBlog2.default, { titulo: 'Programacion react', fechaCreacion: '12-223-4', itemBlogImagen: 'http://placehold.it/900x300', descripcion: descripcion });
+        return _react2.default.createElement(_itemBlog2.default, { id: datos._id, titulo: datos.titulo, fechaCreacion: datos.fechaCreacion, itemBlogImagen: 'http://placehold.it/900x300', descripcion: descripcion });
       })
     );
   }
@@ -223,7 +261,6 @@ module.exports = (function (_React$Component) {
   _createClass(ItemBlog, [{
     key: 'render',
     value: function render() {
-      var id = 123;
       return _react2.default.createElement(
         'article',
         { className: 'itemBlog' },
@@ -232,7 +269,7 @@ module.exports = (function (_React$Component) {
           null,
           _react2.default.createElement(
             _reactRouter.Link,
-            { to: '/blog/' + id },
+            { to: '/blog/' + this.props.id },
             this.props.titulo
           )
         ),

@@ -24,6 +24,17 @@ blog.get('/blog', function (req, res) {
   });
 });
 
+blog.get('/blog/:id', function (req, res) {
+  var id = req.params.id;
+  _blogSchema2.default.findOne({ '_id': id }, function (err, datos) {
+    if (err) {
+      return res.sendStatus(500);
+    }
+
+    res.json(datos);
+  });
+});
+
 blog.post('/blog', function (req, res) {
   var blog = new _blogSchema2.default();
   var titulo = 'Hola express';

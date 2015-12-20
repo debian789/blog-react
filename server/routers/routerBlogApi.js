@@ -13,6 +13,19 @@ blog.get('/blog', (req, res) => {
   })
 })
 
+blog.get('/blog/:id', (req, res) => {
+  let id = req.params.id
+  BlogSchema.findOne({'_id': id}, (err, datos) => {
+    if (err) {
+      return res.sendStatus(500)
+    }
+
+    res.json(datos)
+
+  })
+})
+
+
 blog.post('/blog', (req, res) => {
   let blog = new BlogSchema()
   let titulo = 'Hola express'

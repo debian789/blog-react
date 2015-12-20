@@ -1,8 +1,8 @@
 import React from 'react'
 import request from 'client-request'
-//import { Link } from 'react-router'
 import Layout from 'cliente/components/layout'
 import ItemBlog from 'cliente/components/home/itemBlog'
+//import { Link } from 'react-router'
 
 
 module.exports = React.createClass({
@@ -39,12 +39,7 @@ module.exports = React.createClass({
       <Layout>
           {
             this.state.datos.map((datos) => {
-              return (<ItemBlog titulo='Programacion react' fechaCreacion='12-223-4' itemBlogImagen='http://placehold.it/900x300' descripcion={descripcion} />)
-            })
-          }
-          {
-            this.state.datos.map((datos) => {
-              return (<ItemBlog titulo='Programacion react' fechaCreacion='12-223-4' itemBlogImagen='http://placehold.it/900x300' descripcion={descripcion} />)
+              return (<ItemBlog id={datos._id} titulo={datos.titulo} fechaCreacion={datos.fechaCreacion} itemBlogImagen='http://placehold.it/900x300' descripcion={descripcion} />)
             })
           }
       </Layout>
