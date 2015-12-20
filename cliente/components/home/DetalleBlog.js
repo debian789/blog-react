@@ -1,15 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router'
+import Layout from 'cliente/components/layout'
 
-module.exports = class ItemBlog extends React.Component {
-
+module.exports = class DetalleBlog extends React.Component {
   render () {
-    var id = 123
     return (
-
+      <Layout>
 
       <article className='itemBlog'>
-        <h2 ><Link to={`/blog/${id}`}>{ this.props.titulo }</Link></h2>
+        <h2 >{ this.props.titulo }</h2>
         <span>{ this.props.fechaCreacion }</span>
         <span> by { this.props.creador }</span>
         <hr/>
@@ -18,8 +16,9 @@ module.exports = class ItemBlog extends React.Component {
         </figure>
         <hr/>
         <p>{ this.props.descripcion }</p>
+        <div></div>
       </article>
-
+      </Layout>
     )
   }
 }

@@ -10,7 +10,7 @@
     "browserify": "NODE_PATH=. browserify -t [ babelify --presets [ es2015 react ] ] cliente/router.js -o public/bundle.js",
     "server2": "NODE_PATH=. babel-node  server/server --presets es2015,react ",
     "server": "NODE_PATH=./dist node dist/server/server.js",
-    "stylusGenerar": "stylus -c cliente/stylus/style.stly -o public/css",
+    "stylusGenerar": "stylus -c cliente/stylus/style.stly -o public/static/css",
     "stylus": "stylus -w -c cliente/stylus/style.stly -o public/static/css",
     "start": " npm run browserify && npm run stylusGenerar && npm run dist && npm run server2"
   },

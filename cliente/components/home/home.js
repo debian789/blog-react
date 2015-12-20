@@ -1,6 +1,6 @@
 import React from 'react'
 import request from 'client-request'
-import { Link } from 'react-router'
+//import { Link } from 'react-router'
 import Layout from 'cliente/components/layout'
 import ItemBlog from 'cliente/components/home/itemBlog'
 
