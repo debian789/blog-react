@@ -1,5 +1,5 @@
 import React from 'react'
-import Layout from 'cliente/components/layout'
+import Layout from 'cliente/components/publico/layout'
 import request from 'client-request'
 
 module.exports = class DetalleBlog extends React.Component {

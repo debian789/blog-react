@@ -1,7 +1,7 @@
 import React from 'react'
 import request from 'client-request'
-import Layout from 'cliente/components/layout'
-import ItemBlog from 'cliente/components/home/itemBlog'
+import Layout from 'cliente/components/publico/layout'
+import ItemBlog from 'cliente/components/publico/home/itemBlog'
 //import { Link } from 'react-router'
 
 

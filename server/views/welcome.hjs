@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <link rel='stylesheet' href='/static/css/style.css' />
+    <link rel='stylesheet' href='/static/css/icomoon/style.css' />
+  </head>
+  <body>
+    <div id="container"></div>
+    <script  type="text/javascript" src='bundle-admin.js'/>
+    <script type="text/javascript"></script>
+
+  </body>
+</html>
