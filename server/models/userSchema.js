@@ -1,7 +1,7 @@
 'use strict'
 
 import mongoose from 'mongoose'
-import crypto from 'crypto'
+import passportLocalMongoose from 'passport-local-mongoose'
 let Schema = mongoose.Schema
 
 let UserSchema = new Schema({
@@ -18,22 +18,6 @@ let UserSchema = new Schema({
   email: String
 })
 
-UserSchema.pre('save', (next) => {
-  console.log(this)
-  if (this.password) {
-    this.salt = new Buffer(crypto.randomBytes(16).toString('base64'), 'base64')
-    this.password = this.hasPassword(this.password)
-  }
-
-  next()
-})
-
-UserSchema.methods.hashPassword = (password) => {
-  return crypto.pbkdf2Sync(password, this.salt, 10000, 64).toString('base64')
-}
-
-UserSchema.methods.authenticate = (password) => {
-  return this.password === this.hashPassword(password)
-}
+UserSchema.plugin(passportLocalMongoose)
 
 export default mongoose.model('User', UserSchema)

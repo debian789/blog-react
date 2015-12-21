@@ -8,13 +8,14 @@ var _mongoose = require('mongoose');
 
 var _mongoose2 = _interopRequireDefault(_mongoose);
 
-var _crypto = require('crypto');
+var _passportLocalMongoose = require('passport-local-mongoose');
 
-var _crypto2 = _interopRequireDefault(_crypto);
+var _passportLocalMongoose2 = _interopRequireDefault(_passportLocalMongoose);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Schema = _mongoose2.default.Schema;
+//import crypto from 'crypto'
 
 var UserSchema = new Schema({
   username: String,
@@ -28,22 +29,24 @@ var UserSchema = new Schema({
   email: String
 });
 
-UserSchema.pre('save', function (next) {
-  console.log(undefined);
-  if (undefined.password) {
-    undefined.salt = new Buffer(_crypto2.default.randomBytes(16).toString('base64'), 'base64');
-    undefined.password = undefined.hasPassword(undefined.password);
-  }
+UserSchema.plugin(_passportLocalMongoose2.default);
 
-  next();
-});
-
-UserSchema.methods.hashPassword = function (password) {
-  return _crypto2.default.pbkdf2Sync(password, undefined.salt, 10000, 64).toString('base64');
-};
-
-UserSchema.methods.authenticate = function (password) {
-  return undefined.password === undefined.hashPassword(password);
-};
+// UserSchema.pre('save', (next) => {
+//   console.log(this)
+//   if (this.password) {
+//     this.salt = new Buffer(crypto.randomBytes(16).toString('base64'), 'base64')
+//     this.password = this.hasPassword(this.password)
+//   }
+//
+//   next()
+// })
+//
+// UserSchema.methods.hashPassword = (password) => {
+//   return crypto.pbkdf2Sync(password, this.salt, 10000, 64).toString('base64')
+// }
+//
+// UserSchema.methods.authenticate = (password) => {
+//   return this.password === this.hashPassword(password)
+// }
 
 exports.default = _mongoose2.default.model('User', UserSchema);

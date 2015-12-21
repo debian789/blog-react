@@ -38,22 +38,21 @@ blog.get('/register', function (req, res) {
 
 blog.post('/register', function (req, res, next) {
   console.log(req.body);
-  var user = new _userSchema2.default(req.body);
 
-  user.save(function (err) {
+  _userSchema2.default.register(new _userSchema2.default({ username: req.body.username }), req.body.password, function (err, account) {
     if (err) {
-      console.log(err);
-      return res.redirect('/login');
+      return res.render('register', { account: account });
     }
 
-    req.login(user, function (err) {
-      if (err) {
-        return next(err);
-      }
-
-      return res.redirect('/welcome');
+    _passport2.default.authenticate('local')(req, res, function () {
+      res.redirect('/welcome');
     });
   });
+});
+
+blog.get('/logout', function (req, res) {
+  req.logout();
+  res.redirect('/');
 });
 
 blog.get('/welcome', ensureAuth, function (req, res) {

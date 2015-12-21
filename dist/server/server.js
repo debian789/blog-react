@@ -78,6 +78,13 @@ app.use((0, _expressSession2.default)({
 app.use(_passport2.default.initialize());
 app.use(_passport2.default.session());
 
+_passport2.default.use(new LocalStrategy(_userSchema2.default.authenticate()));
+_passport2.default.serializeUser(_userSchema2.default.serializeUser());
+_passport2.default.deserializeUser(_userSchema2.default.deserializeUser());
+
+//passport.serializeUser((user, done) => done(null, user))
+//passport.deserializeUser((user, done) => done(null, user))
+
 //function isValidPassword (user, password) {
 //  return bCrypt.compareSync(password, user.password)
 //}
@@ -102,13 +109,6 @@ app.use(_passport2.default.session());
 //
 // //  done(null, false, {message: 'Unknown user'})
 // }))
-
-_passport2.default.serializeUser(function (user, done) {
-  return done(null, user);
-});
-_passport2.default.deserializeUser(function (user, done) {
-  return done(null, user);
-});
 
 app.set('views', _path2.default.join(__dirname, 'views'));
 app.set('view engine', 'hjs');

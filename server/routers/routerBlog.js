@@ -24,22 +24,21 @@ blog.get('/register', (req, res) => {
 
 blog.post('/register', (req, res, next) => {
   console.log(req.body)
-  let user = new UserSchema(req.body)
 
-  user.save((err) => {
+  UserSchema.register(new UserSchema({username: req.body.username}), req.body.password, (err, account) => {
     if (err) {
-      console.log(err)
-      return res.redirect('/login')
+      return res.render('register', {account: account})
     }
 
-    req.login(user, (err) => {
-      if (err) {
-        return next(err)
-      }
-
-      return res.redirect('/welcome')
+    passport.authenticate('local')(req, res, () => {
+      res.redirect('/welcome')
     })
   })
+})
+
+blog.get('/logout', (req, res) => {
+  req.logout()
+  res.redirect('/')
 })
 
 blog.get('/welcome', ensureAuth, (req, res) => {
