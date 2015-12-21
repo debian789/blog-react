@@ -1,5 +1,7 @@
 import {Router} from 'express'
 import passport from 'passport'
+import UserSchema from 'server/models/userSchema'
+
 let blog = Router()
 
 blog.get('/', (req, res) => {
@@ -15,6 +17,30 @@ blog.post('/login', passport.authenticate('local', {
   successRedirect: '/welcome',
   failureRedirect: '/login'
 }))
+
+blog.get('/register', (req, res) => {
+  res.render('register')
+})
+
+blog.post('/register', (req, res, next) => {
+  console.log(req.body)
+  let user = new UserSchema(req.body)
+
+  user.save((err) => {
+    if (err) {
+      console.log(err)
+      return res.redirect('/login')
+    }
+
+    req.login(user, (err) => {
+      if (err) {
+        return next(err)
+      }
+
+      return res.redirect('/welcome')
+    })
+  })
+})
 
 blog.get('/welcome', ensureAuth, (req, res) => {
   res.render('welcome', { usuario: req.user.username })

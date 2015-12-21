@@ -4,20 +4,24 @@ import express from 'express'
 import blogApi from 'server/routers/routerBlogApi'
 import blog from 'server/routers/routerBlog'
 import mongooseConfig from 'server/config/mongooseConfig'
-//import engine from 'react-engine'
 import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
 import expressSession from 'express-session'
 import passport from 'passport'
 import { Strategy } from 'passport-local'
 import path from 'path'
-const LocalStrategy = Strategy
+import UserSchema from 'server/models/userSchema'
+//import bCrypt from 'bcrypt-node'
+import flash from 'connect-flash'
 
+const LocalStrategy = Strategy
 const app = express()
 const server = http.createServer(app)
 
 app.use(require('stylus').middleware(path.join(__dirname, 'public')))
 app.use(express.static('public'))
+
+//app.use(flash())
 
 // middleware para el manejo de datos de formulario body
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -34,13 +38,35 @@ app.use(expressSession({
 app.use(passport.initialize())
 app.use(passport.session())
 
-passport.use(new LocalStrategy ((username, password, done) => {
-  if (username === 'soy' && password === 'angel') {
-    return done(null, { name: 'Super', lastname: 'User', username: 'superuser' })
-  }
+//function isValidPassword (user, password) {
+//  return bCrypt.compareSync(password, user.password)
+//}
 
-  done(null, false, {message: 'Unknown user'})
-}))
+// passport.use(new LocalStrategy ((username, password, done) => {
+//   UserSchema.findOne({ 'username': username }, (err, user) => {
+//     if (err) return done(err)
+//
+//     if (!user) {
+//       return done(null, false,{message: 'Usuario no encontrado'})//, req.flash('message', 'User Not Found.'))
+//     }
+//
+//     if (!isValidPassword(user, password)) {
+//       return done(null, false, {message: 'Password no valido'}) //, req.flash('message', 'Invalid Password'))
+//     }
+//
+//     return done(null, user)
+//   })
+//   //if (username === 'soy' && password === 'angel') {
+//   //  return done(null, { name: 'Super', lastname: 'User', username: 'superuser' })
+//   //}
+//
+// //  done(null, false, {message: 'Unknown user'})
+// }))
+
+
+
+
+
 
 passport.serializeUser((user, done) => done(null, user))
 passport.deserializeUser((user, done) => done(null, user))

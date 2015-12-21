@@ -42,17 +42,26 @@ var _path = require('path');
 
 var _path2 = _interopRequireDefault(_path);
 
+var _userSchema = require('server/models/userSchema');
+
+var _userSchema2 = _interopRequireDefault(_userSchema);
+
+var _connectFlash = require('connect-flash');
+
+var _connectFlash2 = _interopRequireDefault(_connectFlash);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//import engine from 'react-engine'
-
 var LocalStrategy = _passportLocal.Strategy;
+//import bCrypt from 'bcrypt-node'
 
 var app = (0, _express2.default)();
 var server = _http2.default.createServer(app);
 
 app.use(require('stylus').middleware(_path2.default.join(__dirname, 'public')));
 app.use(_express2.default.static('public'));
+
+//app.use(flash())
 
 // middleware para el manejo de datos de formulario body
 app.use(_bodyParser2.default.urlencoded({ extended: false }));
@@ -69,13 +78,30 @@ app.use((0, _expressSession2.default)({
 app.use(_passport2.default.initialize());
 app.use(_passport2.default.session());
 
-_passport2.default.use(new LocalStrategy(function (username, password, done) {
-  if (username === 'soy' && password === 'angel') {
-    return done(null, { name: 'Super', lastname: 'User', username: 'superuser' });
-  }
+//function isValidPassword (user, password) {
+//  return bCrypt.compareSync(password, user.password)
+//}
 
-  done(null, false, { message: 'Unknown user' });
-}));
+// passport.use(new LocalStrategy ((username, password, done) => {
+//   UserSchema.findOne({ 'username': username }, (err, user) => {
+//     if (err) return done(err)
+//
+//     if (!user) {
+//       return done(null, false,{message: 'Usuario no encontrado'})//, req.flash('message', 'User Not Found.'))
+//     }
+//
+//     if (!isValidPassword(user, password)) {
+//       return done(null, false, {message: 'Password no valido'}) //, req.flash('message', 'Invalid Password'))
+//     }
+//
+//     return done(null, user)
+//   })
+//   //if (username === 'soy' && password === 'angel') {
+//   //  return done(null, { name: 'Super', lastname: 'User', username: 'superuser' })
+//   //}
+//
+// //  done(null, false, {message: 'Unknown user'})
+// }))
 
 _passport2.default.serializeUser(function (user, done) {
   return done(null, user);

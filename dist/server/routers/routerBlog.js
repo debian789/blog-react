@@ -10,6 +10,10 @@ var _passport = require('passport');
 
 var _passport2 = _interopRequireDefault(_passport);
 
+var _userSchema = require('server/models/userSchema');
+
+var _userSchema2 = _interopRequireDefault(_userSchema);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var blog = (0, _express.Router)();
@@ -27,6 +31,30 @@ blog.post('/login', _passport2.default.authenticate('local', {
   successRedirect: '/welcome',
   failureRedirect: '/login'
 }));
+
+blog.get('/register', function (req, res) {
+  res.render('register');
+});
+
+blog.post('/register', function (req, res, next) {
+  console.log(req.body);
+  var user = new _userSchema2.default(req.body);
+
+  user.save(function (err) {
+    if (err) {
+      console.log(err);
+      return res.redirect('/login');
+    }
+
+    req.login(user, function (err) {
+      if (err) {
+        return next(err);
+      }
+
+      return res.redirect('/welcome');
+    });
+  });
+});
 
 blog.get('/welcome', ensureAuth, function (req, res) {
   res.render('welcome', { usuario: req.user.username });
