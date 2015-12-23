@@ -14,7 +14,7 @@ blog.get('/login', (req, res) => {
 })
 
 blog.post('/login', passport.authenticate('local', {
-  successRedirect: '/welcome',
+  successRedirect: '/admin',
   failureRedirect: '/login'
 }))
 
@@ -31,7 +31,7 @@ blog.post('/register', (req, res, next) => {
     }
 
     passport.authenticate('local')(req, res, () => {
-      res.redirect('/welcome')
+      res.redirect('/admin')
     })
   })
 })
@@ -41,8 +41,8 @@ blog.get('/logout', (req, res) => {
   res.redirect('/')
 })
 
-blog.get('/welcome', ensureAuth, (req, res) => {
-  res.render('welcome', { usuario: req.user.username })
+blog.get('/admin', ensureAuth, (req, res) => {
+  res.render('admin', { usuario: req.user.username })
 })
 
 blog.get('/crear', (req, res) => {

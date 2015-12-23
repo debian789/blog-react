@@ -28,7 +28,7 @@ blog.get('/login', function (req, res) {
 });
 
 blog.post('/login', _passport2.default.authenticate('local', {
-  successRedirect: '/welcome',
+  successRedirect: '/admin',
   failureRedirect: '/login'
 }));
 
@@ -45,7 +45,7 @@ blog.post('/register', function (req, res, next) {
     }
 
     _passport2.default.authenticate('local')(req, res, function () {
-      res.redirect('/welcome');
+      res.redirect('/admin');
     });
   });
 });
@@ -55,8 +55,8 @@ blog.get('/logout', function (req, res) {
   res.redirect('/');
 });
 
-blog.get('/welcome', ensureAuth, function (req, res) {
-  res.render('welcome', { usuario: req.user.username });
+blog.get('/admin', ensureAuth, function (req, res) {
+  res.render('admin', { usuario: req.user.username });
 });
 
 blog.get('/crear', function (req, res) {
