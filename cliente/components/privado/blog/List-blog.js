@@ -8,7 +8,8 @@ module.exports = class Home extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      datosBlog: []
+      datosBlog: [],
+      datos: []
     }
   }
 
@@ -23,19 +24,43 @@ module.exports = class Home extends React.Component {
     })
   }
 
-  saludar2(event) {
+  visualizarItemBlog (datos, event) {
     event.preventDefault()
-    alert('Hooooooola Miguel !!!! wiiiii !!!  ')
+    this.setState({datos: datos})
   }
 
   render () {
+    let detalleBlogDatos = (<article>No se an cargado datos </article>)
+      if (this.state.datos) {
+         detalleBlogDatos = (
+        <article className='itemBlog'>
+          <h2 >{ this.state.datos.titulo }</h2>
+          <span>{ this.state.datos.fechaCreacion }</span>
+          <span> by { this.state.datos.creador }</span>
+          <hr/>
+          <figure>
+            <img src={ this.state.datos.itemBlogImagen } />
+          </figure>
+          <hr/>
+          <p>{ this.state.datos.descripcion }</p>
+          <div></div>
+        </article>
+        )
+      }
     return (
       <Layout>
-        <div> a{
+        <section>
+          {
             this.state.datosBlog.map((dato) => {
-              return (<ItemBlog titulo= {dato.titulo}  eventoSaludar= {this.saludar2}/>)
+              return (<ItemBlog titulo= {dato.titulo} eventoSaludar= {this.visualizarItemBlog.bind(this, dato) }/>)
             })
-          } </div>
+          }
+        </section>
+        <section>
+          {
+            detalleBlogDatos
+          }
+        </section>
       </Layout>
     )
   }

@@ -146,7 +146,8 @@ module.exports = (function (_React$Component) {
     var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Home).call(this, props));
 
     _this.state = {
-      datosBlog: []
+      datosBlog: [],
+      datos: []
     };
     return _this;
   }
@@ -168,27 +169,76 @@ module.exports = (function (_React$Component) {
       });
     }
   }, {
-    key: 'saludar2',
-    value: function saludar2(event) {
+    key: 'visualizarItemBlog',
+    value: function visualizarItemBlog(datos, event) {
+
       event.preventDefault();
-      alert('Hooooooola Miguel !!!! wiiiii !!!  ');
+      console.log(datos);
+      this.setState({ datos: datos });
+      //alert('Hooooooola Miguel !!!! wiiiii !!!  ')
     }
   }, {
     key: 'render',
     value: function render() {
       var _this3 = this;
 
+      console.log('se ejecuta render ');
+      var detalleBlogDatos = _react2.default.createElement(
+        'article',
+        null,
+        'No se an cargado datos '
+      );
+      if (this.state.datos) {
+        //debugger;
+        detalleBlogDatos = _react2.default.createElement(
+          'article',
+          { className: 'itemBlog' },
+          _react2.default.createElement(
+            'h2',
+            null,
+            this.state.datos.titulo
+          ),
+          _react2.default.createElement(
+            'span',
+            null,
+            this.state.datos.fechaCreacion
+          ),
+          _react2.default.createElement(
+            'span',
+            null,
+            ' by ',
+            this.state.datos.creador
+          ),
+          _react2.default.createElement('hr', null),
+          _react2.default.createElement(
+            'figure',
+            null,
+            _react2.default.createElement('img', { src: this.state.datos.itemBlogImagen })
+          ),
+          _react2.default.createElement('hr', null),
+          _react2.default.createElement(
+            'p',
+            null,
+            this.state.datos.descripcion
+          ),
+          _react2.default.createElement('div', null)
+        );
+      }
+
       return _react2.default.createElement(
         _Layout2.default,
         null,
         _react2.default.createElement(
-          'div',
+          'section',
           null,
-          ' a',
           this.state.datosBlog.map(function (dato) {
-            return _react2.default.createElement(_ItemBlog2.default, { titulo: dato.titulo, eventoSaludar: _this3.saludar2 });
-          }),
-          ' '
+            return _react2.default.createElement(_ItemBlog2.default, { titulo: dato.titulo, eventoSaludar: _this3.visualizarItemBlog.bind(_this3, dato) });
+          })
+        ),
+        _react2.default.createElement(
+          'section',
+          null,
+          detalleBlogDatos
         )
       );
     }
