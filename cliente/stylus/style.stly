@@ -51,6 +51,11 @@ body
 header
   background black
   margin-bottom 1em
+  position fixed
+  top 0
+  z-index 1000
+  height 3em
+  width 100%
 
 hr
   border 1px solid #ccc
@@ -146,3 +151,37 @@ p
 
 
     border 1px solid #ccc
+.itemListIzq
+  position absolute
+  //border 1px solid blue
+  width 25%
+  //height 90%
+  overflow-y scroll
+  //margin-left 2%
+  padding 0 0 0 0
+  margin-top 3%
+  .itemList
+    border-bottom 1px solid #ccc
+    a
+      padding 4% 0 4% 2%
+      text-decoration none
+      display inline-block
+      width 100%
+.itemListDer
+  margin-top 3%
+  position absolute
+  //border 1px solid red
+  width 70%
+  overflow-y scroll
+  right 0
+  //height 90%
+  padding 0% 2% 0 2%
+  //padding 2%
+
+
+.itemListIzq, .itemListDer
+  display inline-block
+  top 3em
+  overflow-x hidden
+  bottom 0
+  vertical-align top

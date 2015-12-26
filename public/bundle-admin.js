@@ -110,8 +110,6 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouter = require('react-router');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -130,21 +128,14 @@ module.exports = (function (_React$Component) {
   }
 
   _createClass(ItemBlog, [{
-    key: 'saludar',
-    value: function saludar(event) {
-      event.preventDefault();
-      alert('Hola mundo !!!');
-      return false;
-    }
-  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
         'article',
-        null,
+        { className: 'itemList' },
         _react2.default.createElement(
           'a',
-          { onClick: this.props.eventoSaludar, href: '' },
+          { onClick: this.props.eventoClick, href: '' },
           ' ',
           this.props.titulo,
           ' '
@@ -156,7 +147,7 @@ module.exports = (function (_React$Component) {
   return ItemBlog;
 })(_react2.default.Component);
 
-},{"react":450,"react-router":288}],4:[function(require,module,exports){
+},{"react":450}],4:[function(require,module,exports){
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -272,14 +263,14 @@ module.exports = (function (_React$Component) {
         null,
         _react2.default.createElement(
           'section',
-          null,
+          { className: 'itemListIzq' },
           this.state.datosBlog.map(function (dato) {
-            return _react2.default.createElement(_ItemBlog2.default, { titulo: dato.titulo, eventoSaludar: _this3.visualizarItemBlog.bind(_this3, dato) });
+            return _react2.default.createElement(_ItemBlog2.default, { key: dato._id, titulo: dato.titulo, eventoClick: _this3.visualizarItemBlog.bind(_this3, dato) });
           })
         ),
         _react2.default.createElement(
           'section',
-          null,
+          { className: 'itemListDer' },
           detalleBlogDatos
         )
       );
