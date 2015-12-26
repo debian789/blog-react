@@ -1,6 +1,7 @@
 import React from 'react'
 import marked from 'marked'
-import markedify from 'markedify'
+// import markedify from 'markedify'
+import Layout from 'cliente/components/privado/Layout'
 
 module.exports = class FormBlog extends React.Component {
   constructor (props) {
@@ -19,16 +20,20 @@ module.exports = class FormBlog extends React.Component {
   }
   render () {
     return (
-      <div>
-        <textarea onChange={this.handleTextoBase.bind(this)}></textarea>
-        <div dangerouslySetInnerHTML={this.convertirHtmlPrevio()}/>
+      <Layout>
+        <section className='panelIzq'>
+          <textarea onChange={this.handleTextoBase.bind(this)}></textarea>
+        </section>
+        <section className='panelDer'>
+          <div dangerouslySetInnerHTML={this.convertirHtmlPrevio()}/>
+        </section>
         <form method='POST' action='/api/blog' >
         <input type='text' name='titulo'/>
         <textarea name='descripcion' value={this.state.textBase}></textarea>
         <input type='submit' value='Guardar'/>
       </form>
 
-      </div>
+    </Layout>
     )
   }
 }
