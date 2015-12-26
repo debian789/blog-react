@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { Router, Route, Link } from 'react-router'
+import { Router, Route } from 'react-router'
 import Home from 'cliente/components/publico/home/home'
 import DetalleBlog from 'cliente/components/publico/home/DetalleBlog'
 import About from 'cliente/components/publico/about'

@@ -19,7 +19,7 @@ module.exports = class FormBlog extends React.Component {
     this.setState({tituloBase: event.target.value})
   }
   convertirHtmlPrevio () {
-    return { __html : this.state.textBase}
+    return { __html: this.state.textBase}
   }
   render () {
     let contenidoFooter = (

@@ -32,7 +32,6 @@ module.exports = class DetalleBlog extends React.Component {
     let itemBlog = 'No se pudo cargar los datos'
     let componente = (<div>{itemBlog}</div>)
     if (this.state.estado) {
-
       componente = (
         <article className='itemBlog'>
           <h2 >{ this.state.datos.titulo }</h2>

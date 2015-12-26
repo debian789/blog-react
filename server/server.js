@@ -11,7 +11,7 @@ import passport from 'passport'
 import { Strategy } from 'passport-local'
 import path from 'path'
 import UserSchema from 'server/models/userSchema'
-import flash from 'connect-flash'
+// import flash from 'connect-flash'
 
 const LocalStrategy = Strategy
 const app = express()
@@ -44,7 +44,6 @@ app.set('view engine', 'hjs')
 
 // respuesta HTML - render react
 app.use('/', blog)
-
 
 // respuestas json
 app.use('/api', blogApi)

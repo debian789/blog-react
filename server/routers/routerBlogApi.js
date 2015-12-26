@@ -21,10 +21,8 @@ blog.get('/blog/:id', (req, res) => {
     }
 
     res.json(datos)
-
   })
 })
-
 
 blog.post('/blog', (req, res) => {
   let blog = new BlogSchema()

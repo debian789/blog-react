@@ -52,7 +52,7 @@ module.exports = class Home extends React.Component {
         <section className='itemListIzq'>
           {
             this.state.datosBlog.map((dato) => {
-              return (<ItemBlog   key={dato._id} titulo= {dato.titulo} eventoClick= {this.visualizarItemBlog.bind(this, dato) }/>)
+              return (<ItemBlog key={dato._id} titulo= {dato.titulo} eventoClick= {this.visualizarItemBlog.bind(this, dato) }/>)
             })
           }
         </section>
