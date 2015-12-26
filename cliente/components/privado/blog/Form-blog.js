@@ -6,33 +6,39 @@ import Layout from 'cliente/components/privado/Layout'
 module.exports = class FormBlog extends React.Component {
   constructor (props) {
     super(props)
-    this.state={
-      textBase:''
+    this.state = {
+      textBase: '',
+      tituloBase: ''
     }
   }
   handleTextoBase (event) {
     let textoIngresado = event.target.value
-    this.setState({textBase:marked(textoIngresado)})
+    this.setState({textBase: marked(textoIngresado)})
   }
-
-  convertirHtmlPrevio() {
-    return {__html:this.state.textBase}
+  handleTitulo (event) {
+    this.setState({tituloBase: event.target.value})
+  }
+  convertirHtmlPrevio () {
+    return { __html : this.state.textBase}
   }
   render () {
+    let contenidoFooter = (
+      <form method='POST' action='/api/blog' >
+        <input type='hidden' name='titulo' value={this.state.tituloBase} />
+        <textarea name='descripcion' className='displayHidden' value={this.state.textBase} ></textarea>
+        <button > Guardar </button>
+      </form>
+    )
+
     return (
-      <Layout>
+      <Layout componenteFooter={contenidoFooter}>
         <section className='panelIzq'>
-          <textarea onChange={this.handleTextoBase.bind(this)}></textarea>
+          <input onChange={this.handleTitulo.bind(this)} placeholder='Titulo ' />
+          <textarea onChange={this.handleTextoBase.bind(this)} placeholder='Contenido ...'></textarea>
         </section>
         <section className='panelDer'>
           <div dangerouslySetInnerHTML={this.convertirHtmlPrevio()}/>
         </section>
-        <form method='POST' action='/api/blog' >
-        <input type='text' name='titulo'/>
-        <textarea name='descripcion' value={this.state.textBase}></textarea>
-        <input type='submit' value='Guardar'/>
-      </form>
-
     </Layout>
     )
   }

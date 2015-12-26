@@ -7,7 +7,7 @@ module.exports = class Layout extends React.Component {
       <div>
         <header><Link to='/crear'>Crear</Link></header>
         <section> { this.props.children }</section>
-        <footer>pie </footer>
+        <footer> {this.props.componenteFooter} </footer>
       </div>
     )
   }

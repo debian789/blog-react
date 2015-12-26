@@ -62,9 +62,21 @@ footer
   bottom 0
   width 100%
   height 2em
-  color white 
+  color white
   background black
   border 1px solid red
+  button
+    border 0
+    border-buttom 3px solid #97C6EF
+    border-radius 4px
+    background #66ADE8
+    height 2.5em
+    width 8em
+    color white
+    //top 0.1em
+    display inline-bloc
+    float right
+    margin  0.2em 2% 0 0
 hr
   border 1px solid #ccc
   border-top 0
@@ -73,6 +85,8 @@ h2
   color #2C89C4
 p
   text-align justify
+.displayHidden
+  display none
 
 .contenido
   width 65%
@@ -176,13 +190,22 @@ p
 .panelIzq
   //border 1px solid red
   width 49%
+  input
+    border 0 px solid red
+    position absolute
+    height 2.5em
+    width 100%
+    outline none
+    top 0
+    box-shadow none
+
   textarea
     outline none
     box-shadow none
     font-size 1.2em
     display inline-block
     position absolute
-    top 0
+    top 3em
     color #3c4043
     line-height 2.5rem
     resize none
@@ -207,3 +230,31 @@ p
   overflow-x hidden
   bottom 2.5em
   vertical-align top
+.inicioSession
+  background-color #282B2D
+  text-align center
+  div
+    margin-top 20%
+    display inline-block
+    vertical-align top
+    width 15%
+    margin-left 0.3em
+    //border 1px solid red
+
+    input
+      background-color #43484B
+      border 0
+      color white
+      width 96%
+      height  2em
+      padding 2%
+    input:hover
+      background-color #7F8588
+      border 0
+    button
+      padding 3%
+      color white
+      width 50%
+      float left
+      background-color #65ACE7
+      border 0

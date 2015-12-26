@@ -50,7 +50,9 @@ module.exports = (function (_React$Component) {
         _react2.default.createElement(
           'footer',
           null,
-          'pie '
+          ' ',
+          this.props.componenteFooter,
+          ' '
         )
       );
     }
@@ -94,7 +96,8 @@ module.exports = (function (_React$Component) {
     var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(FormBlog).call(this, props));
 
     _this.state = {
-      textBase: ''
+      textBase: '',
+      tituloBase: ''
     };
     return _this;
   }
@@ -106,6 +109,11 @@ module.exports = (function (_React$Component) {
       this.setState({ textBase: (0, _marked2.default)(textoIngresado) });
     }
   }, {
+    key: 'handleTitulo',
+    value: function handleTitulo(event) {
+      this.setState({ tituloBase: event.target.value });
+    }
+  }, {
     key: 'convertirHtmlPrevio',
     value: function convertirHtmlPrevio() {
       return { __html: this.state.textBase };
@@ -113,25 +121,31 @@ module.exports = (function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var contenidoFooter = _react2.default.createElement(
+        'form',
+        { method: 'POST', action: '/api/blog' },
+        _react2.default.createElement('input', { type: 'hidden', name: 'titulo', value: this.state.tituloBase }),
+        _react2.default.createElement('textarea', { name: 'descripcion', className: 'displayHidden', value: this.state.textBase }),
+        _react2.default.createElement(
+          'button',
+          null,
+          ' Guardar '
+        )
+      );
+
       return _react2.default.createElement(
         _Layout2.default,
-        null,
+        { componenteFooter: contenidoFooter },
         _react2.default.createElement(
           'section',
           { className: 'panelIzq' },
-          _react2.default.createElement('textarea', { onChange: this.handleTextoBase.bind(this) })
+          _react2.default.createElement('input', { onChange: this.handleTitulo.bind(this), placeholder: 'Titulo ' }),
+          _react2.default.createElement('textarea', { onChange: this.handleTextoBase.bind(this), placeholder: 'Contenido ...' })
         ),
         _react2.default.createElement(
           'section',
           { className: 'panelDer' },
           _react2.default.createElement('div', { dangerouslySetInnerHTML: this.convertirHtmlPrevio() })
-        ),
-        _react2.default.createElement(
-          'form',
-          { method: 'POST', action: '/api/blog' },
-          _react2.default.createElement('input', { type: 'text', name: 'titulo' }),
-          _react2.default.createElement('textarea', { name: 'descripcion', value: this.state.textBase }),
-          _react2.default.createElement('input', { type: 'submit', value: 'Guardar' })
         )
       );
     }
