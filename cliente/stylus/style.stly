@@ -159,7 +159,7 @@ p
   overflow-y scroll
   //margin-left 2%
   padding 0 0 0 0
-  margin-top 3%
+  //margin-top 3%
   .itemList
     border-bottom 1px solid #ccc
     a
@@ -168,7 +168,7 @@ p
       display inline-block
       width 100%
 .itemListDer
-  margin-top 3%
+  //margin-top 3%
   position absolute
   //border 1px solid red
   width 70%
@@ -181,7 +181,7 @@ p
 
 .itemListIzq, .itemListDer
   display inline-block
-  top 3em
+  top 3.5em
   overflow-x hidden
   bottom 0
   vertical-align top
