@@ -9,7 +9,7 @@ module.exports = class Home extends React.Component {
     super(props)
     this.state = {
       datosBlog: [],
-      datos: []
+      datos: false
     }
   }
 
@@ -31,8 +31,8 @@ module.exports = class Home extends React.Component {
 
   render () {
     let detalleBlogDatos = (<article>No se an cargado datos </article>)
-      if (this.state.datos) {
-         detalleBlogDatos = (
+    if (this.state.datos) {
+      detalleBlogDatos = (
         <article className='itemBlog'>
           <h2 >{ this.state.datos.titulo }</h2>
           <span>{ this.state.datos.fechaCreacion }</span>
@@ -46,7 +46,7 @@ module.exports = class Home extends React.Component {
           <div></div>
         </article>
         )
-      }
+    }
     return (
       <Layout>
         <section>

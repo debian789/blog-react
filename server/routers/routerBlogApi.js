@@ -28,8 +28,8 @@ blog.get('/blog/:id', (req, res) => {
 
 blog.post('/blog', (req, res) => {
   let blog = new BlogSchema()
-  let titulo = 'Hola express'
-  let descripcion = 'Esta es una Noticia nueva jejeje :P '
+  let titulo = req.body.titulo
+  let descripcion = req.body.descripcion
   blog.titulo = titulo
   blog.descripcion = descripcion
   blog.save((err) => {

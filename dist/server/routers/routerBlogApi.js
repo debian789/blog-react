@@ -37,8 +37,8 @@ blog.get('/blog/:id', function (req, res) {
 
 blog.post('/blog', function (req, res) {
   var blog = new _blogSchema2.default();
-  var titulo = 'Hola express';
-  var descripcion = 'Esta es una Noticia nueva jejeje :P ';
+  var titulo = req.body.titulo;
+  var descripcion = req.body.descripcion;
   blog.titulo = titulo;
   blog.descripcion = descripcion;
   blog.save(function (err) {
