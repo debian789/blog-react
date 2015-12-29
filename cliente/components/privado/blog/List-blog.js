@@ -2,6 +2,7 @@ import React from 'react'
 import request from 'client-request'
 import Layout from 'cliente/components/privado/Layout'
 import ItemBlog from 'cliente/components/privado/blog/Item-blog'
+import {Link} from 'react-router'
 
 class DescripcionBlog extends React.Component {
   constructor(props) {
@@ -48,6 +49,7 @@ module.exports = class Home extends React.Component {
     if (this.state.datos) {
       detalleBlogDatos = (
         <article className='itemBlog'>
+          <Link to={`/editar/${this.state.datos._id}`}>Editar</Link>
           <h2 >{ this.state.datos.titulo }</h2>
           <span>{ this.state.datos.fechaCreacion }</span>
           <span> by { this.state.datos.creador }</span>

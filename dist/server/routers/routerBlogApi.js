@@ -35,6 +35,24 @@ blog.get('/blog/:id', function (req, res) {
   });
 });
 
+blog.post('/blog/:id', function (req, res) {
+  var id = req.params.id;
+  var datos = req.body;
+  console.log(datos);
+  _blogSchema2.default.update({ '_id': id }, {
+    titulo: datos.titulo,
+    descripcion: datos.descripcion
+  }, function (err, data) {
+    if (err) {
+      res.sendStatus(500);
+      console.log('no se actualizo');
+    } else {
+      res.json(data);
+      console.log('se actualizo correctamente');
+    }
+  });
+});
+
 blog.post('/blog', function (req, res) {
   var blog = new _blogSchema2.default();
   var titulo = req.body.titulo;

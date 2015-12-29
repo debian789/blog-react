@@ -18,9 +18,9 @@ module.exports = class FormBlog extends React.Component {
   handleTitulo (event) {
     this.setState({tituloBase: event.target.value})
   }
-  convertirHtmlPrevio () {
-    return { __html: this.state.textBase}
-  }
+  //convertirHtmlPrevio () {
+  //  return { __html: this.state.textBase}
+  //}
   render () {
     let contenidoFooter = (
       <form method='POST' action='/api/blog' >
@@ -37,7 +37,7 @@ module.exports = class FormBlog extends React.Component {
           <textarea onChange={this.handleTextoBase.bind(this)} placeholder='Contenido ...'></textarea>
         </section>
         <section className='panelDer'>
-          <div dangerouslySetInnerHTML={this.convertirHtmlPrevio()}/>
+          <div dangerouslySetInnerHTML={{ __html: this.state.textBase}}/>
         </section>
     </Layout>
     )
