@@ -3,6 +3,19 @@ import request from 'client-request'
 import Layout from 'cliente/components/privado/Layout'
 import ItemBlog from 'cliente/components/privado/blog/Item-blog'
 
+class DescripcionBlog extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+  render () {
+    return (<div dangerouslySetInnerHTML={{__html:this.props.descripcion}}>
+
+    </div>)
+
+  }
+}
+
+
 module.exports = class Home extends React.Component {
 
   constructor (props) {
@@ -30,7 +43,8 @@ module.exports = class Home extends React.Component {
   }
 
   render () {
-    let detalleBlogDatos = (<article>No se an cargado datos </article>)
+    let detalleBlogDatos = (<article className='mensajeInicial'> No se ha seleccionando ningun elemento  </article>)
+
     if (this.state.datos) {
       detalleBlogDatos = (
         <article className='itemBlog'>
@@ -42,7 +56,7 @@ module.exports = class Home extends React.Component {
             <img src={ this.state.datos.itemBlogImagen } />
           </figure>
           <hr/>
-          <p>{ this.state.datos.descripcion }</p>
+          <DescripcionBlog descripcion= { this.state.datos.descripcion }/>
           <div></div>
         </article>
         )

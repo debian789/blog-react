@@ -107,6 +107,11 @@ module.exports = (function (_React$Component) {
       });
     }
   }, {
+    key: 'convertirHtmlPrevio',
+    value: function convertirHtmlPrevio(dato) {
+      return { __html: dato };
+    }
+  }, {
     key: 'render',
     value: function render() {
       var itemBlog = 'No se pudo cargar los datos';
@@ -116,7 +121,6 @@ module.exports = (function (_React$Component) {
         itemBlog
       );
       if (this.state.estado) {
-
         componente = _react2.default.createElement(
           'article',
           { className: 'itemBlog' },
@@ -143,11 +147,7 @@ module.exports = (function (_React$Component) {
             _react2.default.createElement('img', { src: this.state.datos.itemBlogImagen })
           ),
           _react2.default.createElement('hr', null),
-          _react2.default.createElement(
-            'p',
-            null,
-            this.state.datos.descripcion
-          ),
+          _react2.default.createElement('p', { dangerouslySetInnerHTML: this.convertirHtmlPrevio(this.state.datos.descripcion) }),
           _react2.default.createElement('div', null)
         );
       }
@@ -259,6 +259,11 @@ module.exports = (function (_React$Component) {
   }
 
   _createClass(ItemBlog, [{
+    key: 'convertirHtmlPrevio',
+    value: function convertirHtmlPrevio(dato) {
+      return { __html: dato };
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
@@ -291,11 +296,7 @@ module.exports = (function (_React$Component) {
           _react2.default.createElement('img', { src: this.props.itemBlogImagen })
         ),
         _react2.default.createElement('hr', null),
-        _react2.default.createElement(
-          'p',
-          null,
-          this.props.descripcion
-        )
+        _react2.default.createElement('p', { dangerouslySetInnerHTML: this.convertirHtmlPrevio(this.props.descripcion) })
       );
     }
   }]);

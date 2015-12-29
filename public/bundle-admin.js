@@ -38,7 +38,8 @@ module.exports = (function (_React$Component) {
           _react2.default.createElement(
             _reactRouter.Link,
             { to: '/crear' },
-            'Crear'
+            _react2.default.createElement('span', { className: 'icon-libreoffice' }),
+            ' Crear'
           )
         ),
         _react2.default.createElement(
@@ -229,25 +230,44 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-module.exports = (function (_React$Component) {
-  _inherits(Home, _React$Component);
+var DescripcionBlog = (function (_React$Component) {
+  _inherits(DescripcionBlog, _React$Component);
+
+  function DescripcionBlog(props) {
+    _classCallCheck(this, DescripcionBlog);
+
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(DescripcionBlog).call(this, props));
+  }
+
+  _createClass(DescripcionBlog, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: this.props.descripcion } });
+    }
+  }]);
+
+  return DescripcionBlog;
+})(_react2.default.Component);
+
+module.exports = (function (_React$Component2) {
+  _inherits(Home, _React$Component2);
 
   function Home(props) {
     _classCallCheck(this, Home);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Home).call(this, props));
+    var _this2 = _possibleConstructorReturn(this, Object.getPrototypeOf(Home).call(this, props));
 
-    _this.state = {
+    _this2.state = {
       datosBlog: [],
       datos: false
     };
-    return _this;
+    return _this2;
   }
 
   _createClass(Home, [{
     key: 'componentWillMount',
     value: function componentWillMount() {
-      var _this2 = this;
+      var _this3 = this;
 
       (0, _clientRequest2.default)({
         uri: 'http://localhost:3000/api/blog',
@@ -257,7 +277,7 @@ module.exports = (function (_React$Component) {
         if (err) {
           console.log(err);
         }
-        _this2.setState({ datosBlog: body });
+        _this3.setState({ datosBlog: body });
       });
     }
   }, {
@@ -269,13 +289,14 @@ module.exports = (function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _this3 = this;
+      var _this4 = this;
 
       var detalleBlogDatos = _react2.default.createElement(
         'article',
-        null,
-        'No se an cargado datos '
+        { className: 'mensajeInicial' },
+        ' No se ha seleccionando ningun elemento  '
       );
+
       if (this.state.datos) {
         detalleBlogDatos = _react2.default.createElement(
           'article',
@@ -303,11 +324,7 @@ module.exports = (function (_React$Component) {
             _react2.default.createElement('img', { src: this.state.datos.itemBlogImagen })
           ),
           _react2.default.createElement('hr', null),
-          _react2.default.createElement(
-            'p',
-            null,
-            this.state.datos.descripcion
-          ),
+          _react2.default.createElement(DescripcionBlog, { descripcion: this.state.datos.descripcion }),
           _react2.default.createElement('div', null)
         );
       }
@@ -318,7 +335,7 @@ module.exports = (function (_React$Component) {
           'section',
           { className: 'itemListIzq' },
           this.state.datosBlog.map(function (dato) {
-            return _react2.default.createElement(_ItemBlog2.default, { key: dato._id, titulo: dato.titulo, eventoClick: _this3.visualizarItemBlog.bind(_this3, dato) });
+            return _react2.default.createElement(_ItemBlog2.default, { key: dato._id, titulo: dato.titulo, eventoClick: _this4.visualizarItemBlog.bind(_this4, dato) });
           })
         ),
         _react2.default.createElement(

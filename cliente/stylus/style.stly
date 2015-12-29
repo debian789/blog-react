@@ -48,14 +48,23 @@ body
   background #F0F0F0
   margin 0
   padding 0
+  font-size 16px
 header
   background black
   margin-bottom 1em
   position fixed
   top 0
+  padding-top 1em
   z-index 1000
-  height 3em
+  height 2em
+  padding-left 1em
   width 100%
+  a
+    text-decoration none
+    color white
+    font-size 1.2em
+  a:hover
+    color #ccc
 footer
   display inline-block
   position fixed
@@ -64,7 +73,7 @@ footer
   height 2em
   color white
   background black
-  border 1px solid red
+  //border 1px solid red
   button
     border 0
     border-buttom 3px solid #97C6EF
@@ -81,10 +90,22 @@ hr
   border 1px solid #ccc
   border-top 0
   margin 1em 0 1em 0
+h1
+  font-size 2em
+  color #2C89C4
 h2
   color #2C89C4
+
+pre
+  padding 1em
+  background #ccc
 p
   text-align justify
+.mensajeInicial
+  font-size 2em
+  color #888
+  text-align center
+  margin-top 10%
 .displayHidden
   display none
 
@@ -176,13 +197,18 @@ p
 .itemListIzq
   width 25%
   padding 0 0 0 0
+  .itemList:hover
+    background #ccc
+    a
+      color black
   .itemList
     border-bottom 1px solid #ccc
     a
-      padding 5% 0 5% 2%
+      padding 6% 0 6% 6%
       text-decoration none
       display inline-block
       width 100%
+      color #888
 .itemListDer
   width 70%
   right 0
@@ -220,7 +246,7 @@ p
     overflow-x hidden
 .panelDer
   width 49%
-  border 1px solid blue
+  //border 1px solid blue
   right 0
 .itemListIzq, .itemListDer, .panelIzq, .panelDer
   position absolute

@@ -46,11 +46,9 @@ var _userSchema = require('server/models/userSchema');
 
 var _userSchema2 = _interopRequireDefault(_userSchema);
 
-var _connectFlash = require('connect-flash');
-
-var _connectFlash2 = _interopRequireDefault(_connectFlash);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// import flash from 'connect-flash'
 
 var LocalStrategy = _passportLocal.Strategy;
 var app = (0, _express2.default)();

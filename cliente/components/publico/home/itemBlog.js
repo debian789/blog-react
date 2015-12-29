@@ -2,7 +2,9 @@ import React from 'react'
 import { Link } from 'react-router'
 
 module.exports = class ItemBlog extends React.Component {
-
+  convertirHtmlPrevio (dato) {
+    return { __html: dato}
+  }
   render () {
     return (
       <article className='itemBlog'>
@@ -14,7 +16,7 @@ module.exports = class ItemBlog extends React.Component {
           <img src={ this.props.itemBlogImagen } />
         </figure>
         <hr/>
-        <p>{ this.props.descripcion }</p>
+        <p dangerouslySetInnerHTML={ this.convertirHtmlPrevio(this.props.descripcion) }></p>
       </article>
 
     )

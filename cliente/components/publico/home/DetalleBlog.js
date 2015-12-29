@@ -27,7 +27,9 @@ module.exports = class DetalleBlog extends React.Component {
       }
     })
   }
-
+  convertirHtmlPrevio (dato) {
+    return { __html: dato}
+  }
   render () {
     let itemBlog = 'No se pudo cargar los datos'
     let componente = (<div>{itemBlog}</div>)
@@ -42,7 +44,7 @@ module.exports = class DetalleBlog extends React.Component {
             <img src={ this.state.datos.itemBlogImagen } />
           </figure>
           <hr/>
-          <p>{ this.state.datos.descripcion }</p>
+          <p dangerouslySetInnerHTML={ this.convertirHtmlPrevio( this.state.datos.descripcion) }></p>
           <div></div>
         </article>
       )
