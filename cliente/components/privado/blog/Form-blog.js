@@ -37,6 +37,7 @@ module.exports = class FormBlog extends React.Component {
           <textarea onChange={this.handleTextoBase.bind(this)} placeholder='Contenido ...'></textarea>
         </section>
         <section className='panelDer'>
+          <h1>{this.state.tituloBase}</h1>
           <div dangerouslySetInnerHTML={{ __html: this.state.textBase}}/>
         </section>
     </Layout>

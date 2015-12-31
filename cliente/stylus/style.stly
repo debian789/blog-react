@@ -215,25 +215,28 @@ p
   padding 0% 2% 0 2%
 .panelIzq
   //border 1px solid red
-  width 49%
+  width 47%
+  margin-left 1%
   input
     border 0 px solid red
     position absolute
     height 2.5em
-    width 100%
+    width 99%
     outline none
     top 0
+    padding-left 1%
     box-shadow none
 
   textarea
     outline none
     box-shadow none
-    font-size 1.2em
+    font-size 1.1em
     display inline-block
     position absolute
+    padding-left 1%
     top 3em
     color #3c4043
-    line-height 2.5rem
+    line-height 1.5rem
     resize none
     //white-space nowrap
     border 0

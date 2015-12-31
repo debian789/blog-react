@@ -145,6 +145,11 @@ module.exports = (function (_React$Component) {
         _react2.default.createElement(
           'section',
           { className: 'panelDer' },
+          _react2.default.createElement(
+            'h1',
+            null,
+            this.state.tituloBase
+          ),
           _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: this.state.textBase } })
         )
       );
@@ -196,9 +201,11 @@ module.exports = (function (_React$Component) {
     var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(FormEditar).call(this, props));
 
     _this.state = {
+      tituloBase: '',
+      textoMarkdown: '',
+      textoHtml: '',
       datosBlog: {
-        descripcion: '',
-        textBase: ''
+        descripcion: ''
       }
 
     };
@@ -209,7 +216,8 @@ module.exports = (function (_React$Component) {
     key: 'handleTextoBase',
     value: function handleTextoBase(event) {
       var textoIngresado = event.target.value;
-      this.setState({ textBase: (0, _marked2.default)(textoIngresado) });
+      this.setState({ textoMarkdown: textoIngresado });
+      this.setState({ textoHtml: (0, _marked2.default)(textoIngresado) });
     }
   }, {
     key: 'handleTitulo',
@@ -229,25 +237,26 @@ module.exports = (function (_React$Component) {
         if (err) {
           console.log(err);
         }
-        _this2.setState({ textBase: body.descripcion });
+        _this2.setState({ textoMarkdown: _this2.converHtmlToMarkdown(body.descripcion) });
+        _this2.setState({ textoHtml: body.descripcion });
+        _this2.setState({ tituloBase: body.titulo });
         _this2.setState({ datosBlog: body });
       });
     }
   }, {
-    key: 'converMarkdownToHtml',
-    value: function converMarkdownToHtml(data) {
+    key: 'converHtmlToMarkdown',
+    value: function converHtmlToMarkdown(data) {
       return (0, _toMarkdown2.default)(data);
     }
   }, {
     key: 'render',
     value: function render() {
-
       var urlGuardar = '/api/blog/' + this.props.params.id;
       var contenidoFooter = _react2.default.createElement(
         'form',
         { method: 'POST', action: urlGuardar },
         _react2.default.createElement('input', { type: 'hidden', name: 'titulo', value: this.state.tituloBase }),
-        _react2.default.createElement('textarea', { name: 'descripcion', className: 'displayHidden', value: this.state.textBase }),
+        _react2.default.createElement('textarea', { name: 'descripcion', className: 'displayHidden', value: this.state.textoHtml }),
         _react2.default.createElement(
           'button',
           null,
@@ -261,13 +270,18 @@ module.exports = (function (_React$Component) {
         _react2.default.createElement(
           'section',
           { className: 'panelIzq' },
-          _react2.default.createElement('input', { onChange: this.handleTitulo.bind(this), placeholder: 'Titulo ', value: this.state.datosBlog.titulo }),
-          _react2.default.createElement('textarea', { onChange: this.handleTextoBase.bind(this), placeholder: 'Contenido ...', value: this.converMarkdownToHtml(this.state.datosBlog.descripcion) })
+          _react2.default.createElement('input', { onChange: this.handleTitulo.bind(this), placeholder: 'Titulo ', value: this.state.tituloBase }),
+          _react2.default.createElement('textarea', { onChange: this.handleTextoBase.bind(this), placeholder: 'Contenido ...', value: this.state.textoMarkdown })
         ),
         _react2.default.createElement(
           'section',
           { className: 'panelDer' },
-          _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: this.state.textBase } })
+          _react2.default.createElement(
+            'h1',
+            null,
+            this.state.tituloBase
+          ),
+          _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: this.state.textoHtml } })
         )
       );
     }
