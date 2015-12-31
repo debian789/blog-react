@@ -446,7 +446,7 @@ module.exports = (function (_React$Component2) {
           { className: 'itemBlog' },
           _react2.default.createElement(
             _reactRouter.Link,
-            { to: '/editar/' + this.state.datos._id },
+            { className: 'btnEditar', to: '/editar/' + this.state.datos._id },
             'Editar'
           ),
           _react2.default.createElement(

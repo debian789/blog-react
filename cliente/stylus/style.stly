@@ -213,6 +213,11 @@ p
   width 70%
   right 0
   padding 0% 2% 0 2%
+  .itemBlog
+    .btnEditar
+      text-align right
+      display inline-block
+      width 100%
 .panelIzq
   //border 1px solid red
   width 47%
