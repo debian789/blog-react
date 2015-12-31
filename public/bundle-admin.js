@@ -36,6 +36,12 @@ module.exports = (function (_React$Component) {
           'header',
           null,
           _react2.default.createElement(
+            'a',
+            { href: '/' },
+            _react2.default.createElement('span', { className: 'icon-stack' }),
+            ' Blog '
+          ),
+          _react2.default.createElement(
             _reactRouter.Link,
             { to: '/crear' },
             _react2.default.createElement('span', { className: 'icon-libreoffice' }),
