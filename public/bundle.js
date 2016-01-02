@@ -313,6 +313,8 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactRouter = require('react-router');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -374,6 +376,46 @@ module.exports = (function (_React$Component) {
         _react2.default.createElement(
           'section',
           { className: 'contenido' },
+          _react2.default.createElement(
+            'nav',
+            null,
+            _react2.default.createElement(
+              'div',
+              { id: 'cerrarMenu' },
+              _react2.default.createElement(
+                'span',
+                null,
+                'X'
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              null,
+              _react2.default.createElement(
+                _reactRouter.Link,
+                null,
+                'Blog'
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              null,
+              _react2.default.createElement(
+                _reactRouter.Link,
+                null,
+                'Portafolio'
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              null,
+              _react2.default.createElement(
+                _reactRouter.Link,
+                null,
+                'Contactame'
+              )
+            )
+          ),
           this.props.children
         )
       );
@@ -383,7 +425,7 @@ module.exports = (function (_React$Component) {
   return Layout;
 })(_react2.default.Component);
 
-},{"react":451}],6:[function(require,module,exports){
+},{"react":451,"react-router":289}],6:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');

@@ -1,6 +1,10 @@
 import React from 'react'
+import {Link} from 'react-router'
 
 module.exports = class Layout extends React.Component {
+  handleCerrar () {
+
+  }
   render () {
     return (
       <div>
@@ -22,6 +26,12 @@ module.exports = class Layout extends React.Component {
           </article>
         </section>
         <section className = 'contenido'>
+          <nav>
+            <div id='cerrarMenu' onClick={this.handleCerrar}><span>X</span></div>
+            <div><Link>Blog</Link></div>
+            <div><Link>Portafolio</Link></div>
+            <div><Link>Contactame</Link></div>
+          </nav>
           { this.props.children }
         </section>
       </div>
