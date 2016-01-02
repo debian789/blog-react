@@ -338,11 +338,6 @@ module.exports = (function (_React$Component) {
         null,
         _react2.default.createElement(
           'section',
-          { className: 'contenido' },
-          this.props.children
-        ),
-        _react2.default.createElement(
-          'section',
           { className: 'contenidoLateral' },
           _react2.default.createElement(
             'article',
@@ -362,13 +357,7 @@ module.exports = (function (_React$Component) {
                   'span',
                   null,
                   'Miguel Suescun '
-                ),
-                _react2.default.createElement(
-                  'span',
-                  { className: 'profecionClass' },
-                  ' Developer'
-                ),
-                ' '
+                )
               )
             ),
             _react2.default.createElement(
@@ -381,6 +370,11 @@ module.exports = (function (_React$Component) {
             _react2.default.createElement('a', { href: '', className: 'iconSocial icon-twitter' }),
             _react2.default.createElement('a', { href: '', className: 'iconSocial icon-github' })
           )
+        ),
+        _react2.default.createElement(
+          'section',
+          { className: 'contenido' },
+          this.props.children
         )
       );
     }

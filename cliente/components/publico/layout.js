@@ -4,17 +4,13 @@ module.exports = class Layout extends React.Component {
   render () {
     return (
       <div>
-
-        <section className = 'contenido'>
-          { this.props.children }
-        </section>
         <section className='contenidoLateral'>
           <article>
             <div className='cuadroImagen'>
               <figure>
                 <img src='http://placehold.it/300x300'/>
               </figure>
-              <div className='nombreProfesion'><span>Miguel Suescun </span><span className='profecionClass'> Developer</span> </div>
+              <div className='nombreProfesion'><span>Miguel Suescun </span></div>
 
             </div>
 
@@ -24,6 +20,9 @@ module.exports = class Layout extends React.Component {
             <a href='' className='iconSocial icon-twitter'></a>
             <a href='' className='iconSocial icon-github'></a>
           </article>
+        </section>
+        <section className = 'contenido'>
+          { this.props.children }
         </section>
       </div>
     )
