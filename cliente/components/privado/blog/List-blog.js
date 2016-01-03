@@ -40,7 +40,12 @@ module.exports = class Home extends React.Component {
 
   render () {
     let detalleBlogDatos = (<article className='mensajeInicial'> No se ha seleccionando ningun elemento </article>)
-
+    let figura = <div className='oculto'></div>
+    if (this.state.datos.imagenPrincipal !== 'None') {
+      figura = (<figure className='figuraItemBlog'>
+            <img src={ this.state.datos.imagenPrincipal } />
+      </figure>)
+    }
     if (this.state.datos) {
       detalleBlogDatos = (
         <article className='itemBlog'>
@@ -48,9 +53,7 @@ module.exports = class Home extends React.Component {
           <h2 >{ this.state.datos.titulo }</h2>
           <span>{ this.state.datos.fechaCreacion }</span>
           <span> by { this.state.datos.creador }</span>
-          <figure className='figuraItemBlog'>
-            <img src={this.state.datos.imagenPrincipal} />
-          </figure>
+          {figura}
           <DescripcionBlog descripcion= { this.state.datos.descripcion }/>
           <div></div>
         </article>

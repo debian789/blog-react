@@ -56,6 +56,14 @@ module.exports = class FormEditar extends React.Component {
       </form>
     )
 
+    let figura = <div className='oculto'></div>
+    if (this.state.imagenPrincipal !== 'None') {
+      figura = (<figure className='figuraItemBlog'>
+            <img src={ this.state.imagenPrincipal } />
+      </figure>)
+    }
+
+
     return (
       <Layout componenteFooter={contenidoFooter}>
         <section className='panelIzq'>
@@ -65,9 +73,8 @@ module.exports = class FormEditar extends React.Component {
         </section>
         <section className='panelDer'>
           <h1>{this.state.tituloBase}</h1>
-          <figure>
-            <img src={this.state.imagenPrincipal} />
-          </figure>
+          {figura}
+
           <div dangerouslySetInnerHTML={{ __html: this.state.textoHtml}}/>
         </section>
     </Layout>

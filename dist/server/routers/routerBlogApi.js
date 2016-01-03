@@ -69,8 +69,6 @@ blog.post('/blog', function (req, res) {
 
     res.json(blog);
   });
-
-  // res.json({"hola":"Miguel :) !"});
 });
 
 exports.default = blog;

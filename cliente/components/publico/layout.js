@@ -29,12 +29,12 @@ module.exports = class Layout extends React.Component {
           <nav>
             <div id='cerrarMenu' onClick={this.handleCerrar}><span>X</span></div>
             <div><Link>Blog</Link></div>
-            <div><Link>Portafolio</Link></div>
-            <div><Link>Contactame</Link></div>
           </nav>
           { this.props.children }
         </section>
       </div>
     )
+            // <div><Link>Portafolio</Link></div>
+            // <div><Link>Contactame</Link></div>
   }
 }

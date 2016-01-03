@@ -92,7 +92,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-// import markedify from 'markedify'
 
 module.exports = (function (_React$Component) {
   _inherits(FormBlog, _React$Component);
@@ -126,10 +125,6 @@ module.exports = (function (_React$Component) {
     value: function handleImagenPrincipal(event) {
       this.setState({ imagenPrincipal: event.target.value });
     }
-    //convertirHtmlPrevio () {
-    //  return { __html: this.state.textBase}
-    //}
-
   }, {
     key: 'render',
     value: function render() {
@@ -227,7 +222,6 @@ module.exports = (function (_React$Component) {
       datosBlog: {
         descripcion: ''
       }
-
     };
     return _this;
   }
@@ -291,6 +285,15 @@ module.exports = (function (_React$Component) {
         )
       );
 
+      var figura = _react2.default.createElement('div', { className: 'oculto' });
+      if (this.state.imagenPrincipal !== 'None') {
+        figura = _react2.default.createElement(
+          'figure',
+          { className: 'figuraItemBlog' },
+          _react2.default.createElement('img', { src: this.state.imagenPrincipal })
+        );
+      }
+
       return _react2.default.createElement(
         _Layout2.default,
         { componenteFooter: contenidoFooter },
@@ -309,11 +312,7 @@ module.exports = (function (_React$Component) {
             null,
             this.state.tituloBase
           ),
-          _react2.default.createElement(
-            'figure',
-            null,
-            _react2.default.createElement('img', { src: this.state.imagenPrincipal })
-          ),
+          figura,
           _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: this.state.textoHtml } })
         )
       );
@@ -464,9 +463,16 @@ module.exports = (function (_React$Component2) {
       var detalleBlogDatos = _react2.default.createElement(
         'article',
         { className: 'mensajeInicial' },
-        ' No se ha seleccionando ningun elemento  '
+        ' No se ha seleccionando ningun elemento '
       );
-
+      var figura = _react2.default.createElement('div', { className: 'oculto' });
+      if (this.state.datos.imagenPrincipal !== 'None') {
+        figura = _react2.default.createElement(
+          'figure',
+          { className: 'figuraItemBlog' },
+          _react2.default.createElement('img', { src: this.state.datos.imagenPrincipal })
+        );
+      }
       if (this.state.datos) {
         detalleBlogDatos = _react2.default.createElement(
           'article',
@@ -492,11 +498,7 @@ module.exports = (function (_React$Component2) {
             ' by ',
             this.state.datos.creador
           ),
-          _react2.default.createElement(
-            'figure',
-            { className: 'figuraItemBlog' },
-            _react2.default.createElement('img', { src: this.state.datos.imagenPrincipal })
-          ),
+          figura,
           _react2.default.createElement(DescripcionBlog, { descripcion: this.state.datos.descripcion }),
           _react2.default.createElement('div', null)
         );
