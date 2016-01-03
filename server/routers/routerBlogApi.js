@@ -2,6 +2,13 @@ import {Router} from 'express'
 import BlogSchema from '../models/blogSchema'
 
 let blog = Router()
+function validarAutenticacion (req, res, next) {
+  if (req.isAuthenticated()) {
+    next()
+  } else {
+    res.redirect('/')
+  }
+}
 
 blog.get('/blog', (req, res) => {
   BlogSchema.find({}, (err, datos) => {
@@ -24,7 +31,7 @@ blog.get('/blog/:id', (req, res) => {
   })
 })
 
-blog.post('/blog/:id', (req, res) => {
+blog.post('/blog/:id', validarAutenticacion, (req, res) => {
   let id = req.params.id
   let datos = req.body
   console.log(datos)
@@ -43,14 +50,16 @@ blog.post('/blog/:id', (req, res) => {
   })
 })
 
-blog.post('/blog', (req, res) => {
+blog.post('/blog', validarAutenticacion, (req, res) => {
   let blog = new BlogSchema()
   let titulo = req.body.titulo
   let imagenPrincipal = req.body.imagenPrincipal
   let descripcion = req.body.descripcion
+
   blog.titulo = titulo
   blog.imagenPrincipal = imagenPrincipal
   blog.descripcion = descripcion
+
   blog.save((err) => {
     if (err) {
       return res.json(err)// return res.sendStatus(500).json(err)

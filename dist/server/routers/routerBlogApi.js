@@ -13,6 +13,13 @@ var _blogSchema2 = _interopRequireDefault(_blogSchema);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var blog = (0, _express.Router)();
+function validarAutenticacion(req, res, next) {
+  if (req.isAuthenticated()) {
+    next();
+  } else {
+    res.redirect('/');
+  }
+}
 
 blog.get('/blog', function (req, res) {
   _blogSchema2.default.find({}, function (err, datos) {
@@ -35,7 +42,7 @@ blog.get('/blog/:id', function (req, res) {
   });
 });
 
-blog.post('/blog/:id', function (req, res) {
+blog.post('/blog/:id', validarAutenticacion, function (req, res) {
   var id = req.params.id;
   var datos = req.body;
   console.log(datos);
@@ -54,14 +61,16 @@ blog.post('/blog/:id', function (req, res) {
   });
 });
 
-blog.post('/blog', function (req, res) {
+blog.post('/blog', validarAutenticacion, function (req, res) {
   var blog = new _blogSchema2.default();
   var titulo = req.body.titulo;
   var imagenPrincipal = req.body.imagenPrincipal;
   var descripcion = req.body.descripcion;
+
   blog.titulo = titulo;
   blog.imagenPrincipal = imagenPrincipal;
   blog.descripcion = descripcion;
+
   blog.save(function (err) {
     if (err) {
       return res.json(err); // return res.sendStatus(500).json(err)
