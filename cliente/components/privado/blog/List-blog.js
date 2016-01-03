@@ -53,11 +53,9 @@ module.exports = class Home extends React.Component {
           <h2 >{ this.state.datos.titulo }</h2>
           <span>{ this.state.datos.fechaCreacion }</span>
           <span> by { this.state.datos.creador }</span>
-          <hr/>
-          <figure>
-            <img src={ this.state.datos.itemBlogImagen } />
+          <figure className='figuraItemBlog'>
+            <img src={this.state.datos.imagenPrincipal} />
           </figure>
-          <hr/>
           <DescripcionBlog descripcion= { this.state.datos.descripcion }/>
           <div></div>
         </article>

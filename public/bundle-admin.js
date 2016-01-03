@@ -104,7 +104,8 @@ module.exports = (function (_React$Component) {
 
     _this.state = {
       textBase: '',
-      tituloBase: ''
+      tituloBase: '',
+      imagenPrincipal: ''
     };
     return _this;
   }
@@ -120,6 +121,11 @@ module.exports = (function (_React$Component) {
     value: function handleTitulo(event) {
       this.setState({ tituloBase: event.target.value });
     }
+  }, {
+    key: 'handleImagenPrincipal',
+    value: function handleImagenPrincipal(event) {
+      this.setState({ imagenPrincipal: event.target.value });
+    }
     //convertirHtmlPrevio () {
     //  return { __html: this.state.textBase}
     //}
@@ -131,6 +137,7 @@ module.exports = (function (_React$Component) {
         'form',
         { method: 'POST', action: '/api/blog' },
         _react2.default.createElement('input', { type: 'hidden', name: 'titulo', value: this.state.tituloBase }),
+        _react2.default.createElement('input', { type: 'hidden', name: 'imagenPrincipal', value: this.state.imagenPrincipal }),
         _react2.default.createElement('textarea', { name: 'descripcion', className: 'displayHidden', value: this.state.textBase }),
         _react2.default.createElement(
           'button',
@@ -146,6 +153,7 @@ module.exports = (function (_React$Component) {
           'section',
           { className: 'panelIzq' },
           _react2.default.createElement('input', { onChange: this.handleTitulo.bind(this), placeholder: 'Titulo ' }),
+          _react2.default.createElement('input', { onChange: this.handleImagenPrincipal.bind(this), placeholder: 'URL Imagen principal ' }),
           _react2.default.createElement('textarea', { onChange: this.handleTextoBase.bind(this), placeholder: 'Contenido ...' })
         ),
         _react2.default.createElement(
@@ -155,6 +163,11 @@ module.exports = (function (_React$Component) {
             'h1',
             null,
             this.state.tituloBase
+          ),
+          _react2.default.createElement(
+            'figure',
+            null,
+            _react2.default.createElement('img', { src: this.state.imagenPrincipal })
           ),
           _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: this.state.textBase } })
         )
@@ -208,6 +221,7 @@ module.exports = (function (_React$Component) {
 
     _this.state = {
       tituloBase: '',
+      imagenPrincipal: '',
       textoMarkdown: '',
       textoHtml: '',
       datosBlog: {
@@ -231,6 +245,11 @@ module.exports = (function (_React$Component) {
       this.setState({ tituloBase: event.target.value });
     }
   }, {
+    key: 'handleImagenPrincipal',
+    value: function handleImagenPrincipal(event) {
+      this.setState({ imagenPrincipal: event.target.value });
+    }
+  }, {
     key: 'componentWillMount',
     value: function componentWillMount() {
       var _this2 = this;
@@ -246,6 +265,7 @@ module.exports = (function (_React$Component) {
         _this2.setState({ textoMarkdown: _this2.converHtmlToMarkdown(body.descripcion) });
         _this2.setState({ textoHtml: body.descripcion });
         _this2.setState({ tituloBase: body.titulo });
+        _this2.setState({ imagenPrincipal: body.imagenPrincipal });
         _this2.setState({ datosBlog: body });
       });
     }
@@ -262,6 +282,7 @@ module.exports = (function (_React$Component) {
         'form',
         { method: 'POST', action: urlGuardar },
         _react2.default.createElement('input', { type: 'hidden', name: 'titulo', value: this.state.tituloBase }),
+        _react2.default.createElement('input', { type: 'hidden', name: 'imagenPrincipal', value: this.state.imagenPrincipal }),
         _react2.default.createElement('textarea', { name: 'descripcion', className: 'displayHidden', value: this.state.textoHtml }),
         _react2.default.createElement(
           'button',
@@ -277,6 +298,7 @@ module.exports = (function (_React$Component) {
           'section',
           { className: 'panelIzq' },
           _react2.default.createElement('input', { onChange: this.handleTitulo.bind(this), placeholder: 'Titulo ', value: this.state.tituloBase }),
+          _react2.default.createElement('input', { onChange: this.handleImagenPrincipal.bind(this), placeholder: 'URL Imagen principal ', value: this.state.imagenPrincipal }),
           _react2.default.createElement('textarea', { onChange: this.handleTextoBase.bind(this), placeholder: 'Contenido ...', value: this.state.textoMarkdown })
         ),
         _react2.default.createElement(
@@ -286,6 +308,11 @@ module.exports = (function (_React$Component) {
             'h1',
             null,
             this.state.tituloBase
+          ),
+          _react2.default.createElement(
+            'figure',
+            null,
+            _react2.default.createElement('img', { src: this.state.imagenPrincipal })
           ),
           _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: this.state.textoHtml } })
         )
@@ -465,13 +492,11 @@ module.exports = (function (_React$Component2) {
             ' by ',
             this.state.datos.creador
           ),
-          _react2.default.createElement('hr', null),
           _react2.default.createElement(
             'figure',
-            null,
-            _react2.default.createElement('img', { src: this.state.datos.itemBlogImagen })
+            { className: 'figuraItemBlog' },
+            _react2.default.createElement('img', { src: this.state.datos.imagenPrincipal })
           ),
-          _react2.default.createElement('hr', null),
           _react2.default.createElement(DescripcionBlog, { descripcion: this.state.datos.descripcion }),
           _react2.default.createElement('div', null)
         );

@@ -9,6 +9,7 @@ module.exports = class FormEditar extends React.Component {
     super(props)
     this.state = {
       tituloBase: '',
+      imagenPrincipal: '',
       textoMarkdown: '',
       textoHtml: '',
       datosBlog: {
@@ -25,6 +26,9 @@ module.exports = class FormEditar extends React.Component {
   handleTitulo (event) {
     this.setState({tituloBase: event.target.value})
   }
+  handleImagenPrincipal (event) {
+    this.setState({imagenPrincipal: event.target.value})
+  }
   componentWillMount () {
     request({
       uri: `http://localhost:3000/api/blog/${this.props.params.id}`,
@@ -35,6 +39,7 @@ module.exports = class FormEditar extends React.Component {
       this.setState({textoMarkdown: this.converHtmlToMarkdown(body.descripcion)})
       this.setState({textoHtml: body.descripcion})
       this.setState({tituloBase: body.titulo})
+      this.setState({imagenPrincipal: body.imagenPrincipal})
       this.setState({datosBlog: body})
     })
   }
@@ -46,6 +51,7 @@ module.exports = class FormEditar extends React.Component {
     let contenidoFooter = (
       <form method='POST' action={urlGuardar} >
         <input type='hidden' name='titulo' value={this.state.tituloBase} />
+        <input type='hidden' name='imagenPrincipal' value={this.state.imagenPrincipal} />
         <textarea name='descripcion' className='displayHidden' value={this.state.textoHtml} ></textarea>
         <button > Guardar </button>
       </form>
@@ -55,10 +61,14 @@ module.exports = class FormEditar extends React.Component {
       <Layout componenteFooter={contenidoFooter}>
         <section className='panelIzq'>
           <input onChange={this.handleTitulo.bind(this)} placeholder='Titulo ' value={this.state.tituloBase} />
+          <input onChange={this.handleImagenPrincipal.bind(this)} placeholder='URL Imagen principal ' value={this.state.imagenPrincipal} />
           <textarea onChange={this.handleTextoBase.bind(this)} placeholder='Contenido ...' value={ this.state.textoMarkdown }></textarea>
         </section>
         <section className='panelDer'>
           <h1>{this.state.tituloBase}</h1>
+          <figure>
+            <img src={this.state.imagenPrincipal} />
+          </figure>
           <div dangerouslySetInnerHTML={{ __html: this.state.textoHtml}}/>
         </section>
     </Layout>

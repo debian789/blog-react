@@ -8,7 +8,8 @@ module.exports = class FormBlog extends React.Component {
     super(props)
     this.state = {
       textBase: '',
-      tituloBase: ''
+      tituloBase: '',
+      imagenPrincipal: ''
     }
   }
   handleTextoBase (event) {
@@ -18,13 +19,17 @@ module.exports = class FormBlog extends React.Component {
   handleTitulo (event) {
     this.setState({tituloBase: event.target.value})
   }
+  handleImagenPrincipal (event) {
+    this.setState({imagenPrincipal: event.target.value})
+  }
   //convertirHtmlPrevio () {
   //  return { __html: this.state.textBase}
   //}
   render () {
     let contenidoFooter = (
       <form method='POST' action='/api/blog' >
-        <input type='hidden' name='titulo' value={this.state.tituloBase} />
+        <input type='hidden' name='titulo' value={this.state.tituloBase}  />
+        <input type='hidden' name='imagenPrincipal' value={this.state.imagenPrincipal} />
         <textarea name='descripcion' className='displayHidden' value={this.state.textBase} ></textarea>
         <button > Guardar </button>
       </form>
@@ -34,11 +39,15 @@ module.exports = class FormBlog extends React.Component {
       <Layout componenteFooter={contenidoFooter}>
         <section className='panelIzq'>
           <input onChange={this.handleTitulo.bind(this)} placeholder='Titulo ' />
+          <input onChange={this.handleImagenPrincipal.bind(this)} placeholder='URL Imagen principal ' />
           <textarea onChange={this.handleTextoBase.bind(this)} placeholder='Contenido ...'></textarea>
         </section>
         <section className='panelDer'>
           <h1>{this.state.tituloBase}</h1>
-          <div dangerouslySetInnerHTML={{ __html: this.state.textBase}}/>
+          <figure>
+            <img src={this.state.imagenPrincipal} />
+          </figure>
+          <div dangerouslySetInnerHTML={{ __html: this.state.textBase }}/>
         </section>
     </Layout>
     )

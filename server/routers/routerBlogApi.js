@@ -28,26 +28,28 @@ blog.post('/blog/:id', (req, res) => {
   let id = req.params.id
   let datos = req.body
   console.log(datos)
-  BlogSchema.update( {'_id': id },{
+  BlogSchema.update({'_id': id }, {
     titulo: datos.titulo,
+    imagenPrincipal: datos.imagenPrincipal,
     descripcion: datos.descripcion
-  },(err,data) => {
-    if(err){
+  }, (err, data) => {
+    if (err) {
       res.sendStatus(500)
       console.log('no se actualizo')
-    }else{
+    } else {
       res.json(data)
       console.log('se actualizo correctamente')
     }
-  } )
+  })
 })
-
 
 blog.post('/blog', (req, res) => {
   let blog = new BlogSchema()
   let titulo = req.body.titulo
+  let imagenPrincipal = req.body.imagenPrincipal
   let descripcion = req.body.descripcion
   blog.titulo = titulo
+  blog.imagenPrincipal = imagenPrincipal
   blog.descripcion = descripcion
   blog.save((err) => {
     if (err) {

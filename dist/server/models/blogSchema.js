@@ -12,6 +12,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var BlogSchema = new _mongoose2.default.Schema({
   titulo: { type: String, required: 'Titulo requerido' },
+  imagenPrincipal: { type: String, default: 'None' },
   descripcion: String,
   fechaCreacion: { type: Date, default: Date.now }
 });

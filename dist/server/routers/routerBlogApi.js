@@ -41,6 +41,7 @@ blog.post('/blog/:id', function (req, res) {
   console.log(datos);
   _blogSchema2.default.update({ '_id': id }, {
     titulo: datos.titulo,
+    imagenPrincipal: datos.imagenPrincipal,
     descripcion: datos.descripcion
   }, function (err, data) {
     if (err) {
@@ -56,8 +57,10 @@ blog.post('/blog/:id', function (req, res) {
 blog.post('/blog', function (req, res) {
   var blog = new _blogSchema2.default();
   var titulo = req.body.titulo;
+  var imagenPrincipal = req.body.imagenPrincipal;
   var descripcion = req.body.descripcion;
   blog.titulo = titulo;
+  blog.imagenPrincipal = imagenPrincipal;
   blog.descripcion = descripcion;
   blog.save(function (err) {
     if (err) {
