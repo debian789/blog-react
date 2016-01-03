@@ -28,15 +28,18 @@ module.exports = React.createClass({
       this.setState({datos: body})
     })
   },
+  limitarTexto (texto) {
+    return texto.substring(0, 200) + '...'
+  },
   render: function () {
     // <Link Link to={`/about`}> de abrir About</Link>
-    var descripcion = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-
+    // var descripcion = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    //  var imagen = http://placehold.it/900x300
     return (
       <Layout>
           {
             this.state.datos.map((datos) => {
-              return (<ItemBlog id={datos._id} titulo={datos.titulo} fechaCreacion={datos.fechaCreacion} itemBlogImagen='http://placehold.it/900x300' descripcion={descripcion} />)
+              return (<ItemBlog  key={datos._id} id={datos._id} titulo={datos.titulo} fechaCreacion={datos.fechaCreacion} itemBlogImagen={datos.imagenPrincipal} descripcion={this.limitarTexto(datos.descripcion)} />)
             })
           }
       </Layout>

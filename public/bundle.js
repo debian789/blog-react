@@ -106,20 +106,28 @@ module.exports = (function (_React$Component) {
         }
       });
     }
-  }, {
-    key: 'convertirHtmlPrevio',
-    value: function convertirHtmlPrevio(dato) {
-      return { __html: dato };
-    }
+    // convertirHtmlPrevio (dato) {
+    //  return { __html: dato}
+    // }
+
   }, {
     key: 'render',
     value: function render() {
-      var itemBlog = 'No se pudo cargar los datos';
+      // let itemBlog = 'No se pudo cargar los datos'
       var componente = _react2.default.createElement(
         'div',
         null,
-        itemBlog
+        ' No se pudo cargar los datos '
       );
+      var figura = _react2.default.createElement('div', { className: 'oculto' });
+      if (this.state.datos.itemBlogImagen) {
+        figura = _react2.default.createElement(
+          'figure',
+          { className: 'figuraItemBlog' },
+          _react2.default.createElement('img', { src: this.state.datos.itemBlogImagen })
+        );
+      }
+
       if (this.state.estado) {
         componente = _react2.default.createElement(
           'article',
@@ -140,14 +148,8 @@ module.exports = (function (_React$Component) {
             ' by ',
             this.state.datos.creador
           ),
-          _react2.default.createElement('hr', null),
-          _react2.default.createElement(
-            'figure',
-            null,
-            _react2.default.createElement('img', { src: this.state.datos.itemBlogImagen })
-          ),
-          _react2.default.createElement('hr', null),
-          _react2.default.createElement('p', { dangerouslySetInnerHTML: this.convertirHtmlPrevio(this.state.datos.descripcion) }),
+          figura,
+          _react2.default.createElement('p', { dangerouslySetInnerHTML: { __html: this.state.datos.descripcion } }),
           _react2.default.createElement('div', null)
         );
       }
@@ -216,15 +218,21 @@ module.exports = _react2.default.createClass({
       _this.setState({ datos: body });
     });
   },
-  render: function render() {
-    // <Link Link to={`/about`}> de abrir About</Link>
-    var descripcion = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
+  limitarTexto: function limitarTexto(texto) {
+    return texto.substring(0, 200) + '...';
+  },
 
+  render: function render() {
+    var _this2 = this;
+
+    // <Link Link to={`/about`}> de abrir About</Link>
+    // var descripcion = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    //  var imagen = http://placehold.it/900x300
     return _react2.default.createElement(
       _layout2.default,
       null,
       this.state.datos.map(function (datos) {
-        return _react2.default.createElement(_itemBlog2.default, { id: datos._id, titulo: datos.titulo, fechaCreacion: datos.fechaCreacion, itemBlogImagen: 'http://placehold.it/900x300', descripcion: descripcion });
+        return _react2.default.createElement(_itemBlog2.default, { key: datos._id, id: datos._id, titulo: datos.titulo, fechaCreacion: datos.fechaCreacion, itemBlogImagen: datos.imagenPrincipal, descripcion: _this2.limitarTexto(datos.descripcion) });
       })
     );
   }
@@ -259,13 +267,20 @@ module.exports = (function (_React$Component) {
   }
 
   _createClass(ItemBlog, [{
-    key: 'convertirHtmlPrevio',
-    value: function convertirHtmlPrevio(dato) {
-      return { __html: dato };
-    }
-  }, {
     key: 'render',
+
+    //convertirHtmlPrevio (dato) {
+    //  return{ __html: dato}
+    // }
     value: function render() {
+      var figura = _react2.default.createElement('div', { className: 'oculto' });
+      if (this.props.itemBlogImagen) {
+        figura = _react2.default.createElement(
+          'figure',
+          { className: 'figuraItemBlog' },
+          _react2.default.createElement('img', { src: this.props.itemBlogImagen })
+        );
+      }
       return _react2.default.createElement(
         'article',
         { className: 'itemBlog' },
@@ -289,14 +304,8 @@ module.exports = (function (_React$Component) {
           ' by ',
           this.props.creador
         ),
-        _react2.default.createElement('hr', null),
-        _react2.default.createElement(
-          'figure',
-          null,
-          _react2.default.createElement('img', { src: this.props.itemBlogImagen })
-        ),
-        _react2.default.createElement('hr', null),
-        _react2.default.createElement('p', { dangerouslySetInnerHTML: this.convertirHtmlPrevio(this.props.descripcion) })
+        figura,
+        _react2.default.createElement('p', { dangerouslySetInnerHTML: { __html: this.props.descripcion } })
       );
     }
   }]);
@@ -333,6 +342,9 @@ module.exports = (function (_React$Component) {
   }
 
   _createClass(Layout, [{
+    key: 'handleCerrar',
+    value: function handleCerrar() {}
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
@@ -381,7 +393,7 @@ module.exports = (function (_React$Component) {
             null,
             _react2.default.createElement(
               'div',
-              { id: 'cerrarMenu' },
+              { id: 'cerrarMenu', onClick: this.handleCerrar },
               _react2.default.createElement(
                 'span',
                 null,

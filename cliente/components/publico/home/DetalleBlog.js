@@ -27,24 +27,29 @@ module.exports = class DetalleBlog extends React.Component {
       }
     })
   }
-  convertirHtmlPrevio (dato) {
-    return { __html: dato}
-  }
+  // convertirHtmlPrevio (dato) {
+  //  return { __html: dato}
+  // }
   render () {
-    let itemBlog = 'No se pudo cargar los datos'
-    let componente = (<div>{itemBlog}</div>)
+    // let itemBlog = 'No se pudo cargar los datos'
+    let componente = (<div> No se pudo cargar los datos </div>)
+    let figura = <div className='oculto'></div>
+    if (this.state.datos.itemBlogImagen) {
+      figura = (<figure className='figuraItemBlog'>
+        <img src={ this.state.datos.itemBlogImagen } />
+      </figure>)
+    }
+
     if (this.state.estado) {
       componente = (
         <article className='itemBlog'>
           <h2 >{ this.state.datos.titulo }</h2>
           <span>{ this.state.datos.fechaCreacion }</span>
           <span> by { this.state.datos.creador }</span>
-          <hr/>
-          <figure>
-            <img src={ this.state.datos.itemBlogImagen } />
-          </figure>
-          <hr/>
-          <p dangerouslySetInnerHTML={ this.convertirHtmlPrevio( this.state.datos.descripcion) }></p>
+
+          { figura }
+
+          <p dangerouslySetInnerHTML={ {__html: this.state.datos.descripcion} }></p>
           <div></div>
         </article>
       )
