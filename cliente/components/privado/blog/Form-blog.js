@@ -1,6 +1,5 @@
 import React from 'react'
 import marked from 'marked'
-// import markedify from 'markedify'
 import Layout from 'cliente/components/privado/Layout'
 
 module.exports = class FormBlog extends React.Component {
@@ -22,13 +21,10 @@ module.exports = class FormBlog extends React.Component {
   handleImagenPrincipal (event) {
     this.setState({imagenPrincipal: event.target.value})
   }
-  //convertirHtmlPrevio () {
-  //  return { __html: this.state.textBase}
-  //}
   render () {
     let contenidoFooter = (
       <form method='POST' action='/api/blog' >
-        <input type='hidden' name='titulo' value={this.state.tituloBase}  />
+        <input type='hidden' name='titulo' value={this.state.tituloBase} />
         <input type='hidden' name='imagenPrincipal' value={this.state.imagenPrincipal} />
         <textarea name='descripcion' className='displayHidden' value={this.state.textBase} ></textarea>
         <button > Guardar </button>

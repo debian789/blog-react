@@ -7,14 +7,11 @@
   <link rel='stylesheet' href='/static/css/icomoon/style.css' />
 </head>
 <body class="inicioSession">
-
   <form action="/login" method="post">
     <div>
-
       <input type="text" name="username" placeholder="Username"/>
     </div>
     <div>
-
       <input type="password" name="password" placeholder="Password"/>
     </div>
     <div>

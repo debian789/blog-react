@@ -58,8 +58,6 @@ blog.post('/blog', (req, res) => {
 
     res.json(blog)
   })
-
-  // res.json({"hola":"Miguel :) !"});
 })
 
 export default blog

@@ -15,7 +15,6 @@ module.exports = class FormEditar extends React.Component {
       datosBlog: {
         descripcion: ''
       }
-
     }
   }
   handleTextoBase (event) {

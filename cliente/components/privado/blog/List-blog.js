@@ -9,16 +9,11 @@ class DescripcionBlog extends React.Component {
     super(props)
   }
   render () {
-    return (<div dangerouslySetInnerHTML={{__html:this.props.descripcion}}>
-
-    </div>)
-
+    return (<div dangerouslySetInnerHTML={{__html: this.props.descripcion}}></div>)
   }
 }
 
-
 module.exports = class Home extends React.Component {
-
   constructor (props) {
     super(props)
     this.state = {
@@ -44,7 +39,7 @@ module.exports = class Home extends React.Component {
   }
 
   render () {
-    let detalleBlogDatos = (<article className='mensajeInicial'> No se ha seleccionando ningun elemento  </article>)
+    let detalleBlogDatos = (<article className='mensajeInicial'> No se ha seleccionando ningun elemento </article>)
 
     if (this.state.datos) {
       detalleBlogDatos = (

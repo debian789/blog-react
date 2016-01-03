@@ -2,7 +2,6 @@ import React from 'react'
 import request from 'client-request'
 import Layout from 'cliente/components/publico/layout'
 import ItemBlog from 'cliente/components/publico/home/itemBlog'
-// import { Link } from 'react-router'
 
 module.exports = React.createClass({
   getDefaultProps: function () {
@@ -32,14 +31,11 @@ module.exports = React.createClass({
     return texto.substring(0, 200) + '...'
   },
   render: function () {
-    // <Link Link to={`/about`}> de abrir About</Link>
-    // var descripcion = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-    //  var imagen = http://placehold.it/900x300
     return (
       <Layout>
           {
             this.state.datos.map((datos) => {
-              return (<ItemBlog  key={datos._id} id={datos._id} titulo={datos.titulo} fechaCreacion={datos.fechaCreacion} imagenPrincipal={datos.imagenPrincipal} descripcion={this.limitarTexto(datos.descripcion)} />)
+              return (<ItemBlog key={datos._id} id={datos._id} titulo={datos.titulo} fechaCreacion={datos.fechaCreacion} imagenPrincipal={datos.imagenPrincipal} descripcion={this.limitarTexto(datos.descripcion)} />)
             })
           }
       </Layout>
