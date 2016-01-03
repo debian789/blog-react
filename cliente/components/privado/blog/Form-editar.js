@@ -1,5 +1,5 @@
 import React from 'react'
-import request from 'client-request'
+import request from 'superagent'
 import marked from 'marked'
 import Layout from 'cliente/components/privado/Layout'
 import toMarkdown from 'to-markdown'
@@ -29,17 +29,18 @@ module.exports = class FormEditar extends React.Component {
     this.setState({imagenPrincipal: event.target.value})
   }
   componentWillMount () {
-    request({
-      uri: `http://localhost:3000/api/blog/${this.props.params.id}`,
-      method: 'GET',
-      json: true
-    }, (err, response, body) => {
-      if (err) { console.log(err) }
-      this.setState({textoMarkdown: this.converHtmlToMarkdown(body.descripcion)})
-      this.setState({textoHtml: body.descripcion})
-      this.setState({tituloBase: body.titulo})
-      this.setState({imagenPrincipal: body.imagenPrincipal})
-      this.setState({datosBlog: body})
+    request
+    .get(`/api/blog/${this.props.params.id}`)
+    .end((err, res) => {
+      if (err) {
+        console.log(err)
+      } else {
+        this.setState({textoMarkdown: this.converHtmlToMarkdown(res.body.descripcion)})
+        this.setState({textoHtml: res.body.descripcion})
+        this.setState({tituloBase: res.body.titulo})
+        this.setState({imagenPrincipal: res.body.imagenPrincipal})
+        this.setState({datosBlog: res.body})
+      }
     })
   }
   converHtmlToMarkdown (data) {
@@ -63,7 +64,6 @@ module.exports = class FormEditar extends React.Component {
       </figure>)
     }
 
-
     return (
       <Layout componenteFooter={contenidoFooter}>
         <section className='panelIzq'>
@@ -74,7 +74,6 @@ module.exports = class FormEditar extends React.Component {
         <section className='panelDer'>
           <h1>{this.state.tituloBase}</h1>
           {figura}
-
           <div dangerouslySetInnerHTML={{ __html: this.state.textoHtml}}/>
         </section>
     </Layout>

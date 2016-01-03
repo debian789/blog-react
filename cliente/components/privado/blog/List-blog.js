@@ -1,11 +1,11 @@
 import React from 'react'
-import request from 'client-request'
+import request from 'superagent'
 import Layout from 'cliente/components/privado/Layout'
 import ItemBlog from 'cliente/components/privado/blog/Item-blog'
 import {Link} from 'react-router'
 
 class DescripcionBlog extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
   }
   render () {
@@ -23,13 +23,14 @@ module.exports = class Home extends React.Component {
   }
 
   componentWillMount () {
-    request({
-      uri: 'http://localhost:3000/api/blog',
-      method: 'GET',
-      json: true
-    }, (err, response, body) => {
-      if (err) { console.log(err) }
-      this.setState({datosBlog: body})
+    request
+    .get('/api/blog')
+    .end((err, res) => {
+      if (err) {
+        console.log(err)
+      }else {
+        this.setState({datosBlog: res.body})
+      }
     })
   }
 

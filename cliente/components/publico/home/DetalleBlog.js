@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from 'cliente/components/publico/layout'
-import request from 'client-request'
+import request from 'superagent'
 
 module.exports = class DetalleBlog extends React.Component {
   constructor (props) {
@@ -14,15 +14,13 @@ module.exports = class DetalleBlog extends React.Component {
   componentWillMount () {
     console.log(`http://loclahost:3000/api/blog/${this.props.params.id}`)
     console.log('ruta llamada')
-    request({
-      uri: `http://localhost:3000/api/blog/${this.props.params.id}`,
-      method: 'GET',
-      json: true
-    }, (err, response, body) => {
+    request
+    .get(`http://localhost:3000/api/blog/${this.props.params.id}`)
+    .end((err, res) => {
       if (err) {
         console.log(err)
       }else {
-        this.setState({datos: body})
+        this.setState({datos: res.body})
         this.setState({estado: true})
       }
     })
@@ -48,7 +46,7 @@ module.exports = class DetalleBlog extends React.Component {
         </article>
       )
     }
-    
+
     return (
       <Layout>
         {componente}
