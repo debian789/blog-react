@@ -120,11 +120,11 @@ module.exports = (function (_React$Component) {
         ' No se pudo cargar los datos '
       );
       var figura = _react2.default.createElement('div', { className: 'oculto' });
-      if (this.state.datos.itemBlogImagen) {
+      if (this.state.datos.imagenPrincipal !== 'None') {
         figura = _react2.default.createElement(
           'figure',
           { className: 'figuraItemBlog' },
-          _react2.default.createElement('img', { src: this.state.datos.itemBlogImagen })
+          _react2.default.createElement('img', { src: this.state.datos.imagenPrincipal })
         );
       }
 
@@ -232,7 +232,7 @@ module.exports = _react2.default.createClass({
       _layout2.default,
       null,
       this.state.datos.map(function (datos) {
-        return _react2.default.createElement(_itemBlog2.default, { key: datos._id, id: datos._id, titulo: datos.titulo, fechaCreacion: datos.fechaCreacion, itemBlogImagen: datos.imagenPrincipal, descripcion: _this2.limitarTexto(datos.descripcion) });
+        return _react2.default.createElement(_itemBlog2.default, { key: datos._id, id: datos._id, titulo: datos.titulo, fechaCreacion: datos.fechaCreacion, imagenPrincipal: datos.imagenPrincipal, descripcion: _this2.limitarTexto(datos.descripcion) });
       })
     );
   }
@@ -274,11 +274,11 @@ module.exports = (function (_React$Component) {
     // }
     value: function render() {
       var figura = _react2.default.createElement('div', { className: 'oculto' });
-      if (this.props.itemBlogImagen) {
+      if (this.props.imagenPrincipal !== 'None') {
         figura = _react2.default.createElement(
           'figure',
           { className: 'figuraItemBlog' },
-          _react2.default.createElement('img', { src: this.props.itemBlogImagen })
+          _react2.default.createElement('img', { src: this.props.imagenPrincipal })
         );
       }
       return _react2.default.createElement(

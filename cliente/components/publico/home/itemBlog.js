@@ -7,9 +7,9 @@ module.exports = class ItemBlog extends React.Component {
   // }
   render () {
     let figura = <div className='oculto'></div>
-    if (this.props.itemBlogImagen) {
+    if (this.props.imagenPrincipal !== 'None') {
       figura = (<figure className='figuraItemBlog'>
-        <img src={ this.props.itemBlogImagen } />
+            <img src={ this.props.imagenPrincipal } />
       </figure>)
     }
     return (

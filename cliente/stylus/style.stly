@@ -150,6 +150,7 @@ p
   .itemBlog
     border-radius 4px
     margin-top 1.5em
+    color #575757
     border-bottom 5px solid #ccc//#4787DF
     background-color white
     padding 1% 2% 2% 2%
@@ -164,7 +165,7 @@ p
       //border 1px solid red
       display inline-block
       width 100%
-      color #575757
+      color #2588C6 //#575757
       text-decoration none
 
 
@@ -264,6 +265,7 @@ p
       img
         width 100%
     .btnEditar
+      //background #63ACEA
       text-align right
       display inline-block
       width 100%

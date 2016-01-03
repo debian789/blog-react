@@ -34,9 +34,9 @@ module.exports = class DetalleBlog extends React.Component {
     // let itemBlog = 'No se pudo cargar los datos'
     let componente = (<div> No se pudo cargar los datos </div>)
     let figura = <div className='oculto'></div>
-    if (this.state.datos.itemBlogImagen) {
+    if (this.state.datos.imagenPrincipal !== 'None') {
       figura = (<figure className='figuraItemBlog'>
-        <img src={ this.state.datos.itemBlogImagen } />
+        <img src={ this.state.datos.imagenPrincipal } />
       </figure>)
     }
 

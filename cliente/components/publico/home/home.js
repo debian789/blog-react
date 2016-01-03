@@ -39,7 +39,7 @@ module.exports = React.createClass({
       <Layout>
           {
             this.state.datos.map((datos) => {
-              return (<ItemBlog  key={datos._id} id={datos._id} titulo={datos.titulo} fechaCreacion={datos.fechaCreacion} itemBlogImagen={datos.imagenPrincipal} descripcion={this.limitarTexto(datos.descripcion)} />)
+              return (<ItemBlog  key={datos._id} id={datos._id} titulo={datos.titulo} fechaCreacion={datos.fechaCreacion} imagenPrincipal={datos.imagenPrincipal} descripcion={this.limitarTexto(datos.descripcion)} />)
             })
           }
       </Layout>
