@@ -1,5 +1,6 @@
 import React from 'react'
 import marked from 'marked'
+import request from 'superagent'
 import Layout from 'cliente/components/privado/Layout'
 
 module.exports = class FormBlog extends React.Component {
@@ -21,11 +22,34 @@ module.exports = class FormBlog extends React.Component {
   handleImagenPrincipal (event) {
     this.setState({imagenPrincipal: event.target.value})
   }
+  handleSubmit (e) {
+    e.preventDefault()
+
+    request
+    .post('/api/blog')
+    .send({
+      titulo: e.target.elements.titulo.value.trim(),
+      imagenPrincipal: e.target.elements.imagenPrincipal.value.trim(),
+      descripcion: e.target.elements.descripcion.value.trim()
+    })
+    .end((err, res) => {
+      if (err) {
+        console.log(err)
+      } else {
+        if (res.body.error) {
+
+        } else {
+          alert('Dato creado')
+          window.location.href = '/admin'
+        }
+      }
+    })
+  }
   render () {
     let contenidoFooter = (
-      <form method='POST' action='/api/blog' >
+      <form method='POST' onSubmit={this.handleSubmit} >
         <input type='hidden' name='titulo' value={this.state.tituloBase} />
-        <input type='hidden' name='imagenPrincipal' value={this.state.imagenPrincipal} />
+        <input type='hidden' name='imagenPrincipal' value={this.state.imagenPrincipal}  />
         <textarea name='descripcion' className='displayHidden' value={this.state.textBase} ></textarea>
         <button > Guardar </button>
       </form>
@@ -35,8 +59,8 @@ module.exports = class FormBlog extends React.Component {
       <Layout componenteFooter={contenidoFooter}>
         <section className='panelIzq'>
           <input onChange={this.handleTitulo.bind(this)} placeholder='Titulo ' />
-          <input onChange={this.handleImagenPrincipal.bind(this)} placeholder='URL Imagen principal ' />
-          <textarea onChange={this.handleTextoBase.bind(this)} placeholder='Contenido ...'></textarea>
+          <input onChange={this.handleImagenPrincipal.bind(this)} placeholder='URL Imagen principal' />
+          <textarea onChange={this.handleTextoBase.bind(this)} placeholder='Contenido ...' ></textarea>
         </section>
         <section className='panelDer'>
           <h1>{this.state.tituloBase}</h1>

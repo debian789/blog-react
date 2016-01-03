@@ -81,6 +81,10 @@ var _marked = require('marked');
 
 var _marked2 = _interopRequireDefault(_marked);
 
+var _superagent = require('superagent');
+
+var _superagent2 = _interopRequireDefault(_superagent);
+
 var _Layout = require('cliente/components/privado/Layout');
 
 var _Layout2 = _interopRequireDefault(_Layout);
@@ -126,11 +130,31 @@ module.exports = (function (_React$Component) {
       this.setState({ imagenPrincipal: event.target.value });
     }
   }, {
+    key: 'handleSubmit',
+    value: function handleSubmit(e) {
+      e.preventDefault();
+
+      _superagent2.default.post('/api/blog').send({
+        titulo: e.target.elements.titulo.value.trim(),
+        imagenPrincipal: e.target.elements.imagenPrincipal.value.trim(),
+        descripcion: e.target.elements.descripcion.value.trim()
+      }).end(function (err, res) {
+        if (err) {
+          console.log(err);
+        } else {
+          if (res.body.error) {} else {
+            alert('Dato creado');
+            window.location.href = '/admin';
+          }
+        }
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
       var contenidoFooter = _react2.default.createElement(
         'form',
-        { method: 'POST', action: '/api/blog' },
+        { method: 'POST', onSubmit: this.handleSubmit },
         _react2.default.createElement('input', { type: 'hidden', name: 'titulo', value: this.state.tituloBase }),
         _react2.default.createElement('input', { type: 'hidden', name: 'imagenPrincipal', value: this.state.imagenPrincipal }),
         _react2.default.createElement('textarea', { name: 'descripcion', className: 'displayHidden', value: this.state.textBase }),
@@ -148,7 +172,7 @@ module.exports = (function (_React$Component) {
           'section',
           { className: 'panelIzq' },
           _react2.default.createElement('input', { onChange: this.handleTitulo.bind(this), placeholder: 'Titulo ' }),
-          _react2.default.createElement('input', { onChange: this.handleImagenPrincipal.bind(this), placeholder: 'URL Imagen principal ' }),
+          _react2.default.createElement('input', { onChange: this.handleImagenPrincipal.bind(this), placeholder: 'URL Imagen principal' }),
           _react2.default.createElement('textarea', { onChange: this.handleTextoBase.bind(this), placeholder: 'Contenido ...' })
         ),
         _react2.default.createElement(
@@ -173,7 +197,7 @@ module.exports = (function (_React$Component) {
   return FormBlog;
 })(_react2.default.Component);
 
-},{"cliente/components/privado/Layout":1,"marked":34,"react":217}],3:[function(require,module,exports){
+},{"cliente/components/privado/Layout":1,"marked":34,"react":217,"superagent":218}],3:[function(require,module,exports){
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
