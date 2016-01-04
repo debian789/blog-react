@@ -58,6 +58,7 @@ module.exports = class FormBlog extends React.Component {
     return (
       <Layout componenteFooter={contenidoFooter}>
         <section className='panelIzq'>
+          <span className=''></span>
           <input onChange={this.handleTitulo.bind(this)} placeholder='Titulo ' />
           <input onChange={this.handleImagenPrincipal.bind(this)} placeholder='URL Imagen principal' />
           <textarea onChange={this.handleTextoBase.bind(this)} placeholder='Contenido ...' ></textarea>
