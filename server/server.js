@@ -18,6 +18,7 @@ const MongoStore = require('connect-mongo')(expressSession)
 const LocalStrategy = Strategy
 const app = express()
 const server = http.createServer(app)
+const port = process.env.PORT || 3000
 
 app.use(require('stylus').middleware(path.join(__dirname, 'public')))
 app.use(express.static('public'))
@@ -51,5 +52,5 @@ app.use('/', blog)
 // respuestas json
 app.use('/api', blogApi)
 
-server.listen(3000)
-console.log('server iniciado puerto 3000')
+server.listen(port)
+console.log('server iniciado puerto ' + port)

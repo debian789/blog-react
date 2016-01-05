@@ -55,6 +55,7 @@ var MongoStore = require('connect-mongo')(_expressSession2.default);
 var LocalStrategy = _passportLocal.Strategy;
 var app = (0, _express2.default)();
 var server = _http2.default.createServer(app);
+var port = process.env.PORT || 3000;
 
 app.use(require('stylus').middleware(_path2.default.join(__dirname, 'public')));
 app.use(_express2.default.static('public'));
@@ -88,5 +89,5 @@ app.use('/', _routerBlog2.default);
 // respuestas json
 app.use('/api', _routerBlogApi2.default);
 
-server.listen(3000);
-console.log('server iniciado puerto 3000');
+server.listen(port);
+console.log('server iniciado puerto ' + port);

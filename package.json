@@ -47,5 +47,8 @@
     "stylus": "^0.52.4",
     "superagent": "^1.6.1",
     "to-markdown": "^2.0.1"
+  },
+   "engines": {
+    "node": "4.1.0"
   }
 }
