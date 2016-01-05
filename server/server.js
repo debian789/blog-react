@@ -11,6 +11,8 @@ import passport from 'passport'
 import { Strategy } from 'passport-local'
 import path from 'path'
 import UserSchema from 'server/models/userSchema'
+//import MongoStore from 'connect-mongo'
+const MongoStore = require('connect-mongo')(expressSession)
 // import flash from 'connect-flash'
 
 const LocalStrategy = Strategy
@@ -29,7 +31,8 @@ app.use(cookieParser())
 app.use(expressSession({
   secret: 'holamundo',
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: false,
+  store: new MongoStore({ url: process.env.DB_Conection ? process.env.DB_Conection : 'mongodb://localhost/blogcero' })
 }))
 
 app.use(passport.initialize())

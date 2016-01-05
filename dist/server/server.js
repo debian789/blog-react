@@ -48,6 +48,8 @@ var _userSchema2 = _interopRequireDefault(_userSchema);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//import MongoStore from 'connect-mongo'
+var MongoStore = require('connect-mongo')(_expressSession2.default);
 // import flash from 'connect-flash'
 
 var LocalStrategy = _passportLocal.Strategy;
@@ -66,7 +68,8 @@ app.use((0, _cookieParser2.default)());
 app.use((0, _expressSession2.default)({
   secret: 'holamundo',
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: false,
+  store: new MongoStore({ url: process.env.DB_Conection ? process.env.DB_Conection : 'mongodb://localhost/blogcero' })
 }));
 
 app.use(_passport2.default.initialize());
