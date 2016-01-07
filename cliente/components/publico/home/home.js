@@ -15,7 +15,6 @@ module.exports = React.createClass({
       datos: []
     }
   },
-
   componentWillMount: function () {
     console.log('ejecuto esto antes de render !!!')
     request

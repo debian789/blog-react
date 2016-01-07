@@ -12,10 +12,8 @@ module.exports = class DetalleBlog extends React.Component {
   }
 
   componentWillMount () {
-    console.log(`http://loclahost:3000/api/blog/${this.props.params.id}`)
-    console.log('ruta llamada')
     request
-    .get(`http://localhost:3000/api/blog/${this.props.params.id}`)
+    .get(`/api/blog/${this.props.params.id}`)
     .end((err, res) => {
       if (err) {
         console.log(err)
@@ -26,7 +24,7 @@ module.exports = class DetalleBlog extends React.Component {
     })
   }
   render () {
-    let componente = (<div> No se pudo cargar los datos </div>)
+    let componente = (<div className='mensajeInicial'> No se pudo cargar los datos </div>)
     let figura = <div className='oculto'></div>
     if (this.state.datos.imagenPrincipal !== 'None') {
       figura = (<figure className='figuraItemBlog'>
