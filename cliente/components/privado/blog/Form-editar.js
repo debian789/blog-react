@@ -28,6 +28,21 @@ module.exports = class FormEditar extends React.Component {
   handleImagenPrincipal (event) {
     this.setState({imagenPrincipal: event.target.value})
   }
+  handleEliminar (event) {
+    event.preventDefault()
+    let url = event.target.href
+    request
+    .post(url)
+    .end((err, res) => {
+      if (err) {
+        console.log(err)
+      } else {
+        alert('Dato eliminado')
+        window.location.href = '/admin'
+      }
+    })
+    //debugger
+  }
   componentWillMount () {
     request
     .get(`/api/blog/${this.props.params.id}`)
@@ -48,6 +63,7 @@ module.exports = class FormEditar extends React.Component {
   }
   render () {
     let urlGuardar = `/api/blog/${this.props.params.id}`
+    let urlEliminar = `/api/blog/eliminar/${this.props.params.id}`
     let contenidoFooter = (
       <form method='POST' action={urlGuardar} >
         <input type='hidden' name='titulo' value={this.state.tituloBase} />
@@ -72,6 +88,7 @@ module.exports = class FormEditar extends React.Component {
           <textarea onChange={this.handleTextoBase.bind(this)} placeholder='Contenido ...' value={ this.state.textoMarkdown }></textarea>
         </section>
         <section className='panelDer'>
+          <div><a href={urlEliminar} onClick={this.handleEliminar.bind(this)}>Eliminar</a></div>
           <h1>{this.state.tituloBase}</h1>
           {figura}
           <div dangerouslySetInnerHTML={{ __html: this.state.textoHtml}}/>

@@ -91,9 +91,7 @@ module.exports = (function (_React$Component) {
     value: function componentWillMount() {
       var _this2 = this;
 
-      console.log('http://loclahost:3000/api/blog/' + this.props.params.id);
-      console.log('ruta llamada');
-      _superagent2.default.get('http://localhost:3000/api/blog/' + this.props.params.id).end(function (err, res) {
+      _superagent2.default.get('/api/blog/' + this.props.params.id).end(function (err, res) {
         if (err) {
           console.log(err);
         } else {
@@ -107,7 +105,7 @@ module.exports = (function (_React$Component) {
     value: function render() {
       var componente = _react2.default.createElement(
         'div',
-        null,
+        { className: 'mensajeInicial' },
         ' No se pudo cargar los datos '
       );
       var figura = _react2.default.createElement('div', { className: 'oculto' });
@@ -191,7 +189,6 @@ module.exports = _react2.default.createClass({
       datos: []
     };
   },
-
   componentWillMount: function componentWillMount() {
     var _this = this;
 

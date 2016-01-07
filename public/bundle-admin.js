@@ -269,6 +269,21 @@ module.exports = (function (_React$Component) {
       this.setState({ imagenPrincipal: event.target.value });
     }
   }, {
+    key: 'handleEliminar',
+    value: function handleEliminar(event) {
+      event.preventDefault();
+      var url = event.target.href;
+      _superagent2.default.post(url).end(function (err, res) {
+        if (err) {
+          console.log(err);
+        } else {
+          alert('Dato eliminado');
+          window.location.href = '/admin';
+        }
+      });
+      //debugger
+    }
+  }, {
     key: 'componentWillMount',
     value: function componentWillMount() {
       var _this2 = this;
@@ -294,6 +309,7 @@ module.exports = (function (_React$Component) {
     key: 'render',
     value: function render() {
       var urlGuardar = '/api/blog/' + this.props.params.id;
+      var urlEliminar = '/api/blog/eliminar/' + this.props.params.id;
       var contenidoFooter = _react2.default.createElement(
         'form',
         { method: 'POST', action: urlGuardar },
@@ -329,6 +345,15 @@ module.exports = (function (_React$Component) {
         _react2.default.createElement(
           'section',
           { className: 'panelDer' },
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              'a',
+              { href: urlEliminar, onClick: this.handleEliminar.bind(this) },
+              'Eliminar'
+            )
+          ),
           _react2.default.createElement(
             'h1',
             null,

@@ -31,6 +31,18 @@ blog.get('/blog/:id', (req, res) => {
   })
 })
 
+blog.post('/blog/eliminar/:id', validarAutenticacion, (req, res) => {
+  let id = req.params.id
+  BlogSchema.findOneAndRemove({'_id': id}, (err, datos) => {
+    if (err) {
+      return res.sendStatus(500)
+    }
+
+    res.json(datos)
+  })
+
+})
+
 blog.post('/blog/:id', validarAutenticacion, (req, res) => {
   let id = req.params.id
   let datos = req.body

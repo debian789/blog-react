@@ -42,6 +42,17 @@ blog.get('/blog/:id', function (req, res) {
   });
 });
 
+blog.post('/blog/eliminar/:id', validarAutenticacion, function (req, res) {
+  var id = req.params.id;
+  _blogSchema2.default.findOneAndRemove({ '_id': id }, function (err, datos) {
+    if (err) {
+      return res.sendStatus(500);
+    }
+
+    res.json(datos);
+  });
+});
+
 blog.post('/blog/:id', validarAutenticacion, function (req, res) {
   var id = req.params.id;
   var datos = req.body;
