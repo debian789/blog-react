@@ -255,7 +255,7 @@ module.exports = (function (_React$Component) {
       if (this.props.imagenPrincipal !== 'None') {
         figura = _react2.default.createElement(
           'figure',
-          { className: 'figuraItemBlog' },
+          { className: 'figuraItemBlogReducida ' },
           _react2.default.createElement('img', { src: this.props.imagenPrincipal })
         );
       }
@@ -320,75 +320,80 @@ module.exports = (function (_React$Component) {
   }
 
   _createClass(Layout, [{
-    key: 'handleCerrar',
-    value: function handleCerrar() {}
-  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        'div',
+        'section',
         null,
         _react2.default.createElement(
-          'section',
-          { className: 'contenidoLateral' },
+          'div',
+          { id: 'barraNavegacion' },
           _react2.default.createElement(
-            'article',
+            'span',
+            { id: 'mostrar' },
+            'ver'
+          ),
+          ' ',
+          _react2.default.createElement('span', { id: 'tituloBarra' }),
+          ' ',
+          _react2.default.createElement('span', { id: 'subBtn' })
+        ),
+        _react2.default.createElement(
+          'nav',
+          { id: 'sidePanel' },
+          _react2.default.createElement(
+            'div',
             null,
             _react2.default.createElement(
-              'div',
-              { className: 'cuadroImagen' },
-              _react2.default.createElement(
-                'figure',
-                null,
-                _react2.default.createElement('img', { src: 'http://placehold.it/300x300' })
-              ),
-              _react2.default.createElement(
-                'div',
-                { className: 'nombreProfesion' },
-                _react2.default.createElement(
-                  'span',
-                  null,
-                  'Miguel Suescun '
-                )
-              )
-            ),
-            _react2.default.createElement(
-              'p',
-              null,
-              'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-            ),
-            _react2.default.createElement('hr', { className: 'lineaAutor' }),
-            _react2.default.createElement('a', { href: '', className: 'iconSocial icon-facebook2' }),
-            _react2.default.createElement('a', { href: '', className: 'iconSocial icon-twitter' }),
-            _react2.default.createElement('a', { href: '', className: 'iconSocial icon-github' })
+              _reactRouter.Link,
+              { to: '/' },
+              'Blog'
+            )
           )
         ),
         _react2.default.createElement(
           'section',
-          { className: 'contenido' },
+          { id: 'mainPanel' },
           _react2.default.createElement(
-            'nav',
-            null,
+            'section',
+            { className: 'contenidoLateral' },
             _react2.default.createElement(
-              'div',
-              { id: 'cerrarMenu', onClick: this.handleCerrar },
-              _react2.default.createElement(
-                'span',
-                null,
-                'X'
-              )
-            ),
-            _react2.default.createElement(
-              'div',
+              'article',
               null,
               _react2.default.createElement(
-                _reactRouter.Link,
-                { to: '/' },
-                'Blog'
-              )
+                'div',
+                { className: 'cuadroImagen' },
+                _react2.default.createElement(
+                  'figure',
+                  null,
+                  _react2.default.createElement('img', { src: 'http://placehold.it/300x300' })
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'nombreProfesion' },
+                  _react2.default.createElement(
+                    'span',
+                    null,
+                    'Miguel Suescun '
+                  )
+                )
+              ),
+              _react2.default.createElement(
+                'p',
+                null,
+                'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+              ),
+              _react2.default.createElement('hr', { className: 'lineaAutor' }),
+              _react2.default.createElement('a', { href: '', className: 'iconSocial icon-facebook2' }),
+              _react2.default.createElement('a', { href: '', className: 'iconSocial icon-twitter' }),
+              _react2.default.createElement('a', { href: '', className: 'iconSocial icon-github' })
             )
           ),
-          this.props.children
+          _react2.default.createElement(
+            'section',
+            { className: 'contenido' },
+            this.props.children
+          )
         )
       );
       // <div><Link>Portafolio</Link></div>

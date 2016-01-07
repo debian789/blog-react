@@ -12,5 +12,27 @@
     <script>hljs.initHighlightingOnLoad();</script>
     <script  type="text/javascript" src="bundle.js"></script>
     <script type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.4/hammer.min.js"></script>
+    <script type="text/javascript">
+  (function(){
+  var mainPanel = document.getElementById('mainPanel');
+  var sidePanel = document.getElementById('sidePanel');
+  var mostrarBtn = document.getElementById('mostrar');
+
+  mostrarBtn.addEventListener('click',function(e){
+    sidePanel.classList.toggle('open');
+  })
+
+  var hammerPanel = new Hammer(mainPanel);
+
+  hammerPanel
+    .on('swiperight', function(e) {
+      sidePanel.classList.toggle('open');
+    })
+    .on('swipeleft', function(e) {
+      sidePanel.classList.toggle('open');
+    });
+}());
+</script>
   </body>
 </html>

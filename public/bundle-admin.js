@@ -30,8 +30,8 @@ module.exports = (function (_React$Component) {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        'div',
-        null,
+        'section',
+        { className: 'contenedorBody' },
         _react2.default.createElement(
           'header',
           null,
@@ -50,7 +50,7 @@ module.exports = (function (_React$Component) {
         ),
         _react2.default.createElement(
           'section',
-          null,
+          { className: 'contenedorPrincipal' },
           ' ',
           this.props.children
         ),
@@ -171,9 +171,11 @@ module.exports = (function (_React$Component) {
         _react2.default.createElement(
           'section',
           { className: 'panelIzq' },
-          _react2.default.createElement('span', { className: '' }),
           _react2.default.createElement('input', { onChange: this.handleTitulo.bind(this), placeholder: 'Titulo ' }),
+          _react2.default.createElement('span', { className: '' }),
           _react2.default.createElement('input', { onChange: this.handleImagenPrincipal.bind(this), placeholder: 'URL Imagen principal' }),
+          _react2.default.createElement('span', { className: '' }),
+          _react2.default.createElement('span', { className: '' }),
           _react2.default.createElement('textarea', { onChange: this.handleTextoBase.bind(this), placeholder: 'Contenido ...' })
         ),
         _react2.default.createElement(

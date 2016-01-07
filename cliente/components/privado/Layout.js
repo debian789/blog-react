@@ -4,14 +4,14 @@ import {Link} from 'react-router'
 module.exports = class Layout extends React.Component {
   render () {
     return (
-      <div>
+      <section className="contenedorBody">
         <header>
           <a href='/'><span className='icon-stack'></span> Blog </a>
           <Link to='/crear'><span className='icon-libreoffice'></span> Crear</Link>
         </header>
-        <section> { this.props.children }</section>
+        <section className='contenedorPrincipal'> { this.props.children }</section>
         <footer> {this.props.componenteFooter} </footer>
-      </div>
+      </section>
     )
   }
 }
