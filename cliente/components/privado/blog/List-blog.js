@@ -50,7 +50,7 @@ module.exports = class Home extends React.Component {
     if (this.state.datos) {
       detalleBlogDatos = (
         <article className='itemBlog'>
-          <Link className='btnEditar' to={`/editar/${this.state.datos._id}`}>Editar</Link>
+          <div className='barraAcciones'><Link className='btnEditar' to={`/editar/${this.state.datos._id}`}>Editar</Link></div>
           <h2 >{ this.state.datos.titulo }</h2>
           <span>{ this.state.datos.fechaCreacion }</span>
           <span> by { this.state.datos.creador }</span>

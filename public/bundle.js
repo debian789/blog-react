@@ -334,7 +334,11 @@ module.exports = (function (_React$Component) {
             'ver'
           ),
           ' ',
-          _react2.default.createElement('span', { id: 'tituloBarra' }),
+          _react2.default.createElement(
+            'span',
+            { id: 'tituloBarra' },
+            this.props.tituloBarra
+          ),
           ' ',
           _react2.default.createElement('span', { id: 'subBtn' })
         ),

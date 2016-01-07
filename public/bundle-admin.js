@@ -31,35 +31,64 @@ module.exports = (function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'section',
-        { className: 'contenedorBody' },
+        null,
         _react2.default.createElement(
-          'header',
-          null,
+          'div',
+          { id: 'barraNavegacion' },
           _react2.default.createElement(
-            'a',
-            { href: '/' },
-            _react2.default.createElement('span', { className: 'icon-stack' }),
-            ' Blog '
+            'span',
+            { id: 'mostrar' },
+            'ver'
+          ),
+          ' ',
+          _react2.default.createElement(
+            'span',
+            { id: 'tituloBarra' },
+            this.props.tituloBarra
+          ),
+          ' ',
+          _react2.default.createElement('span', { id: 'subBtn' })
+        ),
+        _react2.default.createElement(
+          'nav',
+          { id: 'sidePanel' },
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              'a',
+              { href: '/' },
+              _react2.default.createElement('span', { className: 'icon-stack' }),
+              ' Blog '
+            )
           ),
           _react2.default.createElement(
-            _reactRouter.Link,
-            { to: '/crear' },
-            _react2.default.createElement('span', { className: 'icon-libreoffice' }),
-            ' Crear'
+            'div',
+            null,
+            _react2.default.createElement(
+              _reactRouter.Link,
+              { to: '/crear' },
+              _react2.default.createElement('span', { className: 'icon-libreoffice' }),
+              ' Crear'
+            )
           )
         ),
         _react2.default.createElement(
           'section',
-          { className: 'contenedorPrincipal' },
-          ' ',
-          this.props.children
-        ),
-        _react2.default.createElement(
-          'footer',
-          null,
-          ' ',
-          this.props.componenteFooter,
-          ' '
+          { id: 'mainPanel' },
+          _react2.default.createElement(
+            'section',
+            { className: 'contenedorPrincipal' },
+            ' ',
+            this.props.children
+          ),
+          _react2.default.createElement(
+            'footer',
+            null,
+            ' ',
+            this.props.componenteFooter,
+            ' '
+          )
         )
       );
     }
@@ -349,10 +378,10 @@ module.exports = (function (_React$Component) {
           { className: 'panelDer' },
           _react2.default.createElement(
             'div',
-            null,
+            { className: 'barraAcciones' },
             _react2.default.createElement(
               'a',
-              { href: urlEliminar, onClick: this.handleEliminar.bind(this) },
+              { className: 'btnEditar', href: urlEliminar, onClick: this.handleEliminar.bind(this) },
               'Eliminar'
             )
           ),
@@ -524,9 +553,13 @@ module.exports = (function (_React$Component2) {
           'article',
           { className: 'itemBlog' },
           _react2.default.createElement(
-            _reactRouter.Link,
-            { className: 'btnEditar', to: '/editar/' + this.state.datos._id },
-            'Editar'
+            'div',
+            { className: 'barraAcciones' },
+            _react2.default.createElement(
+              _reactRouter.Link,
+              { className: 'btnEditar', to: '/editar/' + this.state.datos._id },
+              'Editar'
+            )
           ),
           _react2.default.createElement(
             'h2',

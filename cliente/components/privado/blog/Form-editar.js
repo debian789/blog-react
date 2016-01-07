@@ -88,7 +88,7 @@ module.exports = class FormEditar extends React.Component {
           <textarea onChange={this.handleTextoBase.bind(this)} placeholder='Contenido ...' value={ this.state.textoMarkdown }></textarea>
         </section>
         <section className='panelDer'>
-          <div><a href={urlEliminar} onClick={this.handleEliminar.bind(this)}>Eliminar</a></div>
+          <div className='barraAcciones'><a className='btnEditar' href={urlEliminar} onClick={this.handleEliminar.bind(this)}>Eliminar</a></div>
           <h1>{this.state.tituloBase}</h1>
           {figura}
           <div dangerouslySetInnerHTML={{ __html: this.state.textoHtml}}/>

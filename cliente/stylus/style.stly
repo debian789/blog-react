@@ -278,6 +278,20 @@ nav
 
 
     border 1px solid #ccc
+.barraAcciones
+  //border 1px solid red
+  text-align right
+  width 100%
+  .btnEditar
+    //background #63ACEA
+    border-radius 4px 
+    display inline-block
+    padding 0.5em
+    background #ddd
+    border 0
+    border-bottom 2px solid #ccc
+    text-decoration none
+    color #888
 .itemListIzq
   width 98%
   margin-left 1%
@@ -307,11 +321,7 @@ nav
       padding 0
       img
         width 100%
-    .btnEditar
-      //background #63ACEA
-      text-align right
-      display inline-block
-      width 100%
+
 .panelIzq
   //border 1px solid red
   width 47%
