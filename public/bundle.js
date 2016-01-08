@@ -399,7 +399,7 @@ module.exports = (function (_React$Component) {
                 _react2.default.createElement(
                   'figure',
                   null,
-                  _react2.default.createElement('img', { src: 'http://placehold.it/300x300' })
+                  _react2.default.createElement('img', { src: this.state.datosGeneral.imagenPerfil })
                 ),
                 _react2.default.createElement(
                   'div',

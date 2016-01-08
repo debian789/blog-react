@@ -40,7 +40,7 @@ module.exports = class Layout extends React.Component {
               <div className='cuadroImagen'>
 
                 <figure>
-                  <img src='http://placehold.it/300x300'/>
+                  <img src={this.state.datosGeneral.imagenPerfil}/>
                 </figure>
                 <div className='nombreProfesion'><span>{this.state.datosGeneral.nombre} </span></div>
               </div>

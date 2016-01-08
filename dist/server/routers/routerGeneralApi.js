@@ -24,16 +24,18 @@ general.get('/general', function (req, res) {
 });
 
 general.post('/general', function (req, res) {
-  var general = new _generalSchema2.default();
-  general.nombre = req.body.nombre;
-  general.imagenPerfil = req.body.imagenPerfil;
-  general.descripcion = req.body.descripcion;
-  general.facebook = req.body.facebook;
-  general.twitter = req.body.twitter;
-  general.github = req.body.github;
-  general.googleAnalytics = req.body.googleAnalytics;
+  // let general = new GeneralSchema()
+  // let _id = req.body._id
+  console.log(req.body);
 
-  general.save(function (err) {
+  _generalSchema2.default.findOneAndUpdate({}, {
+    nombre: req.body.nombre,
+    imagenPerfil: req.body.imagenPerfil,
+    descripcion: req.body.descripcion,
+    facebook: req.body.facebook,
+    twitter: req.body.twitter,
+    github: req.body.github
+  }, function (err) {
     if (err) {
       return res.json(err);
     }

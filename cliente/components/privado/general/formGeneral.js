@@ -6,14 +6,12 @@ module.exports = class FormGeneral extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      datosGeneral: {
-        nombre: '',
-        imagenPerfil: '',
-        descripcion: '',
-        facebook: '',
-        twitter: '',
-        github: ''
-      }
+      nombre: '',
+      imagenPerfil: '',
+      descripcion: '',
+      facebook: '',
+      twitter: '',
+      github: ''
     }
   }
   componentWillMount () {
@@ -23,23 +21,49 @@ module.exports = class FormGeneral extends React.Component {
       if (err) {
         console.log(err)
       } else {
-        this.setState({datosGeneral: data})
+        this.setState({
+          nombre: data.body.nombre,
+          imagenPerfil: data.body.imagenPerfil,
+          descripcion: data.body.descripcion,
+          facebook: data.body.facebook,
+          twitter: data.body.twitter,
+          github: data.body.github
+        })
       }
     })
+  }
+  handleNombre (event) {
+    this.setState({nombre: event.target.value})
+  }
+  handleImagenPerfil (event) {
+    this.setState({imagenPerfil: event.target.value.trim()})
+  }
+  handleDescripcion (event) {
+    this.setState({descripcion: event.target.value})
+  }
+  handleFacebook (event) {
+    this.setState({facebook: event.target.value.trim()})
+  }
+  handleTwitter (event) {
+    this.setState({twitter: event.target.value.trim()})
+  }
+  handleGithub (event) {
+    this.setState({github: event.target.value.trim()})
   }
 
   handleSubmit (event) {
     event.preventDefault()
-
+debugger
     request
     .post('/api/general')
     .send({
-      nombre: event.target.elements.nombre.value.trim(),
+      nombre: event.target.elements.nombre.value,
       imagenPerfil: event.target.elements.imagenPerfil.value.trim(),
-      descripcion: event.target.elements.descripcion.value.trim(),
+      descripcion: event.target.elements.descripcion.value,
       facebook: event.target.elements.facebook.value.trim(),
       twitter: event.target.elements.twitter.value.trim(),
       github: event.target.elements.github.value.trim()
+    //  _id: event.target.elements._id.value.trim()
     })
     .end((err, res) => {
       if (err) {
@@ -49,20 +73,45 @@ module.exports = class FormGeneral extends React.Component {
         window.location.href = '/admin'
       }
     })
-
-
   }
   render () {
+    console.log('hoooooola !!!')
     return (
       <Layout>
-        <form onSubmit={this.handleSubmit}>
-          <input type='text' name='nombre' value={this.state.datosGeneral.nombre}required />
-          <input type='text' name='imagenPerfil' value={this.state.datosGeneral.imagenPerfil} required />
-          <textarea name='descripcion' value={this.state.datosGeneral.descripcion}></textarea>
-          <input type='text' name='facebook' value={this.state.datosGeneral.facebook} />
-          <input type='text' name='twitter' value={this.state.datosGeneral.twitter} />
-          <input type='text' name='github' value={this.state.datosGeneral.github} />
-        </form>
+        <section className='estiloForm'>
+          <h3>Configuraciones Generales </h3>
+          <hr/>
+          <form onSubmit={this.handleSubmit}>
+            <div>
+              <label>Nombre</label>
+              <input onChange={this.handleNombre.bind(this)} type='text' name='nombre' value={this.state.nombre} required />
+            </div>
+            <div>
+              <label>Url imagen perfil </label>
+              <input onChange={this.handleImagenPerfil.bind(this)} type='text' name='imagenPerfil' value={this.state.imagenPerfil} required />
+            </div>
+            <div>
+              <label>Descripción</label>
+              <textarea onChange={this.handleDescripcion.bind(this)} name='descripcion' value={this.state.descripcion}></textarea>
+            </div>
+            <div>
+              <label>Url Facebook</label>
+              <input onChange={this.handleFacebook.bind(this)} type='text' name='facebook' value={this.state.facebook} />
+            </div>
+            <div>
+              <label>Url Twitter</label>
+              <input onChange={this.handleTwitter.bind(this)} type='text' name='twitter' value={this.state.twitter} />
+            </div>
+            <div>
+              <label>Url Github</label>
+              <input onChange={this.handleGithub.bind(this)} type='text' name='github' value={this.state.github} />
+            </div>
+            <hr/>
+            <div>
+              <input type='submit' value='Actualizar' />
+            </div>
+          </form>
+        </section>
       </Layout>
     )
   }
