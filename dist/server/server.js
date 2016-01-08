@@ -12,6 +12,10 @@ var _routerBlogApi = require('server/routers/routerBlogApi');
 
 var _routerBlogApi2 = _interopRequireDefault(_routerBlogApi);
 
+var _routerGeneralApi = require('server/routers/routerGeneralApi');
+
+var _routerGeneralApi2 = _interopRequireDefault(_routerGeneralApi);
+
 var _routerBlog = require('server/routers/routerBlog');
 
 var _routerBlog2 = _interopRequireDefault(_routerBlog);
@@ -88,6 +92,7 @@ app.use('/', _routerBlog2.default);
 
 // respuestas json
 app.use('/api', _routerBlogApi2.default);
+app.use('/api', _routerGeneralApi2.default);
 
 server.listen(port);
 console.log('server iniciado puerto ' + port);

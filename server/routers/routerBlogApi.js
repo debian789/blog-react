@@ -40,7 +40,6 @@ blog.post('/blog/eliminar/:id', validarAutenticacion, (req, res) => {
 
     res.json(datos)
   })
-
 })
 
 blog.post('/blog/:id', validarAutenticacion, (req, res) => {
@@ -64,13 +63,10 @@ blog.post('/blog/:id', validarAutenticacion, (req, res) => {
 
 blog.post('/blog', validarAutenticacion, (req, res) => {
   let blog = new BlogSchema()
-  let titulo = req.body.titulo
-  let imagenPrincipal = req.body.imagenPrincipal
-  let descripcion = req.body.descripcion
 
-  blog.titulo = titulo
-  blog.imagenPrincipal = imagenPrincipal
-  blog.descripcion = descripcion
+  blog.titulo = req.body.titulo
+  blog.imagenPrincipal = req.body.imagenPrincipal
+  blog.descripcion = req.body.descripcion
 
   blog.save((err) => {
     if (err) {
@@ -80,5 +76,7 @@ blog.post('/blog', validarAutenticacion, (req, res) => {
     res.json(blog)
   })
 })
+
+
 
 export default blog

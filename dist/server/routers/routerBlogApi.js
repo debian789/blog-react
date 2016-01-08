@@ -74,13 +74,10 @@ blog.post('/blog/:id', validarAutenticacion, function (req, res) {
 
 blog.post('/blog', validarAutenticacion, function (req, res) {
   var blog = new _blogSchema2.default();
-  var titulo = req.body.titulo;
-  var imagenPrincipal = req.body.imagenPrincipal;
-  var descripcion = req.body.descripcion;
 
-  blog.titulo = titulo;
-  blog.imagenPrincipal = imagenPrincipal;
-  blog.descripcion = descripcion;
+  blog.titulo = req.body.titulo;
+  blog.imagenPrincipal = req.body.imagenPrincipal;
+  blog.descripcion = req.body.descripcion;
 
   blog.save(function (err) {
     if (err) {

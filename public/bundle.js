@@ -302,6 +302,10 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouter = require('react-router');
 
+var _superagent = require('superagent');
+
+var _superagent2 = _interopRequireDefault(_superagent);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -313,13 +317,38 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 module.exports = (function (_React$Component) {
   _inherits(Layout, _React$Component);
 
-  function Layout() {
+  function Layout(props) {
     _classCallCheck(this, Layout);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Layout).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Layout).call(this, props));
+
+    _this.state = {
+      datosGeneral: {
+        nombre: '',
+        imagenPerfil: '',
+        descripcion: '',
+        facebook: '',
+        twitter: '',
+        github: ''
+      }
+    };
+    return _this;
   }
 
   _createClass(Layout, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      var _this2 = this;
+
+      _superagent2.default.get('/api/general').end(function (err, data) {
+        if (err) {
+          console.log(err);
+        } else {
+          _this2.setState({ datosGeneral: data.body });
+        }
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
@@ -378,19 +407,20 @@ module.exports = (function (_React$Component) {
                   _react2.default.createElement(
                     'span',
                     null,
-                    'Miguel Suescun '
+                    this.state.datosGeneral.nombre,
+                    ' '
                   )
                 )
               ),
               _react2.default.createElement(
                 'p',
                 null,
-                'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+                this.state.datosGeneral.descripcion
               ),
               _react2.default.createElement('hr', { className: 'lineaAutor' }),
-              _react2.default.createElement('a', { href: '', className: 'iconSocial icon-facebook2' }),
-              _react2.default.createElement('a', { href: '', className: 'iconSocial icon-twitter' }),
-              _react2.default.createElement('a', { href: '', className: 'iconSocial icon-github' })
+              _react2.default.createElement('a', { href: this.state.datosGeneral.facebook, className: 'iconSocial icon-facebook2' }),
+              _react2.default.createElement('a', { href: this.state.datosGeneral.twitter, className: 'iconSocial icon-twitter' }),
+              _react2.default.createElement('a', { href: this.state.datosGeneral.github, className: 'iconSocial icon-github' })
             )
           ),
           _react2.default.createElement(
@@ -408,7 +438,7 @@ module.exports = (function (_React$Component) {
   return Layout;
 })(_react2.default.Component);
 
-},{"react":213,"react-router":51}],6:[function(require,module,exports){
+},{"react":213,"react-router":51,"superagent":214}],6:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');

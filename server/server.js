@@ -2,6 +2,7 @@
 import http from 'http'
 import express from 'express'
 import blogApi from 'server/routers/routerBlogApi'
+import generalApi from 'server/routers/routerGeneralApi'
 import blog from 'server/routers/routerBlog'
 import mongooseConfig from 'server/config/mongooseConfig'
 import bodyParser from 'body-parser'
@@ -51,6 +52,7 @@ app.use('/', blog)
 
 // respuestas json
 app.use('/api', blogApi)
+app.use('/api', generalApi)
 
 server.listen(port)
 console.log('server iniciado puerto ' + port)
