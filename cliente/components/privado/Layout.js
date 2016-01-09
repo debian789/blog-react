@@ -11,6 +11,8 @@ module.exports = class Layout extends React.Component {
           <div><a href='/'><span className='icon-stack'></span> Blog </a></div>
           <div><Link to='/crear'><span className='icon-libreoffice'></span> Crear</Link></div>
           <div><Link to='/general'><span className='icon-libreoffice'></span> General</Link></div>
+          <div><Link to='/portafolio'><span className='icon-libreoffice'></span> Portafolio - Crear</Link></div>
+          <div><Link to='/portafolio-listar'><span className='icon-libreoffice'></span> Portafolio</Link></div>
         </nav>
         <section id='mainPanel'>
           <section className='contenedorPrincipal'> { this.props.children }</section>

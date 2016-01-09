@@ -50,6 +50,18 @@ portafolio.post('/portafolio/:id', (req, res) => {
   })
 })
 
+portafolio.get('/portafolio/:id', (req, res) => {
+  let id = req.params.id
+
+  PortafolioSchema.findOne({'_id': id}, (err, data) => {
+    if (err) {
+      res.sendStatus(500)
+    } else {
+      res.json(data)
+    }
+  })
+})
+
 portafolio.post('/portafolio/eliminar/:id', (req, res) => {
   let id = req.param.id
 

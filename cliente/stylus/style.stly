@@ -187,7 +187,7 @@ nav
       width 100%
       color #888
       margin-bottom 0.3em
-    input[type=text],textarea
+    input[type=text],textarea,input[type=url],input[type=date]
       width 50%
       border 1px solid #EEEEEE
       padding 0.8em
@@ -408,6 +408,22 @@ nav
   overflow-x hidden
   bottom 2.5em
   vertical-align top
+.listaPortafolio
+  border 1px solid red
+  width 80%
+  margin 3em auto auto auto
+  text-align center 
+  div
+    display inline-block
+    vertical-align top
+    border 1px solid blue
+    width 30%
+    margin 1%
+    figure
+
+      img
+        width 100%
+        border 1px solid red
 .inicioSession
   background-color #282B2D
   text-align center

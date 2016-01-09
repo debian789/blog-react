@@ -56,7 +56,7 @@ blog.post('/blog/eliminar/:id', validarAutenticacion, function (req, res) {
 blog.post('/blog/:id', validarAutenticacion, function (req, res) {
   var id = req.params.id;
   var datos = req.body;
-  console.log(datos);
+
   _blogSchema2.default.update({ '_id': id }, {
     titulo: datos.titulo,
     imagenPrincipal: datos.imagenPrincipal,
@@ -64,10 +64,8 @@ blog.post('/blog/:id', validarAutenticacion, function (req, res) {
   }, function (err, data) {
     if (err) {
       res.sendStatus(500);
-      console.log('no se actualizo');
     } else {
       res.json(data);
-      console.log('se actualizo correctamente');
     }
   });
 });

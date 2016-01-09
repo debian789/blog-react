@@ -16,6 +16,10 @@ var _routerGeneralApi = require('server/routers/routerGeneralApi');
 
 var _routerGeneralApi2 = _interopRequireDefault(_routerGeneralApi);
 
+var _routerPortafolioApi = require('server/routers/routerPortafolioApi');
+
+var _routerPortafolioApi2 = _interopRequireDefault(_routerPortafolioApi);
+
 var _routerBlog = require('server/routers/routerBlog');
 
 var _routerBlog2 = _interopRequireDefault(_routerBlog);
@@ -93,6 +97,7 @@ app.use('/', _routerBlog2.default);
 // respuestas json
 app.use('/api', _routerBlogApi2.default);
 app.use('/api', _routerGeneralApi2.default);
+app.use('/api', _routerPortafolioApi2.default);
 
 server.listen(port);
 console.log('server iniciado puerto ' + port);

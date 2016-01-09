@@ -75,6 +75,4 @@ blog.post('/blog', validarAutenticacion, (req, res) => {
   })
 })
 
-
-
 export default blog

@@ -5,7 +5,8 @@ let PortafolioSchema = new mongoose.Schema({
   descripcion: {type: String},
   imagenPrincipal: {type: String},
   fechaCreacion: {type: Date},
-  url: {type: String},
+  urlWeb: {type: String},
+  urlRepositorio: {type: String},
   tecnologias: {type: Array}
 })
 
