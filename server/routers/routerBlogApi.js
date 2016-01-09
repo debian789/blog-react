@@ -45,7 +45,7 @@ blog.post('/blog/eliminar/:id', validarAutenticacion, (req, res) => {
 blog.post('/blog/:id', validarAutenticacion, (req, res) => {
   let id = req.params.id
   let datos = req.body
-  console.log(datos)
+
   BlogSchema.update({'_id': id }, {
     titulo: datos.titulo,
     imagenPrincipal: datos.imagenPrincipal,
@@ -53,10 +53,8 @@ blog.post('/blog/:id', validarAutenticacion, (req, res) => {
   }, (err, data) => {
     if (err) {
       res.sendStatus(500)
-      console.log('no se actualizo')
     } else {
       res.json(data)
-      console.log('se actualizo correctamente')
     }
   })
 })

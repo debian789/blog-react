@@ -53,7 +53,6 @@ module.exports = class FormGeneral extends React.Component {
 
   handleSubmit (event) {
     event.preventDefault()
-debugger
     request
     .post('/api/general')
     .send({
