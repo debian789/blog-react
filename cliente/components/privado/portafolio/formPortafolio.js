@@ -39,8 +39,8 @@ module.exports = class FormPortafoli extends React.Component {
 
   handleSubmit (event) {
     event.preventDefault()
-    debugger
     let urlSave = this.props.params.id ? `/api/portafolio/${this.props.params.id}` : '/api/portafolio'
+
     request
     .post(urlSave)
     .send({
@@ -60,7 +60,7 @@ module.exports = class FormPortafoli extends React.Component {
 
         } else {
           alert('Dato creado')
-          window.location.href = '/admin'
+          window.location.href = '/admin#/portafolio-listar'
         }
       }
     })
@@ -99,7 +99,7 @@ module.exports = class FormPortafoli extends React.Component {
     return (
       <Layout>
         <section className='estiloForm'>
-          <h3>Configuraciones Generales </h3>
+          <h3>Portafolio </h3>
           <hr/>
           <form onSubmit={this.handleSubmit.bind(this)}>
             <div>

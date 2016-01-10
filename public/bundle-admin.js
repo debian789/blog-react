@@ -913,8 +913,8 @@ module.exports = (function (_React$Component) {
     key: 'handleSubmit',
     value: function handleSubmit(event) {
       event.preventDefault();
-      debugger;
       var urlSave = this.props.params.id ? '/api/portafolio/' + this.props.params.id : '/api/portafolio';
+
       _superagent2.default.post(urlSave).send({
         titulo: event.target.elements.titulo.value.trim(),
         descripcion: event.target.elements.descripcion.value.trim(),
@@ -929,7 +929,7 @@ module.exports = (function (_React$Component) {
         } else {
           if (res.body.error) {} else {
             alert('Dato creado');
-            window.location.href = '/admin';
+            window.location.href = '/admin#/portafolio-listar';
           }
         }
       });
@@ -981,7 +981,7 @@ module.exports = (function (_React$Component) {
           _react2.default.createElement(
             'h3',
             null,
-            'Configuraciones Generales '
+            'Portafolio '
           ),
           _react2.default.createElement('hr', null),
           _react2.default.createElement(

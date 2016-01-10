@@ -409,21 +409,33 @@ nav
   bottom 2.5em
   vertical-align top
 .listaPortafolio
-  border 1px solid red
+  //border 1px solid red
   width 80%
   margin 3em auto auto auto
-  text-align center 
+  text-align center
   div
     display inline-block
     vertical-align top
-    border 1px solid blue
+    //border 1px solid blue
     width 30%
     margin 1%
     figure
 
       img
         width 100%
-        border 1px solid red
+        max-height 15em 
+        //border 1px solid red
+    div
+      //border 1px solid red
+      width 100%
+      a
+        //border 1px solid green
+        display inline-block
+        padding 0.4em 1em 0.4em 1em
+        border-radius 5px
+        background #65ACE7
+        color white
+        text-decoration none
 .inicioSession
   background-color #282B2D
   text-align center
