@@ -745,14 +745,13 @@ module.exports = (function (_React$Component) {
           console.log(err);
         } else {
           alert('Dato Modificado');
-          window.location.href = '/admin';
+          // window.location.href = '/admin'
         }
       });
     }
   }, {
     key: 'render',
     value: function render() {
-      console.log('hoooooola !!!');
       return _react2.default.createElement(
         _Layout2.default,
         null,

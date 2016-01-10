@@ -69,12 +69,11 @@ module.exports = class FormGeneral extends React.Component {
         console.log(err)
       } else {
         alert('Dato Modificado')
-        window.location.href = '/admin'
+        // window.location.href = '/admin'
       }
     })
   }
   render () {
-    console.log('hoooooola !!!')
     return (
       <Layout>
         <section className='estiloForm'>

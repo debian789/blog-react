@@ -58,6 +58,10 @@ module.exports = (function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var urlImagen = this.state.datosGeneral.imagenPerfil ? this.state.datosGeneral.imagenPerfil : '/static/img/default_perfil.jpg';
+      var iconFacebook = this.state.datosGeneral.facebook ? _react2.default.createElement('a', { href: this.state.datosGeneral.facebook, className: 'iconSocial icon-facebook2' }) : '';
+      var iconTwitter = this.state.datosGeneral.twitter ? _react2.default.createElement('a', { href: this.state.datosGeneral.twitter, className: 'iconSocial icon-twitter' }) : '';
+      var iconGithub = this.state.datosGeneral.github ? _react2.default.createElement('a', { href: this.state.datosGeneral.github, className: 'iconSocial icon-github' }) : '';
       return _react2.default.createElement(
         'section',
         null,
@@ -115,7 +119,7 @@ module.exports = (function (_React$Component) {
                 _react2.default.createElement(
                   'figure',
                   null,
-                  _react2.default.createElement('img', { src: this.state.datosGeneral.imagenPerfil })
+                  _react2.default.createElement('img', { src: urlImagen })
                 ),
                 _react2.default.createElement(
                   'div',
@@ -134,9 +138,9 @@ module.exports = (function (_React$Component) {
                 this.state.datosGeneral.descripcion
               ),
               _react2.default.createElement('hr', { className: 'lineaAutor' }),
-              _react2.default.createElement('a', { href: this.state.datosGeneral.facebook, className: 'iconSocial icon-facebook2' }),
-              _react2.default.createElement('a', { href: this.state.datosGeneral.twitter, className: 'iconSocial icon-twitter' }),
-              _react2.default.createElement('a', { href: this.state.datosGeneral.github, className: 'iconSocial icon-github' })
+              iconFacebook,
+              iconTwitter,
+              iconGithub
             )
           ),
           _react2.default.createElement(
@@ -507,6 +511,10 @@ module.exports = (function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var urlImagen = this.state.datosGeneral.imagenPerfil ? this.state.datosGeneral.imagenPerfil : '/static/img/default_perfil.jpg';
+      var iconFacebook = this.state.datosGeneral.facebook ? _react2.default.createElement('a', { href: this.state.datosGeneral.facebook, className: 'iconSocial icon-facebook2' }) : '';
+      var iconTwitter = this.state.datosGeneral.twitter ? _react2.default.createElement('a', { href: this.state.datosGeneral.twitter, className: 'iconSocial icon-twitter' }) : '';
+      var iconGithub = this.state.datosGeneral.github ? _react2.default.createElement('a', { href: this.state.datosGeneral.github, className: 'iconSocial icon-github' }) : '';
       return _react2.default.createElement(
         'section',
         null,
@@ -564,7 +572,7 @@ module.exports = (function (_React$Component) {
                 _react2.default.createElement(
                   'figure',
                   null,
-                  _react2.default.createElement('img', { src: this.state.datosGeneral.imagenPerfil })
+                  _react2.default.createElement('img', { src: urlImagen })
                 ),
                 _react2.default.createElement(
                   'div',
@@ -583,9 +591,9 @@ module.exports = (function (_React$Component) {
                 this.state.datosGeneral.descripcion
               ),
               _react2.default.createElement('hr', { className: 'lineaAutor' }),
-              _react2.default.createElement('a', { href: this.state.datosGeneral.facebook, className: 'iconSocial icon-facebook2' }),
-              _react2.default.createElement('a', { href: this.state.datosGeneral.twitter, className: 'iconSocial icon-twitter' }),
-              _react2.default.createElement('a', { href: this.state.datosGeneral.github, className: 'iconSocial icon-github' })
+              iconFacebook,
+              iconTwitter,
+              iconGithub
             )
           ),
           _react2.default.createElement(
@@ -632,7 +640,6 @@ module.exports = (function (_React$Component) {
   _createClass(detallePortafolio, [{
     key: 'render',
     value: function render() {
-
       var cliente = this.props.datosDetalle.cliente ? _react2.default.createElement(
         'div',
         null,
@@ -815,7 +822,6 @@ module.exports = (function (_React$Component) {
   }, {
     key: 'handleVisualizarPortafolio',
     value: function handleVisualizarPortafolio(data, event) {
-      debugger;
       this.setState({ visualizarDetalle: true });
       this.setState({ datosDetalle: data });
     }

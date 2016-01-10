@@ -24,10 +24,6 @@ general.get('/general', function (req, res) {
 });
 
 general.post('/general', function (req, res) {
-  // let general = new GeneralSchema()
-  // let _id = req.body._id
-  console.log(req.body);
-
   _generalSchema2.default.findOneAndUpdate({}, {
     nombre: req.body.nombre,
     imagenPerfil: req.body.imagenPerfil,
@@ -35,10 +31,11 @@ general.post('/general', function (req, res) {
     facebook: req.body.facebook,
     twitter: req.body.twitter,
     github: req.body.github
-  }, function (err) {
+  }, { new: true, upsert: true }, function (err) {
     if (err) {
       return res.json(err);
     }
+
     res.json(general);
   });
 });

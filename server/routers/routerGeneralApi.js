@@ -13,10 +13,6 @@ general.get('/general', (req, res) => {
 })
 
 general.post('/general', (req, res) => {
-  // let general = new GeneralSchema()
-  // let _id = req.body._id
-  console.log(req.body)
-
   GeneralSchema.findOneAndUpdate({}, {
     nombre: req.body.nombre,
     imagenPerfil: req.body.imagenPerfil,
@@ -24,10 +20,11 @@ general.post('/general', (req, res) => {
     facebook: req.body.facebook,
     twitter: req.body.twitter,
     github: req.body.github
-  }, (err) => {
+  }, {new: true, upsert: true}, (err) => {
     if (err) {
       return res.json(err)
     }
+
     res.json(general)
   })
 })

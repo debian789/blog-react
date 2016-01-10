@@ -28,6 +28,10 @@ module.exports = class Layout extends React.Component {
     })
   }
   render () {
+    let urlImagen = this.state.datosGeneral.imagenPerfil ? this.state.datosGeneral.imagenPerfil : '/static/img/default_perfil.jpg'
+    let iconFacebook = this.state.datosGeneral.facebook ? <a href={this.state.datosGeneral.facebook} className='iconSocial icon-facebook2'></a> : ''
+    let iconTwitter = this.state.datosGeneral.twitter ? <a href={this.state.datosGeneral.twitter} className='iconSocial icon-twitter'></a> : ''
+    let iconGithub = this.state.datosGeneral.github ?  <a href={this.state.datosGeneral.github} className='iconSocial icon-github'></a> : ''
     return (
       <section>
         <div id='barraNavegacion' ><span id='mostrar'>ver</span> <span id="tituloBarra">{this.props.tituloBarra}</span> <span id="subBtn"></span></div>
@@ -41,15 +45,16 @@ module.exports = class Layout extends React.Component {
               <div className='cuadroImagen'>
 
                 <figure>
-                  <img src={this.state.datosGeneral.imagenPerfil}/>
+                  <img src={urlImagen}/>
                 </figure>
                 <div className='nombreProfesion'><span>{this.state.datosGeneral.nombre} </span></div>
               </div>
               <p>{this.state.datosGeneral.descripcion}</p>
               <hr className='lineaAutor'/>
-              <a href={this.state.datosGeneral.facebook} className='iconSocial icon-facebook2'></a>
-              <a href={this.state.datosGeneral.twitter} className='iconSocial icon-twitter'></a>
-              <a href={this.state.datosGeneral.github} className='iconSocial icon-github'></a>
+              {iconFacebook}
+              {iconTwitter}
+              {iconGithub}
+
             </article>
           </section>
           <section className = 'contenido'>

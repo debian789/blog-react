@@ -318,29 +318,45 @@ nav
     //border 1px solid white
     background-color white
     text-align center
-    background-image url(http://4.bp.blogspot.com/-hQX5tLSruRk/VnE2IgpFahI/AAAAAAAACBA/rtqTmug5IoY/s000/about-block-bg2.jpg)
+    background-image url(/static/img/fondo_perfil.jpg)
     figure
-      background white
-      border-radius 50%
-      width 7em
-      margin auto
-      //padding-bottom -3px
-
-      position relative
-      overflow hidden
-      border 8px solid white //#0E1B2D
-      //display inline-block
-      //border 1px solid red
-
-      img
-        width 100%
+       border-radius 50%
+       overflow hidden
+       padding 0
+       margin 1em auto 0 auto
+       width 7em
+       height 7em
+       border 8px solid white //#0E1B2D
+       img
+          margin 0
+          padding 0
+          width 100%
+          height 100%
+          top 0
+          bottom 0
+    //   background white
+    //   width 7em
+    //   margin auto
+    //   //padding-bottom -3px
+    //
+    //   position relative
+    //   overflow hidden
+    //   //display inline-block
+    //   border 1px solid red
+    //   padding 0
+    //
+    //   //img
+    //   //  width 100%
+    //   //  border-radius 50%
+    //   //  margin 0
+    //   //  padding 0
 
     .nombreProfesion
         //display inline-block
         //border 1px solid green
         vertical-align top
         //width 47%
-        margin 1em 0 0 0.3em
+        margin 0em 0 0 0.3em
         color white
         //font-size 1.1em
         span
@@ -356,6 +372,7 @@ nav
   p
     width 90%
     margin 1em auto
+    text-align center
   .iconSocial
     display inline-block
     border-radius 50%

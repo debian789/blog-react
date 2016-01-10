@@ -26,7 +26,6 @@ module.exports = class ListarPortafolio extends React.Component {
     })
   }
   handleVisualizarPortafolio (data, event) {
-    debugger
     this.setState({visualizarDetalle: true})
     this.setState({datosDetalle: data})
   }
