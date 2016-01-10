@@ -883,7 +883,9 @@ module.exports = (function (_React$Component) {
       fechaCreacion: '',
       urlWeb: '',
       urlRepositorio: '',
-      tecnologias: ''
+      tecnologias: '',
+      cliente: '',
+      tipo: ''
     };
     return _this;
   }
@@ -905,6 +907,8 @@ module.exports = (function (_React$Component) {
             _this2.setState({ urlWeb: res.body.urlWeb });
             _this2.setState({ urlRepositorio: res.body.urlRepositorio });
             _this2.setState({ tecnologias: res.body.tecnologias });
+            _this2.setState({ cliente: res.body.cliente });
+            _this2.setState({ tipo: res.body.tipo });
           }
         });
       }
@@ -922,7 +926,9 @@ module.exports = (function (_React$Component) {
         fechaCreacion: event.target.elements.fechaCreacion.value,
         urlWeb: event.target.elements.urlWeb.value.trim(),
         urlRepositorio: event.target.elements.urlRepositorio.value.trim(),
-        tecnologias: event.target.elements.tecnologias.value
+        tecnologias: event.target.elements.tecnologias.value,
+        cliente: event.target.elements.cliente.value,
+        tipo: event.target.elements.tipo.value
       }).end(function (err, res) {
         if (err) {
           console.log(err);
@@ -968,6 +974,16 @@ module.exports = (function (_React$Component) {
     key: 'handleTecnologias',
     value: function handleTecnologias(event) {
       this.setState({ tecnologias: event.target.value });
+    }
+  }, {
+    key: 'handleCliente',
+    value: function handleCliente(event) {
+      this.setState({ cliente: event.target.value });
+    }
+  }, {
+    key: 'handleTipo',
+    value: function handleTipo(event) {
+      this.setState({ tipo: event.target.value });
     }
   }, {
     key: 'render',
@@ -1056,6 +1072,26 @@ module.exports = (function (_React$Component) {
                 'Tecnologias implementadas'
               ),
               _react2.default.createElement('input', { onChange: this.handleTecnologias.bind(this), type: 'text', name: 'tecnologias', value: this.state.tecnologias })
+            ),
+            _react2.default.createElement(
+              'div',
+              null,
+              _react2.default.createElement(
+                'label',
+                null,
+                'Cliente '
+              ),
+              _react2.default.createElement('input', { onChange: this.handleCliente.bind(this), type: 'text', name: 'cliente', value: this.state.cliente })
+            ),
+            _react2.default.createElement(
+              'div',
+              null,
+              _react2.default.createElement(
+                'label',
+                null,
+                'Tipo de desarrollo '
+              ),
+              _react2.default.createElement('input', { onChange: this.handleTipo.bind(this), type: 'text', name: 'tipo', value: this.state.tipo })
             ),
             _react2.default.createElement('hr', null),
             _react2.default.createElement(

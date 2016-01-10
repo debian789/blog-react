@@ -17,7 +17,10 @@ var PortafolioSchema = new _mongoose2.default.Schema({
   fechaCreacion: { type: Date },
   urlWeb: { type: String },
   urlRepositorio: { type: String },
-  tecnologias: { type: Array }
+  tecnologias: { type: Array },
+  cliente: { type: String },
+  tipo: { type: String },
+  estado: { type: Boolean }
 });
 
 exports.default = _mongoose2.default.model('Portafolio', PortafolioSchema);

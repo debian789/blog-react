@@ -33,6 +33,7 @@ module.exports = class Layout extends React.Component {
         <div id='barraNavegacion' ><span id='mostrar'>ver</span> <span id="tituloBarra">{this.props.tituloBarra}</span> <span id="subBtn"></span></div>
         <nav id='sidePanel'>
           <div><Link to='/'>Blog</Link></div>
+          <div><Link to='/portafolio'>Portafolio</Link></div>
         </nav>
         <section id='mainPanel'>
           <section className='contenidoLateral'>

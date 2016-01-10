@@ -30,8 +30,11 @@ portafolio.post('/portafolio', function (req, res) {
   portafolio.descripcion = req.body.descripcion;
   portafolio.imagenPrincipal = req.body.imagenPrincipal;
   portafolio.fechaCreacion = req.body.fechaCreacion;
-  portafolio.url = req.body.url;
+  portafolio.urlWeb = req.body.urlWeb;
+  portafolio.urlRepositorio = req.body.urlRepositorio;
   portafolio.tecnologias = req.body.tecnologias;
+  portafolio.cliente = req.body.cliente;
+  portafolio.tipo = req.body.tipo;
 
   portafolio.save(function (err) {
     if (err) {
@@ -50,8 +53,11 @@ portafolio.post('/portafolio/:id', function (req, res) {
     descripcion: req.body.descripcion,
     imagenPrincipal: req.body.imagenPrincipal,
     fechaCreacion: req.body.fechaCreacion,
-    url: req.body.url,
-    tecnologias: req.body.tecnologias
+    urlWeb: req.body.urlWeb,
+    urlRepositorio: req.body.urlRepositorio,
+    tecnologias: req.body.tecnologias,
+    cliente: req.body.cliente,
+    tipo: req.body.tipo
   }, function (err, data) {
     if (err) {
       res.sendStatus(500);

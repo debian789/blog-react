@@ -7,7 +7,10 @@ let PortafolioSchema = new mongoose.Schema({
   fechaCreacion: {type: Date},
   urlWeb: {type: String},
   urlRepositorio: {type: String},
-  tecnologias: {type: Array}
+  tecnologias: {type: Array},
+  cliente: {type: String},
+  tipo: {type: String},
+  estado: {type: Boolean}
 })
 
 export default mongoose.model('Portafolio', PortafolioSchema)
