@@ -10,6 +10,28 @@ module.exports = class ListarPortafolio extends React.Component {
       listaPortafolio: []
     }
   }
+  handleEliminar (event) {
+    event.preventDefault()
+    let this2 = this
+    let id = event.target.id
+
+    var r = confirm('Realmente desea eliminarlo? ')
+    if (r === true) {
+      request
+      .post(event.target.href)
+      .end((err, data) => {
+        if (err) {
+          console.log(err)
+        } else {
+          this2.refs[id].remove()
+        }
+      })
+    } else {
+
+    }
+
+
+  }
   componentWillMount () {
     request
     .get('/api/portafolio')
@@ -28,16 +50,15 @@ module.exports = class ListarPortafolio extends React.Component {
           {
             this.state.listaPortafolio.map((data) => {
               return (
-                <div key={data._id}>
+                <div key={data._id} ref={data._id} >
                   <figure>
                     <img src={data.imagenPrincipal} />
                   </figure>
-                  <div><Link to={`/portafolio/${data._id}`}>Modificar</Link> </div>
+                  <div><Link to={`/portafolio/${data._id}`}>Modificar</Link> <a id={data._id} onClick={this.handleEliminar.bind(this)} href={`/api/portafolio/eliminar/${data._id}`}>Eliminar</a></div>
                 </div>
               )
             })
           }
-
         </section>
       </Layout>
     )

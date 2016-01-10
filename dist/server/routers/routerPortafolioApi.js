@@ -74,7 +74,7 @@ portafolio.get('/portafolio/:id', function (req, res) {
 });
 
 portafolio.post('/portafolio/eliminar/:id', function (req, res) {
-  var id = req.param.id;
+  var id = req.params.id;
 
   _portafolioSchema2.default.findOneAndRemove({ '_id': id }, function (err, datos) {
     if (err) {

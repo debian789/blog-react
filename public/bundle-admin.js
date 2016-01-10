@@ -1114,6 +1114,24 @@ module.exports = (function (_React$Component) {
   }
 
   _createClass(ListarPortafolio, [{
+    key: 'handleEliminar',
+    value: function handleEliminar(event) {
+      event.preventDefault();
+      var this2 = this;
+      var id = event.target.id;
+
+      var r = confirm('Realmente desea eliminarlo? ');
+      if (r === true) {
+        _superagent2.default.post(event.target.href).end(function (err, data) {
+          if (err) {
+            console.log(err);
+          } else {
+            this2.refs[id].remove();
+          }
+        });
+      } else {}
+    }
+  }, {
     key: 'componentWillMount',
     value: function componentWillMount() {
       var _this2 = this;
@@ -1129,6 +1147,8 @@ module.exports = (function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var _this3 = this;
+
       return _react2.default.createElement(
         _Layout2.default,
         null,
@@ -1138,7 +1158,7 @@ module.exports = (function (_React$Component) {
           this.state.listaPortafolio.map(function (data) {
             return _react2.default.createElement(
               'div',
-              { key: data._id },
+              { key: data._id, ref: data._id },
               _react2.default.createElement(
                 'figure',
                 null,
@@ -1152,7 +1172,12 @@ module.exports = (function (_React$Component) {
                   { to: '/portafolio/' + data._id },
                   'Modificar'
                 ),
-                ' '
+                ' ',
+                _react2.default.createElement(
+                  'a',
+                  { id: data._id, onClick: _this3.handleEliminar.bind(_this3), href: '/api/portafolio/eliminar/' + data._id },
+                  'Eliminar'
+                )
               )
             );
           })

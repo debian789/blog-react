@@ -63,7 +63,7 @@ portafolio.get('/portafolio/:id', (req, res) => {
 })
 
 portafolio.post('/portafolio/eliminar/:id', (req, res) => {
-  let id = req.param.id
+  let id = req.params.id
 
   PortafolioSchema.findOneAndRemove({'_id': id}, (err, datos) => {
     if (err) {
