@@ -35,7 +35,7 @@ module.exports = class Layout extends React.Component {
     return (
       <section>
         <div id='barraNavegacion' >
-          <span id='mostrar'>ver</span>
+          <span id='mostrar' className='icon-menu'></span>
           <span id='tituloBarra'>{this.props.tituloBarra}</span> <span id='subBtn'></span>
         </div>
         <nav id='sidePanel'>

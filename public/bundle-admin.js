@@ -38,11 +38,7 @@ module.exports = (function (_React$Component) {
         _react2.default.createElement(
           'div',
           { id: 'barraNavegacion' },
-          _react2.default.createElement(
-            'span',
-            { id: 'mostrar' },
-            'ver'
-          ),
+          _react2.default.createElement('span', { id: 'mostrar', className: 'icon-menu' }),
           ' ',
           _react2.default.createElement(
             'span',

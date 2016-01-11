@@ -148,18 +148,18 @@ p
       color #888
       font-size 2.5em
   p
-    width 50%
+    width 90%
     margin 1.5em auto 2em auto
     text-align justify
   figure
     //border 2px solid red
-    width 50% !important
+    width 80% !important
     margin auto
     img
       //border 1px solid blue
       width 80% !important
   .caracteristicasPortafolio
-    width 50%
+    width 80%
     margin auto
     //border 1px solid red
 
@@ -167,6 +167,7 @@ p
       display inline-block
       padding 0.5em
       color #888
+      width 90%
       //border 1px solid red
       strong
         color #208EC8
@@ -184,11 +185,13 @@ p
   -webkit-transform: translate(0, 0);
   transform: translate(0, 0);
   text-align center
+  height 2em
   margin-bottom 0.5em
   #mostrar
     flex-grow 1
     //background #888
     padding 1%
+    font-size 1.5em
     color white
   #tituloBarra
     flex-grow 4
