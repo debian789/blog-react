@@ -2,7 +2,13 @@ import {Router} from 'express'
 import GeneralSchema from 'server/models/generalSchema'
 
 let general = Router()
-
+function validarAutenticacion (req, res, next) {
+  if (req.isAuthenticated()) {
+    next()
+  } else {
+    res.redirect('/')
+  }
+}
 general.get('/general', (req, res) => {
   GeneralSchema.findOne({}, (err, data) => {
     if (err) {
@@ -12,7 +18,7 @@ general.get('/general', (req, res) => {
   })
 })
 
-general.post('/general', (req, res) => {
+general.post('/general', validarAutenticacion, (req, res) => {
   GeneralSchema.findOneAndUpdate({}, {
     nombre: req.body.nombre,
     imagenPerfil: req.body.imagenPerfil,
