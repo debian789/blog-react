@@ -31,10 +31,13 @@ module.exports = class Layout extends React.Component {
     let urlImagen = this.state.datosGeneral.imagenPerfil ? this.state.datosGeneral.imagenPerfil : '/static/img/default_perfil.jpg'
     let iconFacebook = this.state.datosGeneral.facebook ? <a href={this.state.datosGeneral.facebook} className='iconSocial icon-facebook2'></a> : ''
     let iconTwitter = this.state.datosGeneral.twitter ? <a href={this.state.datosGeneral.twitter} className='iconSocial icon-twitter'></a> : ''
-    let iconGithub = this.state.datosGeneral.github ?  <a href={this.state.datosGeneral.github} className='iconSocial icon-github'></a> : ''
+    let iconGithub = this.state.datosGeneral.github ? <a href={this.state.datosGeneral.github} className='iconSocial icon-github'></a> : ''
     return (
       <section>
-        <div id='barraNavegacion' ><span id='mostrar'>ver</span> <span id="tituloBarra">{this.props.tituloBarra}</span> <span id="subBtn"></span></div>
+        <div id='barraNavegacion' >
+          <span id='mostrar'>ver</span>
+          <span id='tituloBarra'>{this.props.tituloBarra}</span> <span id='subBtn'></span>
+        </div>
         <nav id='sidePanel'>
           <div><Link to='/' className='icon-news'> Blog</Link></div>
           <div><Link to='/portafolio' className='icon-stack'> Portafolio</Link></div>
