@@ -2,8 +2,6 @@ import React from 'react'
 import {Link} from 'react-router'
 
 module.exports = class Layout extends React.Component {
-    //      <div><Link to='/portafolio'><span className='icon-libreoffice'></span> Portafolio - Crear</Link></div>
-    //      <div><Link to='/crear'><span className='icon-libreoffice'></span> Crear</Link></div>
   render () {
     return (
       <section >

@@ -1,7 +1,7 @@
 import React from 'react'
 import marked from 'marked'
 import request from 'superagent'
-import Layout from 'cliente/components/privado/Layout'
+import Layout from 'cliente/components/privado/layout'
 
 module.exports = class FormBlog extends React.Component {
   constructor (props) {

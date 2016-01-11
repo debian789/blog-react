@@ -1,6 +1,6 @@
 import React from 'react'
 import request from 'superagent'
-import Layout from 'cliente/components/privado/Layout'
+import Layout from 'cliente/components/privado/layout'
 import ItemBlog from 'cliente/components/privado/blog/Item-blog'
 import {Link} from 'react-router'
 

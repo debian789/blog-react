@@ -1,5 +1,5 @@
 import React from 'react'
-import Layout from 'cliente/components/publico/Layout'
+import Layout from 'cliente/components/publico/layout'
 import request from 'superagent'
 import {Link} from 'react-router'
 import DetallePortafolio from 'cliente/components/publico/portafolio/detallePortafolio'
