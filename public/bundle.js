@@ -55,13 +55,13 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _layout = require('cliente/components/publico/layout');
-
-var _layout2 = _interopRequireDefault(_layout);
-
 var _superagent = require('superagent');
 
 var _superagent2 = _interopRequireDefault(_superagent);
+
+var _layout = require('cliente/components/publico/layout');
+
+var _layout2 = _interopRequireDefault(_layout);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -599,15 +599,13 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _layout = require('cliente/components/publico/layout');
-
-var _layout2 = _interopRequireDefault(_layout);
-
 var _superagent = require('superagent');
 
 var _superagent2 = _interopRequireDefault(_superagent);
 
-var _reactRouter = require('react-router');
+var _layout = require('cliente/components/publico/layout');
+
+var _layout2 = _interopRequireDefault(_layout);
 
 var _detallePortafolio = require('cliente/components/publico/portafolio/detallePortafolio');
 
@@ -693,7 +691,7 @@ module.exports = function (_React$Component) {
   return ListarPortafolio;
 }(_react2.default.Component);
 
-},{"cliente/components/publico/layout":5,"cliente/components/publico/portafolio/detallePortafolio":6,"react":215,"react-router":53,"superagent":216}],8:[function(require,module,exports){
+},{"cliente/components/publico/layout":5,"cliente/components/publico/portafolio/detallePortafolio":6,"react":215,"superagent":216}],8:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');
@@ -708,9 +706,9 @@ var _home = require('cliente/components/publico/home/home');
 
 var _home2 = _interopRequireDefault(_home);
 
-var _DetalleBlog = require('cliente/components/publico/home/DetalleBlog');
+var _detalleBlog = require('cliente/components/publico/home/detalleBlog');
 
-var _DetalleBlog2 = _interopRequireDefault(_DetalleBlog);
+var _detalleBlog2 = _interopRequireDefault(_detalleBlog);
 
 var _about = require('cliente/components/publico/about');
 
@@ -729,12 +727,12 @@ window.React = _react2.default;
 	_reactRouter.Router,
 	null,
 	_react2.default.createElement(_reactRouter.Route, { component: _home2.default, path: '/' }),
-	_react2.default.createElement(_reactRouter.Route, { component: _DetalleBlog2.default, path: '/blog/:id' }),
+	_react2.default.createElement(_reactRouter.Route, { component: _detalleBlog2.default, path: '/blog/:id' }),
 	_react2.default.createElement(_reactRouter.Route, { component: _listarPortafolio2.default, path: '/portafolio' }),
 	_react2.default.createElement(_reactRouter.Route, { component: _about2.default, path: '/about' })
 ), document.getElementById('container'));
 
-},{"cliente/components/publico/about":1,"cliente/components/publico/home/DetalleBlog":2,"cliente/components/publico/home/home":3,"cliente/components/publico/portafolio/listarPortafolio":7,"react":215,"react-dom":33,"react-router":53}],9:[function(require,module,exports){
+},{"cliente/components/publico/about":1,"cliente/components/publico/home/detalleBlog":2,"cliente/components/publico/home/home":3,"cliente/components/publico/portafolio/listarPortafolio":7,"react":215,"react-dom":33,"react-router":53}],9:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};

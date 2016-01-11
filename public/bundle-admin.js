@@ -147,13 +147,13 @@ var _marked = require('marked');
 
 var _marked2 = _interopRequireDefault(_marked);
 
-var _layout = require('cliente/components/privado/layout');
-
-var _layout2 = _interopRequireDefault(_layout);
-
 var _toMarkdown = require('to-markdown');
 
 var _toMarkdown2 = _interopRequireDefault(_toMarkdown);
+
+var _layout = require('cliente/components/privado/layout');
+
+var _layout2 = _interopRequireDefault(_layout);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -361,15 +361,15 @@ var _superagent = require('superagent');
 
 var _superagent2 = _interopRequireDefault(_superagent);
 
+var _reactRouter = require('react-router');
+
 var _layout = require('cliente/components/privado/layout');
 
 var _layout2 = _interopRequireDefault(_layout);
 
-var _ItemBlog = require('cliente/components/privado/blog/Item-blog');
+var _itemBlog = require('cliente/components/privado/blog/itemBlog');
 
-var _ItemBlog2 = _interopRequireDefault(_ItemBlog);
-
-var _reactRouter = require('react-router');
+var _itemBlog2 = _interopRequireDefault(_itemBlog);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -500,7 +500,7 @@ module.exports = function (_React$Component2) {
           'section',
           { className: 'itemListIzq' },
           this.state.datosBlog.map(function (dato) {
-            return _react2.default.createElement(_ItemBlog2.default, { key: dato._id, titulo: dato.titulo, eventoClick: _this4.visualizarItemBlog.bind(_this4, dato) });
+            return _react2.default.createElement(_itemBlog2.default, { key: dato._id, titulo: dato.titulo, eventoClick: _this4.visualizarItemBlog.bind(_this4, dato) });
           })
         ),
         _react2.default.createElement(
@@ -515,7 +515,7 @@ module.exports = function (_React$Component2) {
   return Home;
 }(_react2.default.Component);
 
-},{"cliente/components/privado/blog/Item-blog":3,"cliente/components/privado/layout":6,"react":218,"react-router":56,"superagent":219}],5:[function(require,module,exports){
+},{"cliente/components/privado/blog/itemBlog":3,"cliente/components/privado/layout":6,"react":218,"react-router":56,"superagent":219}],5:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -524,13 +524,13 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _layout = require('cliente/components/privado/layout');
-
-var _layout2 = _interopRequireDefault(_layout);
-
 var _superagent = require('superagent');
 
 var _superagent2 = _interopRequireDefault(_superagent);
+
+var _layout = require('cliente/components/privado/layout');
+
+var _layout2 = _interopRequireDefault(_layout);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -856,13 +856,13 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _layout = require('cliente/components/privado/layout');
-
-var _layout2 = _interopRequireDefault(_layout);
-
 var _superagent = require('superagent');
 
 var _superagent2 = _interopRequireDefault(_superagent);
+
+var _layout = require('cliente/components/privado/layout');
+
+var _layout2 = _interopRequireDefault(_layout);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1121,15 +1121,15 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _layout = require('cliente/components/privado/layout');
-
-var _layout2 = _interopRequireDefault(_layout);
-
 var _superagent = require('superagent');
 
 var _superagent2 = _interopRequireDefault(_superagent);
 
 var _reactRouter = require('react-router');
+
+var _layout = require('cliente/components/privado/layout');
+
+var _layout2 = _interopRequireDefault(_layout);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1255,17 +1255,17 @@ var _reactDom = require('react-dom');
 
 var _reactRouter = require('react-router');
 
-var _ListBlog = require('cliente/components/privado/blog/List-blog');
+var _listBlog = require('cliente/components/privado/blog/listBlog');
 
-var _ListBlog2 = _interopRequireDefault(_ListBlog);
+var _listBlog2 = _interopRequireDefault(_listBlog);
 
-var _FormBlog = require('cliente/components/privado/blog/Form-blog');
+var _formBlog = require('cliente/components/privado/blog/formBlog');
 
-var _FormBlog2 = _interopRequireDefault(_FormBlog);
+var _formBlog2 = _interopRequireDefault(_formBlog);
 
-var _FormEditar = require('cliente/components/privado/blog/Form-editar');
+var _formEditar = require('cliente/components/privado/blog/formEditar');
 
-var _FormEditar2 = _interopRequireDefault(_FormEditar);
+var _formEditar2 = _interopRequireDefault(_formEditar);
 
 var _formGeneral = require('cliente/components/privado/general/formGeneral');
 
@@ -1286,17 +1286,17 @@ window.React = _react2.default;
 (0, _reactDom.render)(_react2.default.createElement(
   _reactRouter.Router,
   null,
-  _react2.default.createElement(_reactRouter.Route, { component: _ListBlog2.default, path: '/' }),
-  _react2.default.createElement(_reactRouter.Route, { component: _ListBlog2.default, path: '/blog' }),
-  _react2.default.createElement(_reactRouter.Route, { component: _FormBlog2.default, path: '/crear' }),
-  _react2.default.createElement(_reactRouter.Route, { component: _FormEditar2.default, path: '/editar/:id' }),
+  _react2.default.createElement(_reactRouter.Route, { component: _listBlog2.default, path: '/' }),
+  _react2.default.createElement(_reactRouter.Route, { component: _listBlog2.default, path: '/blog' }),
+  _react2.default.createElement(_reactRouter.Route, { component: _formBlog2.default, path: '/crear' }),
+  _react2.default.createElement(_reactRouter.Route, { component: _formEditar2.default, path: '/editar/:id' }),
   _react2.default.createElement(_reactRouter.Route, { component: _formGeneral2.default, path: '/general' }),
   _react2.default.createElement(_reactRouter.Route, { component: _formPortafolio2.default, path: '/portafolio' }),
   _react2.default.createElement(_reactRouter.Route, { component: _formPortafolio2.default, path: '/portafolio/:id' }),
   _react2.default.createElement(_reactRouter.Route, { component: _listarPortafolio2.default, path: '/portafolio-listar' })
 ), document.getElementById('container'));
 
-},{"cliente/components/privado/blog/Form-blog":1,"cliente/components/privado/blog/Form-editar":2,"cliente/components/privado/blog/List-blog":4,"cliente/components/privado/general/formGeneral":5,"cliente/components/privado/portafolio/formPortafolio":7,"cliente/components/privado/portafolio/listarPortafolio":8,"react":218,"react-dom":36,"react-router":56}],10:[function(require,module,exports){
+},{"cliente/components/privado/blog/formBlog":1,"cliente/components/privado/blog/formEditar":2,"cliente/components/privado/blog/listBlog":4,"cliente/components/privado/general/formGeneral":5,"cliente/components/privado/portafolio/formPortafolio":7,"cliente/components/privado/portafolio/listarPortafolio":8,"react":218,"react-dom":36,"react-router":56}],10:[function(require,module,exports){
 
 },{}],11:[function(require,module,exports){
 // shim for using process in browser
