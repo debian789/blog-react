@@ -1,8 +1,8 @@
 import React from 'react'
 import request from 'superagent'
-import Layout from 'cliente/components/privado/layout'
-import ItemBlog from 'cliente/components/privado/blog/item-blog'
 import {Link} from 'react-router'
+import Layout from 'cliente/components/privado/layout'
+import ItemBlog from 'cliente/components/privado/blog/itemBlog'
 
 class DescripcionBlog extends React.Component {
   constructor (props) {

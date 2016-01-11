@@ -1,7 +1,6 @@
 import React from 'react'
-import Layout from 'cliente/components/publico/layout'
 import request from 'superagent'
-import {Link} from 'react-router'
+import Layout from 'cliente/components/publico/layout'
 import DetallePortafolio from 'cliente/components/publico/portafolio/detallePortafolio'
 
 module.exports = class ListarPortafolio extends React.Component {

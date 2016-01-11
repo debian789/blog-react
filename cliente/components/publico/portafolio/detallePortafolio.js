@@ -1,4 +1,5 @@
 import React from 'react'
+
 module.exports = class detallePortafolio extends React.Component {
   render () {
     let cliente = this.props.datosDetalle.cliente ? <div><strong>Cliente:</strong> {this.props.datosDetalle.cliente}</div> : ''
@@ -7,8 +8,6 @@ module.exports = class detallePortafolio extends React.Component {
     let tipo = this.props.datosDetalle.tipo ? <div><strong>Tipo:</strong> {this.props.datosDetalle.tipo}</div> : ''
     let urlRepo = this.props.datosDetalle.urlRepositorio ? <div><strong>Url Repositorio:</strong><a href={this.props.datosDetalle.urlRepositorio} target='_black'> {this.props.datosDetalle.urlRepositorio}</a></div> : ''
     let tecnologias = this.props.datosDetalle.tecnologias ? <div><strong>Tecnologias implementadas:</strong> {this.props.datosDetalle.tecnologias}</div> : ''
-
-
 
     return (
       <section className='ventanaCompleta'>

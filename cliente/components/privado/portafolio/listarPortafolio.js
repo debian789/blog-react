@@ -1,7 +1,7 @@
 import React from 'react'
-import Layout from 'cliente/components/privado/layout'
 import request from 'superagent'
 import {Link} from 'react-router'
+import Layout from 'cliente/components/privado/layout'
 
 module.exports = class ListarPortafolio extends React.Component {
   constructor (props) {

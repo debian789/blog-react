@@ -1,8 +1,8 @@
 import React from 'react'
 import request from 'superagent'
 import marked from 'marked'
-import Layout from 'cliente/components/privado/layout'
 import toMarkdown from 'to-markdown'
+import Layout from 'cliente/components/privado/layout'
 
 module.exports = class FormEditar extends React.Component {
   constructor (props) {

@@ -1,6 +1,6 @@
 import React from 'react'
-import Layout from 'cliente/components/publico/layout'
 import request from 'superagent'
+import Layout from 'cliente/components/publico/layout'
 
 module.exports = class DetalleBlog extends React.Component {
   constructor (props) {

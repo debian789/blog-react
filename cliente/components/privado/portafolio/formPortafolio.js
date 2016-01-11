@@ -1,6 +1,6 @@
 import React from 'react'
-import Layout from 'cliente/components/privado/layout'
 import request from 'superagent'
+import Layout from 'cliente/components/privado/layout'
 
 module.exports = class FormPortafoli extends React.Component {
 
