@@ -7,133 +7,6 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouter = require('react-router');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-module.exports = function (_React$Component) {
-  _inherits(Layout, _React$Component);
-
-  function Layout() {
-    _classCallCheck(this, Layout);
-
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Layout).apply(this, arguments));
-  }
-
-  _createClass(Layout, [{
-    key: 'render',
-
-    //      <div><Link to='/portafolio'><span className='icon-libreoffice'></span> Portafolio - Crear</Link></div>
-    //      <div><Link to='/crear'><span className='icon-libreoffice'></span> Crear</Link></div>
-    value: function render() {
-      return _react2.default.createElement(
-        'section',
-        null,
-        _react2.default.createElement(
-          'div',
-          { id: 'barraNavegacion' },
-          _react2.default.createElement('span', { id: 'mostrar', className: 'icon-menu' }),
-          ' ',
-          _react2.default.createElement(
-            'span',
-            { id: 'tituloBarra' },
-            this.props.tituloBarra
-          ),
-          ' ',
-          _react2.default.createElement('span', { id: 'subBtn' })
-        ),
-        _react2.default.createElement(
-          'nav',
-          { id: 'sidePanel' },
-          _react2.default.createElement(
-            'div',
-            null,
-            _react2.default.createElement(
-              'a',
-              { href: '/' },
-              _react2.default.createElement('span', { className: 'icon-news' }),
-              ' Blog '
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            null,
-            _react2.default.createElement(
-              _reactRouter.Link,
-              { to: '/' },
-              _react2.default.createElement('span', { className: 'icon-list2' }),
-              ' Litar blog'
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            null,
-            _react2.default.createElement(
-              _reactRouter.Link,
-              { to: '/portafolio-listar' },
-              _react2.default.createElement('span', { className: 'icon-stack' }),
-              ' Portafolio'
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            null,
-            _react2.default.createElement(
-              _reactRouter.Link,
-              { to: '/general' },
-              _react2.default.createElement('span', { className: 'icon-cog' })
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            null,
-            _react2.default.createElement(
-              'a',
-              { href: '/logout' },
-              _react2.default.createElement('span', { className: 'icon-exit' }),
-              ' Salir'
-            )
-          )
-        ),
-        _react2.default.createElement(
-          'section',
-          { id: 'mainPanel' },
-          _react2.default.createElement(
-            'section',
-            { className: 'contenedorPrincipal' },
-            ' ',
-            this.props.children
-          ),
-          _react2.default.createElement(
-            'footer',
-            null,
-            ' ',
-            this.props.componenteFooter,
-            ' '
-          )
-        )
-      );
-    }
-  }]);
-
-  return Layout;
-}(_react2.default.Component);
-
-},{"react":218,"react-router":56}],2:[function(require,module,exports){
-'use strict';
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
 var _marked = require('marked');
 
 var _marked2 = _interopRequireDefault(_marked);
@@ -142,9 +15,9 @@ var _superagent = require('superagent');
 
 var _superagent2 = _interopRequireDefault(_superagent);
 
-var _Layout = require('cliente/components/privado/Layout');
+var _layout = require('cliente/components/privado/layout');
 
-var _Layout2 = _interopRequireDefault(_Layout);
+var _layout2 = _interopRequireDefault(_layout);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -223,7 +96,7 @@ module.exports = function (_React$Component) {
       );
 
       return _react2.default.createElement(
-        _Layout2.default,
+        _layout2.default,
         { componenteFooter: contenidoFooter },
         _react2.default.createElement(
           'section',
@@ -257,7 +130,7 @@ module.exports = function (_React$Component) {
   return FormBlog;
 }(_react2.default.Component);
 
-},{"cliente/components/privado/Layout":1,"marked":35,"react":218,"superagent":219}],3:[function(require,module,exports){
+},{"cliente/components/privado/layout":6,"marked":35,"react":218,"superagent":219}],2:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -274,9 +147,9 @@ var _marked = require('marked');
 
 var _marked2 = _interopRequireDefault(_marked);
 
-var _Layout = require('cliente/components/privado/Layout');
+var _layout = require('cliente/components/privado/layout');
 
-var _Layout2 = _interopRequireDefault(_Layout);
+var _layout2 = _interopRequireDefault(_layout);
 
 var _toMarkdown = require('to-markdown');
 
@@ -392,7 +265,7 @@ module.exports = function (_React$Component) {
       }
 
       return _react2.default.createElement(
-        _Layout2.default,
+        _layout2.default,
         { componenteFooter: contenidoFooter },
         _react2.default.createElement(
           'section',
@@ -428,7 +301,7 @@ module.exports = function (_React$Component) {
   return FormEditar;
 }(_react2.default.Component);
 
-},{"cliente/components/privado/Layout":1,"marked":35,"react":218,"superagent":219,"to-markdown":222}],4:[function(require,module,exports){
+},{"cliente/components/privado/layout":6,"marked":35,"react":218,"superagent":219,"to-markdown":222}],3:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -475,7 +348,7 @@ module.exports = function (_React$Component) {
   return ItemBlog;
 }(_react2.default.Component);
 
-},{"react":218}],5:[function(require,module,exports){
+},{"react":218}],4:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -488,9 +361,9 @@ var _superagent = require('superagent');
 
 var _superagent2 = _interopRequireDefault(_superagent);
 
-var _Layout = require('cliente/components/privado/Layout');
+var _layout = require('cliente/components/privado/layout');
 
-var _Layout2 = _interopRequireDefault(_Layout);
+var _layout2 = _interopRequireDefault(_layout);
 
 var _ItemBlog = require('cliente/components/privado/blog/Item-blog');
 
@@ -621,7 +494,7 @@ module.exports = function (_React$Component2) {
         );
       }
       return _react2.default.createElement(
-        _Layout2.default,
+        _layout2.default,
         null,
         _react2.default.createElement(
           'section',
@@ -642,7 +515,7 @@ module.exports = function (_React$Component2) {
   return Home;
 }(_react2.default.Component);
 
-},{"cliente/components/privado/Layout":1,"cliente/components/privado/blog/Item-blog":4,"react":218,"react-router":56,"superagent":219}],6:[function(require,module,exports){
+},{"cliente/components/privado/blog/Item-blog":3,"cliente/components/privado/layout":6,"react":218,"react-router":56,"superagent":219}],5:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -651,9 +524,9 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Layout = require('cliente/components/privado/Layout');
+var _layout = require('cliente/components/privado/layout');
 
-var _Layout2 = _interopRequireDefault(_Layout);
+var _layout2 = _interopRequireDefault(_layout);
 
 var _superagent = require('superagent');
 
@@ -761,7 +634,7 @@ module.exports = function (_React$Component) {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        _Layout2.default,
+        _layout2.default,
         null,
         _react2.default.createElement(
           'section',
@@ -850,7 +723,7 @@ module.exports = function (_React$Component) {
   return FormGeneral;
 }(_react2.default.Component);
 
-},{"cliente/components/privado/Layout":1,"react":218,"superagent":219}],7:[function(require,module,exports){
+},{"cliente/components/privado/layout":6,"react":218,"superagent":219}],6:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -859,9 +732,133 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Layout = require('cliente/components/privado/Layout');
+var _reactRouter = require('react-router');
 
-var _Layout2 = _interopRequireDefault(_Layout);
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+module.exports = function (_React$Component) {
+  _inherits(Layout, _React$Component);
+
+  function Layout() {
+    _classCallCheck(this, Layout);
+
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(Layout).apply(this, arguments));
+  }
+
+  _createClass(Layout, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'section',
+        null,
+        _react2.default.createElement(
+          'div',
+          { id: 'barraNavegacion' },
+          _react2.default.createElement('span', { id: 'mostrar', className: 'icon-menu' }),
+          ' ',
+          _react2.default.createElement(
+            'span',
+            { id: 'tituloBarra' },
+            this.props.tituloBarra
+          ),
+          ' ',
+          _react2.default.createElement('span', { id: 'subBtn' })
+        ),
+        _react2.default.createElement(
+          'nav',
+          { id: 'sidePanel' },
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              'a',
+              { href: '/' },
+              _react2.default.createElement('span', { className: 'icon-news' }),
+              ' Blog '
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              _reactRouter.Link,
+              { to: '/' },
+              _react2.default.createElement('span', { className: 'icon-list2' }),
+              ' Litar blog'
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              _reactRouter.Link,
+              { to: '/portafolio-listar' },
+              _react2.default.createElement('span', { className: 'icon-stack' }),
+              ' Portafolio'
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              _reactRouter.Link,
+              { to: '/general' },
+              _react2.default.createElement('span', { className: 'icon-cog' })
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              'a',
+              { href: '/logout' },
+              _react2.default.createElement('span', { className: 'icon-exit' }),
+              ' Salir'
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'section',
+          { id: 'mainPanel' },
+          _react2.default.createElement(
+            'section',
+            { className: 'contenedorPrincipal' },
+            ' ',
+            this.props.children
+          ),
+          _react2.default.createElement(
+            'footer',
+            null,
+            ' ',
+            this.props.componenteFooter,
+            ' '
+          )
+        )
+      );
+    }
+  }]);
+
+  return Layout;
+}(_react2.default.Component);
+
+},{"react":218,"react-router":56}],7:[function(require,module,exports){
+'use strict';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _layout = require('cliente/components/privado/layout');
+
+var _layout2 = _interopRequireDefault(_layout);
 
 var _superagent = require('superagent');
 
@@ -996,7 +993,7 @@ module.exports = function (_React$Component) {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        _Layout2.default,
+        _layout2.default,
         null,
         _react2.default.createElement(
           'section',
@@ -1115,7 +1112,7 @@ module.exports = function (_React$Component) {
   return FormPortafoli;
 }(_react2.default.Component);
 
-},{"cliente/components/privado/Layout":1,"react":218,"superagent":219}],8:[function(require,module,exports){
+},{"cliente/components/privado/layout":6,"react":218,"superagent":219}],8:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -1124,9 +1121,9 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Layout = require('cliente/components/privado/Layout');
+var _layout = require('cliente/components/privado/layout');
 
-var _Layout2 = _interopRequireDefault(_Layout);
+var _layout2 = _interopRequireDefault(_layout);
 
 var _superagent = require('superagent');
 
@@ -1193,7 +1190,7 @@ module.exports = function (_React$Component) {
       var _this3 = this;
 
       return _react2.default.createElement(
-        _Layout2.default,
+        _layout2.default,
         null,
         _react2.default.createElement(
           'section',
@@ -1247,7 +1244,7 @@ module.exports = function (_React$Component) {
   return ListarPortafolio;
 }(_react2.default.Component);
 
-},{"cliente/components/privado/Layout":1,"react":218,"react-router":56,"superagent":219}],9:[function(require,module,exports){
+},{"cliente/components/privado/layout":6,"react":218,"react-router":56,"superagent":219}],9:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');
@@ -1299,7 +1296,7 @@ window.React = _react2.default;
   _react2.default.createElement(_reactRouter.Route, { component: _listarPortafolio2.default, path: '/portafolio-listar' })
 ), document.getElementById('container'));
 
-},{"cliente/components/privado/blog/Form-blog":2,"cliente/components/privado/blog/Form-editar":3,"cliente/components/privado/blog/List-blog":5,"cliente/components/privado/general/formGeneral":6,"cliente/components/privado/portafolio/formPortafolio":7,"cliente/components/privado/portafolio/listarPortafolio":8,"react":218,"react-dom":36,"react-router":56}],10:[function(require,module,exports){
+},{"cliente/components/privado/blog/Form-blog":1,"cliente/components/privado/blog/Form-editar":2,"cliente/components/privado/blog/List-blog":4,"cliente/components/privado/general/formGeneral":5,"cliente/components/privado/portafolio/formPortafolio":7,"cliente/components/privado/portafolio/listarPortafolio":8,"react":218,"react-dom":36,"react-router":56}],10:[function(require,module,exports){
 
 },{}],11:[function(require,module,exports){
 // shim for using process in browser

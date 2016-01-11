@@ -1,7 +1,7 @@
 import React from 'react'
 import request from 'superagent'
 import Layout from 'cliente/components/privado/layout'
-import ItemBlog from 'cliente/components/privado/blog/Item-blog'
+import ItemBlog from 'cliente/components/privado/blog/item-blog'
 import {Link} from 'react-router'
 
 class DescripcionBlog extends React.Component {

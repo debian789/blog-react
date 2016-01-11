@@ -497,15 +497,17 @@ nav
   //border 1px solid red
   width 80%
   margin 4em auto auto auto
-  text-align center
+  //text-align center
   .itemPortafolio
     display inline-block
     vertical-align top
     //border 1px solid blue
-    width 30%
-    margin 1%
+    width 99%
+    margin 1% 1% 1em 1%
+    text-align center
     figure
-
+      border 1px solid #ccc
+      margin-bottom 1em
       img
         width 100%
         max-height 15em
@@ -513,14 +515,19 @@ nav
     div
       //border 1px solid red
       width 100%
+      position relative
       a
+        width 90%
         //border 1px solid green
         display inline-block
-        padding 0.4em 1em 0.4em 1em
+        padding-top 0.6em
+        padding-bottom 0.6em
+        //padding 20px auto 1em auto
         border-radius 5px
         background #65ACE7
         color white
         text-decoration none
+        margin-bottom 0.5em
 .inicioSession
   background-color #282B2D
   text-align center
