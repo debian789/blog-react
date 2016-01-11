@@ -131,6 +131,7 @@ p
   transition: transform 0.3s ease-out;
   transition: opacity 2s linear;
   padding-bottom 3em
+  padding-top 1.5em
   h1
     //border 1px solid red
     width 70%
@@ -145,7 +146,7 @@ p
     span
       cursor pointer
       color #888
-      font-size 4em
+      font-size 2.5em
   p
     width 50%
     margin 1.5em auto 2em auto
@@ -421,7 +422,7 @@ nav
       text-decoration none
       display inline-block
       width 100%
-      color #888
+      color #2C89C4
 .itemListDer
   width 98%
   margin-left 1%

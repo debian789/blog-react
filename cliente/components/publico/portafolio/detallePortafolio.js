@@ -12,7 +12,7 @@ module.exports = class detallePortafolio extends React.Component {
 
     return (
       <section className='ventanaCompleta'>
-        <div className='cerrarVentana'><span onClick={this.props.eventoCerrar}>X</span></div>
+        <div className='cerrarVentana'><span onClick={this.props.eventoCerrar} className='icon-cross'></span></div>
         <h1>{this.props.datosDetalle.titulo}</h1>
         <figure>
           <img src={this.props.datosDetalle.imagenPrincipal}/>

@@ -594,6 +594,8 @@ module.exports = (function (_React$Component2) {
           _react2.default.createElement('img', { src: this.state.datos.imagenPrincipal })
         );
       }
+      // <span>{ this.state.datos.fechaCreacion }</span>
+      // <span> by { this.state.datos.creador }</span>
       if (this.state.datos) {
         detalleBlogDatos = _react2.default.createElement(
           'article',
@@ -616,17 +618,6 @@ module.exports = (function (_React$Component2) {
             'h2',
             null,
             this.state.datos.titulo
-          ),
-          _react2.default.createElement(
-            'span',
-            null,
-            this.state.datos.fechaCreacion
-          ),
-          _react2.default.createElement(
-            'span',
-            null,
-            ' by ',
-            this.state.datos.creador
           ),
           figura,
           _react2.default.createElement(DescripcionBlog, { descripcion: this.state.datos.descripcion }),

@@ -13,7 +13,13 @@ var _generalSchema2 = _interopRequireDefault(_generalSchema);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var general = (0, _express.Router)();
-
+function validarAutenticacion(req, res, next) {
+  if (req.isAuthenticated()) {
+    next();
+  } else {
+    res.redirect('/');
+  }
+}
 general.get('/general', function (req, res) {
   _generalSchema2.default.findOne({}, function (err, data) {
     if (err) {
@@ -23,7 +29,7 @@ general.get('/general', function (req, res) {
   });
 });
 
-general.post('/general', function (req, res) {
+general.post('/general', validarAutenticacion, function (req, res) {
   _generalSchema2.default.findOneAndUpdate({}, {
     nombre: req.body.nombre,
     imagenPerfil: req.body.imagenPerfil,

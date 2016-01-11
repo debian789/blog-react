@@ -13,6 +13,13 @@ var _portafolioSchema2 = _interopRequireDefault(_portafolioSchema);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var portafolio = (0, _express.Router)();
+function validarAutenticacion(req, res, next) {
+  if (req.isAuthenticated()) {
+    next();
+  } else {
+    res.redirect('/');
+  }
+}
 
 portafolio.get('/portafolio', function (req, res) {
   _portafolioSchema2.default.find({}, function (err, data) {
@@ -23,7 +30,7 @@ portafolio.get('/portafolio', function (req, res) {
   });
 });
 
-portafolio.post('/portafolio', function (req, res) {
+portafolio.post('/portafolio', validarAutenticacion, function (req, res) {
   var portafolio = new _portafolioSchema2.default();
 
   portafolio.titulo = req.body.titulo;
@@ -45,7 +52,7 @@ portafolio.post('/portafolio', function (req, res) {
   });
 });
 
-portafolio.post('/portafolio/:id', function (req, res) {
+portafolio.post('/portafolio/:id', validarAutenticacion, function (req, res) {
   var id = req.params.id;
 
   _portafolioSchema2.default.update({ '_id': id }, {
@@ -79,7 +86,7 @@ portafolio.get('/portafolio/:id', function (req, res) {
   });
 });
 
-portafolio.post('/portafolio/eliminar/:id', function (req, res) {
+portafolio.post('/portafolio/eliminar/:id', validarAutenticacion, function (req, res) {
   var id = req.params.id;
 
   _portafolioSchema2.default.findOneAndRemove({ '_id': id }, function (err, datos) {

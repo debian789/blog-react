@@ -52,6 +52,8 @@ module.exports = class Home extends React.Component {
             <img src={ this.state.datos.imagenPrincipal } />
       </figure>)
     }
+    // <span>{ this.state.datos.fechaCreacion }</span>
+    // <span> by { this.state.datos.creador }</span>
     if (this.state.datos) {
       detalleBlogDatos = (
         <article className='itemBlog'>
@@ -60,8 +62,6 @@ module.exports = class Home extends React.Component {
             <Link className='btnEditar' to={`/editar/${this.state.datos._id}`}>Editar</Link>
           </div>
           <h2 >{ this.state.datos.titulo }</h2>
-          <span>{ this.state.datos.fechaCreacion }</span>
-          <span> by { this.state.datos.creador }</span>
           {figura}
           <DescripcionBlog descripcion= { this.state.datos.descripcion }/>
           <div></div>

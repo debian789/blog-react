@@ -29,9 +29,9 @@ module.exports = class Layout extends React.Component {
   }
   render () {
     let urlImagen = this.state.datosGeneral.imagenPerfil ? this.state.datosGeneral.imagenPerfil : '/static/img/default_perfil.jpg'
-    let iconFacebook = this.state.datosGeneral.facebook ? <a href={this.state.datosGeneral.facebook} className='iconSocial icon-facebook2'></a> : ''
-    let iconTwitter = this.state.datosGeneral.twitter ? <a href={this.state.datosGeneral.twitter} className='iconSocial icon-twitter'></a> : ''
-    let iconGithub = this.state.datosGeneral.github ? <a href={this.state.datosGeneral.github} className='iconSocial icon-github'></a> : ''
+    let iconFacebook = this.state.datosGeneral.facebook ? <a href={this.state.datosGeneral.facebook} className='iconSocial icon-facebook2' target='_black'></a> : ''
+    let iconTwitter = this.state.datosGeneral.twitter ? <a href={this.state.datosGeneral.twitter} className='iconSocial icon-twitter' target='_black'></a> : ''
+    let iconGithub = this.state.datosGeneral.github ? <a href={this.state.datosGeneral.github} className='iconSocial icon-github' target='_black'></a> : ''
     return (
       <section>
         <div id='barraNavegacion' >

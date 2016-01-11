@@ -59,9 +59,9 @@ module.exports = (function (_React$Component) {
     key: 'render',
     value: function render() {
       var urlImagen = this.state.datosGeneral.imagenPerfil ? this.state.datosGeneral.imagenPerfil : '/static/img/default_perfil.jpg';
-      var iconFacebook = this.state.datosGeneral.facebook ? _react2.default.createElement('a', { href: this.state.datosGeneral.facebook, className: 'iconSocial icon-facebook2' }) : '';
-      var iconTwitter = this.state.datosGeneral.twitter ? _react2.default.createElement('a', { href: this.state.datosGeneral.twitter, className: 'iconSocial icon-twitter' }) : '';
-      var iconGithub = this.state.datosGeneral.github ? _react2.default.createElement('a', { href: this.state.datosGeneral.github, className: 'iconSocial icon-github' }) : '';
+      var iconFacebook = this.state.datosGeneral.facebook ? _react2.default.createElement('a', { href: this.state.datosGeneral.facebook, className: 'iconSocial icon-facebook2', target: '_black' }) : '';
+      var iconTwitter = this.state.datosGeneral.twitter ? _react2.default.createElement('a', { href: this.state.datosGeneral.twitter, className: 'iconSocial icon-twitter', target: '_black' }) : '';
+      var iconGithub = this.state.datosGeneral.github ? _react2.default.createElement('a', { href: this.state.datosGeneral.github, className: 'iconSocial icon-github', target: '_black' }) : '';
       return _react2.default.createElement(
         'section',
         null,
@@ -511,9 +511,9 @@ module.exports = (function (_React$Component) {
     key: 'render',
     value: function render() {
       var urlImagen = this.state.datosGeneral.imagenPerfil ? this.state.datosGeneral.imagenPerfil : '/static/img/default_perfil.jpg';
-      var iconFacebook = this.state.datosGeneral.facebook ? _react2.default.createElement('a', { href: this.state.datosGeneral.facebook, className: 'iconSocial icon-facebook2' }) : '';
-      var iconTwitter = this.state.datosGeneral.twitter ? _react2.default.createElement('a', { href: this.state.datosGeneral.twitter, className: 'iconSocial icon-twitter' }) : '';
-      var iconGithub = this.state.datosGeneral.github ? _react2.default.createElement('a', { href: this.state.datosGeneral.github, className: 'iconSocial icon-github' }) : '';
+      var iconFacebook = this.state.datosGeneral.facebook ? _react2.default.createElement('a', { href: this.state.datosGeneral.facebook, className: 'iconSocial icon-facebook2', target: '_black' }) : '';
+      var iconTwitter = this.state.datosGeneral.twitter ? _react2.default.createElement('a', { href: this.state.datosGeneral.twitter, className: 'iconSocial icon-twitter', target: '_black' }) : '';
+      var iconGithub = this.state.datosGeneral.github ? _react2.default.createElement('a', { href: this.state.datosGeneral.github, className: 'iconSocial icon-github', target: '_black' }) : '';
       return _react2.default.createElement(
         'section',
         null,
@@ -719,11 +719,7 @@ module.exports = (function (_React$Component) {
         _react2.default.createElement(
           'div',
           { className: 'cerrarVentana' },
-          _react2.default.createElement(
-            'span',
-            { onClick: this.props.eventoCerrar },
-            'X'
-          )
+          _react2.default.createElement('span', { onClick: this.props.eventoCerrar, className: 'icon-cross' })
         ),
         _react2.default.createElement(
           'h1',
