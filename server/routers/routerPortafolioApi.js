@@ -2,6 +2,13 @@ import {Router} from 'express'
 import PortafolioSchema from 'server/models/portafolioSchema'
 
 let portafolio = Router()
+function validarAutenticacion (req, res, next) {
+  if (req.isAuthenticated()) {
+    next()
+  } else {
+    res.redirect('/')
+  }
+}
 
 portafolio.get('/portafolio', (req, res) => {
   PortafolioSchema.find({}, (err, data) => {
@@ -12,7 +19,7 @@ portafolio.get('/portafolio', (req, res) => {
   })
 })
 
-portafolio.post('/portafolio', (req, res) => {
+portafolio.post('/portafolio', validarAutenticacion, (req, res) => {
   let portafolio = new PortafolioSchema()
 
   portafolio.titulo = req.body.titulo
@@ -34,7 +41,7 @@ portafolio.post('/portafolio', (req, res) => {
   })
 })
 
-portafolio.post('/portafolio/:id', (req, res) => {
+portafolio.post('/portafolio/:id', validarAutenticacion, (req, res) => {
   let id = req.params.id
 
   PortafolioSchema.update({'_id': id}, {
@@ -68,7 +75,7 @@ portafolio.get('/portafolio/:id', (req, res) => {
   })
 })
 
-portafolio.post('/portafolio/eliminar/:id', (req, res) => {
+portafolio.post('/portafolio/eliminar/:id', validarAutenticacion, (req, res) => {
   let id = req.params.id
 
   PortafolioSchema.findOneAndRemove({'_id': id}, (err, datos) => {
