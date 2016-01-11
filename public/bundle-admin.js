@@ -99,7 +99,7 @@ module.exports = (function (_React$Component) {
             null,
             _react2.default.createElement(
               'a',
-              { href: '/salir' },
+              { href: '/logout' },
               _react2.default.createElement('span', { className: 'icon-exit' }),
               ' Salir'
             )
