@@ -90,8 +90,8 @@ module.exports = (function (_React$Component) {
             null,
             _react2.default.createElement(
               _reactRouter.Link,
-              { to: '/' },
-              'Blog'
+              { to: '/', className: 'icon-news' },
+              ' Blog'
             )
           ),
           _react2.default.createElement(
@@ -99,8 +99,8 @@ module.exports = (function (_React$Component) {
             null,
             _react2.default.createElement(
               _reactRouter.Link,
-              { to: '/portafolio' },
-              'Portafolio'
+              { to: '/portafolio', className: 'icon-stack' },
+              ' Portafolio'
             )
           )
         ),
@@ -543,8 +543,8 @@ module.exports = (function (_React$Component) {
             null,
             _react2.default.createElement(
               _reactRouter.Link,
-              { to: '/' },
-              'Blog'
+              { to: '/', className: 'icon-news' },
+              ' Blog'
             )
           ),
           _react2.default.createElement(
@@ -552,8 +552,8 @@ module.exports = (function (_React$Component) {
             null,
             _react2.default.createElement(
               _reactRouter.Link,
-              { to: '/portafolio' },
-              'Portafolio'
+              { to: '/portafolio', className: 'icon-stack' },
+              ' Portafolio'
             )
           )
         ),

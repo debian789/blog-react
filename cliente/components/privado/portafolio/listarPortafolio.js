@@ -29,8 +29,6 @@ module.exports = class ListarPortafolio extends React.Component {
     } else {
 
     }
-
-
   }
   componentWillMount () {
     request
@@ -47,10 +45,12 @@ module.exports = class ListarPortafolio extends React.Component {
     return (
       <Layout>
         <section className='listaPortafolio'>
+        <div className='barraAcciones'><h1>Portafolio</h1><Link className='btnEditar' to='/portafolio'>Crear</Link></div>
+        <hr/>
           {
             this.state.listaPortafolio.map((data) => {
               return (
-                <div key={data._id} ref={data._id} >
+                <div key={data._id} ref={data._id}  className='itemPortafolio'>
                   <figure>
                     <img src={data.imagenPrincipal} />
                   </figure>

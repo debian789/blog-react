@@ -77,7 +77,7 @@ module.exports = class FormGeneral extends React.Component {
     return (
       <Layout>
         <section className='estiloForm'>
-          <h3>Configuraciones Generales </h3>
+          <h1>Configuraciones Generales </h1>
           <hr/>
           <form onSubmit={this.handleSubmit}>
             <div>

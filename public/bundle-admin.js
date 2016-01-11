@@ -28,6 +28,9 @@ module.exports = (function (_React$Component) {
 
   _createClass(Layout, [{
     key: 'render',
+
+    //      <div><Link to='/portafolio'><span className='icon-libreoffice'></span> Portafolio - Crear</Link></div>
+    //      <div><Link to='/crear'><span className='icon-libreoffice'></span> Crear</Link></div>
     value: function render() {
       return _react2.default.createElement(
         'section',
@@ -58,7 +61,7 @@ module.exports = (function (_React$Component) {
             _react2.default.createElement(
               'a',
               { href: '/' },
-              _react2.default.createElement('span', { className: 'icon-stack' }),
+              _react2.default.createElement('span', { className: 'icon-news' }),
               ' Blog '
             )
           ),
@@ -67,29 +70,9 @@ module.exports = (function (_React$Component) {
             null,
             _react2.default.createElement(
               _reactRouter.Link,
-              { to: '/crear' },
-              _react2.default.createElement('span', { className: 'icon-libreoffice' }),
-              ' Crear'
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            null,
-            _react2.default.createElement(
-              _reactRouter.Link,
-              { to: '/general' },
-              _react2.default.createElement('span', { className: 'icon-libreoffice' }),
-              ' General'
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            null,
-            _react2.default.createElement(
-              _reactRouter.Link,
-              { to: '/portafolio' },
-              _react2.default.createElement('span', { className: 'icon-libreoffice' }),
-              ' Portafolio - Crear'
+              { to: '/' },
+              _react2.default.createElement('span', { className: 'icon-list2' }),
+              ' Litar blog'
             )
           ),
           _react2.default.createElement(
@@ -98,8 +81,27 @@ module.exports = (function (_React$Component) {
             _react2.default.createElement(
               _reactRouter.Link,
               { to: '/portafolio-listar' },
-              _react2.default.createElement('span', { className: 'icon-libreoffice' }),
+              _react2.default.createElement('span', { className: 'icon-stack' }),
               ' Portafolio'
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              _reactRouter.Link,
+              { to: '/general' },
+              _react2.default.createElement('span', { className: 'icon-cog' })
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              'a',
+              { href: '/salir' },
+              _react2.default.createElement('span', { className: 'icon-exit' }),
+              ' Salir'
             )
           )
         ),
@@ -465,6 +467,7 @@ module.exports = (function (_React$Component) {
         _react2.default.createElement(
           'a',
           { onClick: this.props.eventoClick, href: '' },
+          _react2.default.createElement('span', { className: 'icon-news' }),
           ' ',
           this.props.titulo,
           ' '
@@ -567,8 +570,21 @@ module.exports = (function (_React$Component2) {
 
       var detalleBlogDatos = _react2.default.createElement(
         'article',
-        { className: 'mensajeInicial' },
-        ' No se ha seleccionando ningun elemento '
+        { className: 'itemBlog' },
+        _react2.default.createElement(
+          'div',
+          { className: 'barraAcciones' },
+          _react2.default.createElement(
+            _reactRouter.Link,
+            { className: 'btnEditar', to: '/crear' },
+            'Crear'
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'mensajeInicial' },
+          ' No se ha seleccionando ningun elemento '
+        )
       );
       var figura = _react2.default.createElement('div', { className: 'oculto' });
       if (this.state.datos.imagenPrincipal !== 'None') {
@@ -585,6 +601,11 @@ module.exports = (function (_React$Component2) {
           _react2.default.createElement(
             'div',
             { className: 'barraAcciones' },
+            _react2.default.createElement(
+              _reactRouter.Link,
+              { className: 'btnEditar', to: '/crear' },
+              'Crear'
+            ),
             _react2.default.createElement(
               _reactRouter.Link,
               { className: 'btnEditar', to: '/editar/' + this.state.datos._id },
@@ -759,7 +780,7 @@ module.exports = (function (_React$Component) {
           'section',
           { className: 'estiloForm' },
           _react2.default.createElement(
-            'h3',
+            'h1',
             null,
             'Configuraciones Generales '
           ),
@@ -1190,10 +1211,25 @@ module.exports = (function (_React$Component) {
         _react2.default.createElement(
           'section',
           { className: 'listaPortafolio' },
+          _react2.default.createElement(
+            'div',
+            { className: 'barraAcciones' },
+            _react2.default.createElement(
+              'h1',
+              null,
+              'Portafolio'
+            ),
+            _react2.default.createElement(
+              _reactRouter.Link,
+              { className: 'btnEditar', to: '/portafolio' },
+              'Crear'
+            )
+          ),
+          _react2.default.createElement('hr', null),
           this.state.listaPortafolio.map(function (data) {
             return _react2.default.createElement(
               'div',
-              { key: data._id, ref: data._id },
+              { key: data._id, ref: data._id, className: 'itemPortafolio' },
               _react2.default.createElement(
                 'figure',
                 null,

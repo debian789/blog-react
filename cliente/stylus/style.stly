@@ -226,13 +226,13 @@ nav
     border-bottom 1px solid white
 .estiloForm
   //margin-top 5em
-  padding 2em
+  //padding 2em
   width 80%
-  margin 5em auto 5em auto
-  border 1px solid #ccc
+  margin 4em auto 5em auto
+  //border 1px solid #ccc
   border-radius 5px
-  h3
-    color #2A93CD
+  h1
+    margin 0
   hr
     border 0
     border-bottom 2px solid #ccc
@@ -388,16 +388,20 @@ nav
   //border 1px solid red
   text-align right
   width 100%
+  h1
+    margin 0
+    float left
   .btnEditar
     //background #63ACEA
     border-radius 4px
     display inline-block
-    padding 0.5em
+    padding 0.5em 1em 0.5em 1em
     background #ddd
     border 0
     border-bottom 2px solid #ccc
     text-decoration none
     color #888
+    margin-left 0.5em
 .itemListIzq
   width 98%
   margin-left 1%
@@ -485,9 +489,9 @@ nav
 .listaPortafolio
   //border 1px solid red
   width 80%
-  margin 3em auto auto auto
+  margin 4em auto auto auto
   text-align center
-  div
+  .itemPortafolio
     display inline-block
     vertical-align top
     //border 1px solid blue
