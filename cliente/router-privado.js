@@ -10,6 +10,7 @@ import portafolioListar from 'cliente/components/privado/portafolio/listarPortaf
 
 window.React = React
 
+
 render((
   <Router>
     <Route component = { listBlog } path='/' />

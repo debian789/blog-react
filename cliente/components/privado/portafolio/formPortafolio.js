@@ -113,16 +113,12 @@ module.exports = class FormPortafoli extends React.Component {
     return (
       <Layout>
         <section className='estiloForm'>
-          <h3>Portafolio </h3>
+          <h1>Configuraciones Generales </h1>
           <hr/>
           <form onSubmit={this.handleSubmit.bind(this)}>
             <div>
               <label>Titulo</label>
               <input onChange={this.handleTitulo.bind(this)} type='text' name='titulo' value={this.state.titulo} required />
-            </div>
-            <div>
-              <label>Descripción</label>
-              <textarea onChange={this.handleDescripcion.bind(this)} name='descripcion' value={this.state.descripcion}></textarea>
             </div>
             <div>
               <label>Imagen principal</label>
@@ -151,6 +147,10 @@ module.exports = class FormPortafoli extends React.Component {
             <div>
               <label>Tipo de desarrollo </label>
               <input onChange={this.handleTipo.bind(this)} type='text' name='tipo' value={this.state.tipo} />
+            </div>
+            <div className='descripcionText'>
+              <label>Descripción</label>
+              <textarea onChange={this.handleDescripcion.bind(this)} name='descripcion' value={this.state.descripcion}></textarea>
             </div>
 
             <hr/>

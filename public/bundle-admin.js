@@ -814,16 +814,6 @@ module.exports = (function (_React$Component) {
               _react2.default.createElement(
                 'label',
                 null,
-                'Descripción'
-              ),
-              _react2.default.createElement('textarea', { onChange: this.handleDescripcion.bind(this), name: 'descripcion', value: this.state.descripcion })
-            ),
-            _react2.default.createElement(
-              'div',
-              null,
-              _react2.default.createElement(
-                'label',
-                null,
                 'Url Facebook'
               ),
               _react2.default.createElement('input', { onChange: this.handleFacebook.bind(this), type: 'text', name: 'facebook', value: this.state.facebook })
@@ -847,6 +837,16 @@ module.exports = (function (_React$Component) {
                 'Url Github'
               ),
               _react2.default.createElement('input', { onChange: this.handleGithub.bind(this), type: 'text', name: 'github', value: this.state.github })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'descripcionText' },
+              _react2.default.createElement(
+                'label',
+                null,
+                'Descripción'
+              ),
+              _react2.default.createElement('textarea', { onChange: this.handleDescripcion.bind(this), name: 'descripcion', value: this.state.descripcion })
             ),
             _react2.default.createElement('hr', null),
             _react2.default.createElement(
@@ -1015,9 +1015,9 @@ module.exports = (function (_React$Component) {
           'section',
           { className: 'estiloForm' },
           _react2.default.createElement(
-            'h3',
+            'h1',
             null,
-            'Portafolio '
+            'Configuraciones Generales '
           ),
           _react2.default.createElement('hr', null),
           _react2.default.createElement(
@@ -1032,16 +1032,6 @@ module.exports = (function (_React$Component) {
                 'Titulo'
               ),
               _react2.default.createElement('input', { onChange: this.handleTitulo.bind(this), type: 'text', name: 'titulo', value: this.state.titulo, required: true })
-            ),
-            _react2.default.createElement(
-              'div',
-              null,
-              _react2.default.createElement(
-                'label',
-                null,
-                'Descripción'
-              ),
-              _react2.default.createElement('textarea', { onChange: this.handleDescripcion.bind(this), name: 'descripcion', value: this.state.descripcion })
             ),
             _react2.default.createElement(
               'div',
@@ -1112,6 +1102,16 @@ module.exports = (function (_React$Component) {
                 'Tipo de desarrollo '
               ),
               _react2.default.createElement('input', { onChange: this.handleTipo.bind(this), type: 'text', name: 'tipo', value: this.state.tipo })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'descripcionText' },
+              _react2.default.createElement(
+                'label',
+                null,
+                'Descripción'
+              ),
+              _react2.default.createElement('textarea', { onChange: this.handleDescripcion.bind(this), name: 'descripcion', value: this.state.descripcion })
             ),
             _react2.default.createElement('hr', null),
             _react2.default.createElement(
@@ -1222,7 +1222,7 @@ module.exports = (function (_React$Component) {
             _react2.default.createElement(
               _reactRouter.Link,
               { className: 'btnEditar', to: '/portafolio' },
-              'Crear'
+              'Crear portafolio'
             )
           ),
           _react2.default.createElement('hr', null),

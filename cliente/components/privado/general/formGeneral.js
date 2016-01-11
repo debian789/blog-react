@@ -89,10 +89,6 @@ module.exports = class FormGeneral extends React.Component {
               <input onChange={this.handleImagenPerfil.bind(this)} type='text' name='imagenPerfil' value={this.state.imagenPerfil} required />
             </div>
             <div>
-              <label>Descripción</label>
-              <textarea onChange={this.handleDescripcion.bind(this)} name='descripcion' value={this.state.descripcion}></textarea>
-            </div>
-            <div>
               <label>Url Facebook</label>
               <input onChange={this.handleFacebook.bind(this)} type='text' name='facebook' value={this.state.facebook} />
             </div>
@@ -103,6 +99,10 @@ module.exports = class FormGeneral extends React.Component {
             <div>
               <label>Url Github</label>
               <input onChange={this.handleGithub.bind(this)} type='text' name='github' value={this.state.github} />
+            </div>
+            <div className='descripcionText'>
+              <label>Descripción</label>
+              <textarea onChange={this.handleDescripcion.bind(this)} name='descripcion' value={this.state.descripcion}></textarea>
             </div>
             <hr/>
             <div>

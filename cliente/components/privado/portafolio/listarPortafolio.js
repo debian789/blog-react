@@ -45,7 +45,7 @@ module.exports = class ListarPortafolio extends React.Component {
     return (
       <Layout>
         <section className='listaPortafolio'>
-        <div className='barraAcciones'><h1>Portafolio</h1><Link className='btnEditar' to='/portafolio'>Crear</Link></div>
+        <div className='barraAcciones'><h1>Portafolio</h1><Link className='btnEditar' to='/portafolio'>Crear portafolio</Link></div>
         <hr/>
           {
             this.state.listaPortafolio.map((data) => {

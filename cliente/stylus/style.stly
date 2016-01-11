@@ -236,6 +236,9 @@ nav
   hr
     border 0
     border-bottom 2px solid #ccc
+  .descripcionText
+    margin-bottom 1em
+    width 100%
   div
     margin-bottom 1em
     width 100%
@@ -245,7 +248,7 @@ nav
       color #888
       margin-bottom 0.3em
     input[type=text],textarea,input[type=url],input[type=date]
-      width 50%
+      width 100%
       border 1px solid #EEEEEE
       padding 0.8em
     input[type=submit]
