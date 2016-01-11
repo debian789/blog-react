@@ -73,7 +73,6 @@ module.exports = (function (_React$Component) {
             { id: 'mostrar' },
             'ver'
           ),
-          ' ',
           _react2.default.createElement(
             'span',
             { id: 'tituloBarra' },
@@ -526,7 +525,6 @@ module.exports = (function (_React$Component) {
             { id: 'mostrar' },
             'ver'
           ),
-          ' ',
           _react2.default.createElement(
             'span',
             { id: 'tituloBarra' },
