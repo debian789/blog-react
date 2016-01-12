@@ -5,8 +5,7 @@ import UserSchema from 'server/models/userSchema'
 let blog = Router()
 
 blog.get('/', (req, res) => {
-  console.log('respondiendo desde la ruta')
-  res.render('index', {title: 'Hoooola Angel :) !!'})
+  res.render('index', {title: ''})
 })
 
 blog.get('/login', (req, res) => {

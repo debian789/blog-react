@@ -95,8 +95,10 @@ module.exports = function (_React$Component) {
         if (err) {
           console.log(err);
         } else {
-          _this2.setState({ datos: res.body });
-          _this2.setState({ estado: true });
+          if (res.body) {
+            _this2.setState({ datos: res.body });
+            _this2.setState({ estado: true });
+          }
         }
       });
     }
@@ -192,12 +194,13 @@ module.exports = _react2.default.createClass({
   componentWillMount: function componentWillMount() {
     var _this = this;
 
-    console.log('ejecuto esto antes de render !!!');
     _superagent2.default.get('/api/blog').end(function (err, res) {
       if (err) {
         console.log(err);
       } else {
-        _this.setState({ datos: res.body });
+        if (res.body) {
+          _this.setState({ datos: res.body });
+        }
       }
     });
   },
@@ -344,15 +347,17 @@ module.exports = function (_React$Component) {
         if (err) {
           console.log(err);
         } else {
-          //debugger;
-          data.body ? _this2.setState({ datosGeneral: data.body }) : console.log('no cargo datos');
+          if (data.body) {
+            if (data.body) {
+              _this2.setState({ datosGeneral: data.body });
+            }
+          }
         }
       });
     }
   }, {
     key: 'render',
     value: function render() {
-      //debugger
       var urlImagen = this.state.datosGeneral.imagenPerfil ? this.state.datosGeneral.imagenPerfil : '/static/img/default_perfil.jpg';
       var iconFacebook = this.state.datosGeneral.facebook ? _react2.default.createElement('a', { href: this.state.datosGeneral.facebook, className: 'iconSocial icon-facebook2', target: '_black' }) : '';
       var iconTwitter = this.state.datosGeneral.twitter ? _react2.default.createElement('a', { href: this.state.datosGeneral.twitter, className: 'iconSocial icon-twitter', target: '_black' }) : '';
@@ -540,7 +545,7 @@ module.exports = function (_React$Component) {
           this.props.datosDetalle.urlRepositorio
         )
       ) : '';
-      var tecnologias = this.props.datosDetalle.tecnologias ? _react2.default.createElement(
+      var tecnologias = this.props.datosDetalle.tecnologias[0] ? _react2.default.createElement(
         'div',
         null,
         _react2.default.createElement(
@@ -646,7 +651,9 @@ module.exports = function (_React$Component) {
         if (err) {
           console.log(err);
         } else {
-          _this2.setState({ listaPortafolio: data.body });
+          if (data.body) {
+            _this2.setState({ listaPortafolio: data.body });
+          }
         }
       });
     }

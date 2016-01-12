@@ -224,11 +224,13 @@ module.exports = function (_React$Component) {
         if (err) {
           console.log(err);
         } else {
-          _this2.setState({ textoMarkdown: _this2.converHtmlToMarkdown(res.body.descripcion) });
-          _this2.setState({ textoHtml: res.body.descripcion });
-          _this2.setState({ tituloBase: res.body.titulo });
-          _this2.setState({ imagenPrincipal: res.body.imagenPrincipal });
-          _this2.setState({ datosBlog: res.body });
+          if (res.body) {
+            _this2.setState({ textoMarkdown: _this2.converHtmlToMarkdown(res.body.descripcion) });
+            _this2.setState({ textoHtml: res.body.descripcion });
+            _this2.setState({ tituloBase: res.body.titulo });
+            _this2.setState({ imagenPrincipal: res.body.imagenPrincipal });
+            _this2.setState({ datosBlog: res.body });
+          }
         }
       });
     }
@@ -422,7 +424,9 @@ module.exports = function (_React$Component2) {
         if (err) {
           console.log(err);
         } else {
-          _this3.setState({ datosBlog: res.body });
+          if (res.body) {
+            _this3.setState({ datosBlog: res.body });
+          }
         }
       });
     }
@@ -463,8 +467,7 @@ module.exports = function (_React$Component2) {
           _react2.default.createElement('img', { src: this.state.datos.imagenPrincipal })
         );
       }
-      // <span>{ this.state.datos.fechaCreacion }</span>
-      // <span> by { this.state.datos.creador }</span>
+
       if (this.state.datos) {
         detalleBlogDatos = _react2.default.createElement(
           'article',
@@ -568,14 +571,16 @@ module.exports = function (_React$Component) {
         if (err) {
           console.log(err);
         } else {
-          _this2.setState({
-            nombre: data.body.nombre,
-            imagenPerfil: data.body.imagenPerfil,
-            descripcion: data.body.descripcion,
-            facebook: data.body.facebook,
-            twitter: data.body.twitter,
-            github: data.body.github
-          });
+          if (data.body) {
+            _this2.setState({
+              nombre: data.body.nombre,
+              imagenPerfil: data.body.imagenPerfil,
+              descripcion: data.body.descripcion,
+              facebook: data.body.facebook,
+              twitter: data.body.twitter,
+              github: data.body.github
+            });
+          }
         }
       });
     }
@@ -904,15 +909,17 @@ module.exports = function (_React$Component) {
           if (err) {
             console.log(err);
           } else {
-            _this2.setState({ titulo: res.body.titulo });
-            _this2.setState({ descripcion: res.body.descripcion });
-            _this2.setState({ imagenPrincipal: res.body.imagenPrincipal });
-            _this2.setState({ fechaCreacion: res.body.fechaCreacion });
-            _this2.setState({ urlWeb: res.body.urlWeb });
-            _this2.setState({ urlRepositorio: res.body.urlRepositorio });
-            _this2.setState({ tecnologias: res.body.tecnologias });
-            _this2.setState({ cliente: res.body.cliente });
-            _this2.setState({ tipo: res.body.tipo });
+            if (res.body) {
+              _this2.setState({ titulo: res.body.titulo });
+              _this2.setState({ descripcion: res.body.descripcion });
+              _this2.setState({ imagenPrincipal: res.body.imagenPrincipal });
+              _this2.setState({ fechaCreacion: res.body.fechaCreacion });
+              _this2.setState({ urlWeb: res.body.urlWeb });
+              _this2.setState({ urlRepositorio: res.body.urlRepositorio });
+              _this2.setState({ tecnologias: res.body.tecnologias });
+              _this2.setState({ cliente: res.body.cliente });
+              _this2.setState({ tipo: res.body.tipo });
+            }
           }
         });
       }
@@ -1180,7 +1187,9 @@ module.exports = function (_React$Component) {
         if (err) {
           console.log(err);
         } else {
-          _this2.setState({ listaPortafolio: data.body });
+          if (data.body) {
+            _this2.setState({ listaPortafolio: data.body });
+          }
         }
       });
     }

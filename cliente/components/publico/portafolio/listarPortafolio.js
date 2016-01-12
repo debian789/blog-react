@@ -41,7 +41,7 @@ module.exports = class ListarPortafolio extends React.Component {
           {
             this.state.listaPortafolio.map((data) => {
               return (
-                <div key={data._id} ref={data._id} onClick={this.handleVisualizarPortafolio.bind(this,data)}>
+                <div key={data._id} ref={data._id} onClick={this.handleVisualizarPortafolio.bind(this, data)}>
                   <figure >
                     <img src={data.imagenPrincipal} />
                   </figure>

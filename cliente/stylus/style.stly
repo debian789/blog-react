@@ -103,6 +103,9 @@ pre
 p
   text-align justify
 
+#mainPanel
+  padding-bottom 4em
+
 .mensajeInicial
   font-size 2em
   color #888
@@ -271,6 +274,7 @@ nav
   position relative
   display inline-block
   vertical-align top
+  padding-bottom 4em
   //border 1px solid red
   figure
     width 100%
@@ -313,7 +317,7 @@ nav
   //height 94%
   text-align center
   //border 1px solid red
-  width 96%
+  width 98%
   display inline-block
   vertical-align top
   background-color white// #0E1B2D
@@ -495,9 +499,13 @@ nav
   vertical-align top
 .listaPortafolio
   //border 1px solid red
-  width 80%
+  width 96%
   margin 4em auto auto auto
   //text-align center
+  div
+    figure
+      width 100%
+      //border 1px solid red
   .itemPortafolio
     display inline-block
     vertical-align top
@@ -507,6 +515,7 @@ nav
     text-align center
     figure
       border 1px solid #ccc
+      border 1px solid blue
       margin-bottom 1em
       img
         width 100%
