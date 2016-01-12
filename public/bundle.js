@@ -112,16 +112,19 @@ module.exports = function (_React$Component) {
       var componente = _react2.default.createElement(
         'div',
         { className: 'mensajeInicial' },
-        ' No se pudo cargar los datos '
+        _react2.default.createElement('img', { src: 'static/img/load.gif' })
       );
-      var figura = _react2.default.createElement('div', { className: 'oculto' });
-      if (this.state.datos.imagenPrincipal !== 'None') {
-        figura = _react2.default.createElement(
-          'figure',
-          { className: 'figuraItemBlog' },
-          _react2.default.createElement('img', { src: this.state.datos.imagenPrincipal })
-        );
-      }
+      var figura = this.state.datos.imagenPrincipal ? _react2.default.createElement(
+        'figure',
+        { className: 'figuraItemBlog' },
+        _react2.default.createElement('img', { src: this.state.datos.imagenPrincipal })
+      ) : '';
+      // let figura = <div className='oculto'></div>
+      // if (this.state.datos.imagenPrincipal !== 'None') {
+      //  figura = (<figure className='figuraItemBlog'>
+      //    <img src={ this.state.datos.imagenPrincipal } />
+      //  </figure>)
+      // }
 
       if (this.state.estado) {
         //  <span>{ this.state.datos.fechaCreacion }</span>
@@ -254,39 +257,35 @@ module.exports = function (_React$Component) {
   _createClass(ItemBlog, [{
     key: 'render',
     value: function render() {
-      var figura = _react2.default.createElement('div', { className: 'oculto' });
-      if (this.props.imagenPrincipal !== 'None') {
-        figura = _react2.default.createElement(
-          'figure',
-          { className: 'figuraItemBlogReducida ' },
-          _react2.default.createElement('img', { src: this.props.imagenPrincipal })
-        );
-      }
-      return _react2.default.createElement(
-        'article',
-        { className: 'itemBlog' },
+      var figura = this.props.imagenPrincipal ? _react2.default.createElement(
+        'figure',
+        { className: 'figuraItemBlogReducida ' },
+        _react2.default.createElement('img', { src: this.props.imagenPrincipal })
+      ) : '';
+      // let figura = <div className='oculto'></div>
+      // if (this.props.imagenPrincipal !== 'None') {
+      //  figura = (<figure className='figuraItemBlogReducida '>
+      //        <img src={ this.props.imagenPrincipal } />
+      //  </figure>)
+      // }
+      return(
+        // <span>{ this.props.fechaCreacion }</span>
+        // <span> by { this.props.creador }</span>
         _react2.default.createElement(
-          'h2',
-          null,
+          'article',
+          { className: 'itemBlog' },
           _react2.default.createElement(
-            _reactRouter.Link,
-            { to: '/blog/' + this.props.id },
-            this.props.titulo
-          )
-        ),
-        _react2.default.createElement(
-          'span',
-          null,
-          this.props.fechaCreacion
-        ),
-        _react2.default.createElement(
-          'span',
-          null,
-          ' by ',
-          this.props.creador
-        ),
-        figura,
-        _react2.default.createElement('p', { dangerouslySetInnerHTML: { __html: (0, _marked2.default)(this.props.descripcion) } })
+            'h2',
+            null,
+            _react2.default.createElement(
+              _reactRouter.Link,
+              { to: '/blog/' + this.props.id },
+              this.props.titulo
+            )
+          ),
+          figura,
+          _react2.default.createElement('p', { dangerouslySetInnerHTML: { __html: (0, _marked2.default)(this.props.descripcion) } })
+        )
       );
     }
   }]);

@@ -27,13 +27,14 @@ module.exports = class DetalleBlog extends React.Component {
     })
   }
   render () {
-    let componente = (<div className='mensajeInicial'> No se pudo cargar los datos </div>)
-    let figura = <div className='oculto'></div>
-    if (this.state.datos.imagenPrincipal !== 'None') {
-      figura = (<figure className='figuraItemBlog'>
-        <img src={ this.state.datos.imagenPrincipal } />
-      </figure>)
-    }
+    let componente = (<div className='mensajeInicial'><img src='static/img/load.gif' /></div>)
+    let figura = this.state.datos.imagenPrincipal ? <figure className='figuraItemBlog'><img src={ this.state.datos.imagenPrincipal } /></figure> : ''
+    // let figura = <div className='oculto'></div>
+    // if (this.state.datos.imagenPrincipal !== 'None') {
+    //  figura = (<figure className='figuraItemBlog'>
+    //    <img src={ this.state.datos.imagenPrincipal } />
+    //  </figure>)
+    // }
 
     if (this.state.estado) {
         //  <span>{ this.state.datos.fechaCreacion }</span>
