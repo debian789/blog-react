@@ -19,8 +19,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var blog = (0, _express.Router)();
 
 blog.get('/', function (req, res) {
-  console.log('respondiendo desde la ruta');
-  res.render('index', { title: 'Hoooola Angel :) !!' });
+  res.render('index', { title: '' });
 });
 
 blog.get('/login', function (req, res) {

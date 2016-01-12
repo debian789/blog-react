@@ -288,6 +288,15 @@ nav
     background-color white
     padding 1% 2% 2% 2%
     box-shadow -2px 3px 10px #ccc
+    h1
+      padding 0
+      margin 0.5em auto auto auto
+    iframe
+      width 100%
+    p
+      img
+        width 100%
+
     .figuraItemBlogReducida
       max-height 10em
       overflow hidden
@@ -302,7 +311,7 @@ nav
     a
       //border 1px solid red
       display inline-block
-      width 100%
+      //width 100%
       color #2588C6 //#575757
       text-decoration none
 
@@ -442,6 +451,11 @@ nav
       padding 0
       img
         width 100%
+    p
+      img
+        width 100%
+    iframe
+      width 100%
 
 .panelIzq
   //border 1px solid red
@@ -515,7 +529,7 @@ nav
     text-align center
     figure
       border 1px solid #ccc
-      border 1px solid blue
+      //border 1px solid blue
       margin-bottom 1em
       img
         width 100%

@@ -240,13 +240,34 @@ module.exports = function (_React$Component) {
       return (0, _toMarkdown2.default)(data);
     }
   }, {
+    key: 'handleSubmit',
+    value: function handleSubmit(e) {
+      e.preventDefault();
+      var urlEditar = '/api/blog/' + this.props.params.id;
+      // debugger
+      _superagent2.default.post(urlEditar).send({
+        titulo: e.target.elements.titulo.value.trim(),
+        imagenPrincipal: e.target.elements.imagenPrincipal.value.trim(),
+        descripcion: e.target.elements.descripcion.value.trim()
+      }).end(function (err, res) {
+        if (err) {
+          console.log(err);
+        } else {
+          if (res.body.error) {} else {
+            alert('Dato modificado');
+            //window.location.href = '/admin'
+          }
+        }
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
-      var urlGuardar = '/api/blog/' + this.props.params.id;
+      //let urlGuardar = `/api/blog/${this.props.params.id}`
       var urlEliminar = '/api/blog/eliminar/' + this.props.params.id;
       var contenidoFooter = _react2.default.createElement(
         'form',
-        { method: 'POST', action: urlGuardar },
+        { method: 'POST', onSubmit: this.handleSubmit.bind(this) },
         _react2.default.createElement('input', { type: 'hidden', name: 'titulo', value: this.state.tituloBase }),
         _react2.default.createElement('input', { type: 'hidden', name: 'imagenPrincipal', value: this.state.imagenPrincipal }),
         _react2.default.createElement('textarea', { name: 'descripcion', className: 'displayHidden', value: this.state.textoHtml }),

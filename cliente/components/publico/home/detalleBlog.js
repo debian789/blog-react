@@ -35,11 +35,12 @@ module.exports = class DetalleBlog extends React.Component {
     }
 
     if (this.state.estado) {
+        //  <span>{ this.state.datos.fechaCreacion }</span>
+        //  <span> by { this.state.datos.creador }</span>
       componente = (
         <article className='itemBlog'>
-          <h2 >{ this.state.datos.titulo }</h2>
-          <span>{ this.state.datos.fechaCreacion }</span>
-          <span> by { this.state.datos.creador }</span>
+          <h1 >{ this.state.datos.titulo }</h1>
+          <hr/>
           { figura }
           <p dangerouslySetInnerHTML={ {__html: this.state.datos.descripcion} }></p>
           <div></div>

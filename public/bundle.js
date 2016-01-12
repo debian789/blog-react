@@ -120,25 +120,17 @@ module.exports = function (_React$Component) {
       }
 
       if (this.state.estado) {
+        //  <span>{ this.state.datos.fechaCreacion }</span>
+        //  <span> by { this.state.datos.creador }</span>
         componente = _react2.default.createElement(
           'article',
           { className: 'itemBlog' },
           _react2.default.createElement(
-            'h2',
+            'h1',
             null,
             this.state.datos.titulo
           ),
-          _react2.default.createElement(
-            'span',
-            null,
-            this.state.datos.fechaCreacion
-          ),
-          _react2.default.createElement(
-            'span',
-            null,
-            ' by ',
-            this.state.datos.creador
-          ),
+          _react2.default.createElement('hr', null),
           figura,
           _react2.default.createElement('p', { dangerouslySetInnerHTML: { __html: this.state.datos.descripcion } }),
           _react2.default.createElement('div', null)

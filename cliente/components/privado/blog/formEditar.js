@@ -55,7 +55,7 @@ module.exports = class FormEditar extends React.Component {
           this.setState({textoHtml: res.body.descripcion})
           this.setState({tituloBase: res.body.titulo})
           this.setState({imagenPrincipal: res.body.imagenPrincipal})
-          this.setState({datosBlog: res.body})          
+          this.setState({datosBlog: res.body})
         }
       }
     })
@@ -63,11 +63,35 @@ module.exports = class FormEditar extends React.Component {
   converHtmlToMarkdown (data) {
     return toMarkdown(data)
   }
+  handleSubmit (e) {
+    e.preventDefault()
+    let urlEditar = `/api/blog/${this.props.params.id}`
+    // debugger
+    request
+    .post(urlEditar)
+    .send({
+      titulo: e.target.elements.titulo.value.trim(),
+      imagenPrincipal: e.target.elements.imagenPrincipal.value.trim(),
+      descripcion: e.target.elements.descripcion.value.trim()
+    })
+    .end((err, res) => {
+      if (err) {
+        console.log(err)
+      } else {
+        if (res.body.error) {
+
+        } else {
+          alert('Dato modificado')
+          //window.location.href = '/admin'
+        }
+      }
+    })
+  }
   render () {
-    let urlGuardar = `/api/blog/${this.props.params.id}`
+    //let urlGuardar = `/api/blog/${this.props.params.id}`
     let urlEliminar = `/api/blog/eliminar/${this.props.params.id}`
     let contenidoFooter = (
-      <form method='POST' action={urlGuardar} >
+      <form method='POST' onSubmit={this.handleSubmit.bind(this)}>
         <input type='hidden' name='titulo' value={this.state.tituloBase} />
         <input type='hidden' name='imagenPrincipal' value={this.state.imagenPrincipal} />
         <textarea name='descripcion' className='displayHidden' value={this.state.textoHtml} ></textarea>

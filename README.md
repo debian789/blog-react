@@ -2,10 +2,10 @@
 
 Blog creado con node, express y reactjs, utilizando mongodb
 
-* Url del demo * [https://blog-reactjs.herokuapp.com/](https://blog-reactjs.herokuapp.com/)
-* Url de ingreso * [https://blog-reactjs.herokuapp.com/admin](https://blog-reactjs.herokuapp.com/admin)
- - Usuario: demo
- - Password: demo123
+**Url del demo** [https://blog-reactjs.herokuapp.com/](https://blog-reactjs.herokuapp.com/)
+**Url de ingreso** [https://blog-reactjs.herokuapp.com/admin](https://blog-reactjs.herokuapp.com/admin)
+ - **Usuario**: demo
+ - **Password**: demo123
 
 
 # Developer
