@@ -20,22 +20,24 @@ module.exports = class FormPortafoli extends React.Component {
   }
 
   componentWillMount () {
-    if ( this.props.params.id ) {
+    if (this.props.params.id) {
       request
       .get(`/api/portafolio/${this.props.params.id}`)
       .end((err, res) => {
         if (err) {
           console.log(err)
         } else {
-          this.setState({titulo: res.body.titulo})
-          this.setState({descripcion: res.body.descripcion})
-          this.setState({imagenPrincipal: res.body.imagenPrincipal})
-          this.setState({fechaCreacion: res.body.fechaCreacion})
-          this.setState({urlWeb: res.body.urlWeb})
-          this.setState({urlRepositorio: res.body.urlRepositorio})
-          this.setState({tecnologias: res.body.tecnologias})
-          this.setState({cliente: res.body.cliente})
-          this.setState({tipo: res.body.tipo})
+          if (res.body) {
+            this.setState({titulo: res.body.titulo})
+            this.setState({descripcion: res.body.descripcion})
+            this.setState({imagenPrincipal: res.body.imagenPrincipal})
+            this.setState({fechaCreacion: res.body.fechaCreacion})
+            this.setState({urlWeb: res.body.urlWeb})
+            this.setState({urlRepositorio: res.body.urlRepositorio})
+            this.setState({tecnologias: res.body.tecnologias})
+            this.setState({cliente: res.body.cliente})
+            this.setState({tipo: res.body.tipo})
+          }
         }
       })
     }
@@ -70,7 +72,6 @@ module.exports = class FormPortafoli extends React.Component {
         }
       }
     })
-
   }
 
   handleTitulo (event) {

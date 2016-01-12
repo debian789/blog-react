@@ -325,7 +325,7 @@ module.exports = function (_React$Component) {
     _this.state = {
       datosGeneral: {
         nombre: '',
-        imagenPerfil: '',
+        imagenPerfil: false,
         descripcion: '',
         facebook: '',
         twitter: '',
@@ -344,13 +344,15 @@ module.exports = function (_React$Component) {
         if (err) {
           console.log(err);
         } else {
-          _this2.setState({ datosGeneral: data.body });
+          //debugger;
+          data.body ? _this2.setState({ datosGeneral: data.body }) : console.log('no cargo datos');
         }
       });
     }
   }, {
     key: 'render',
     value: function render() {
+      //debugger
       var urlImagen = this.state.datosGeneral.imagenPerfil ? this.state.datosGeneral.imagenPerfil : '/static/img/default_perfil.jpg';
       var iconFacebook = this.state.datosGeneral.facebook ? _react2.default.createElement('a', { href: this.state.datosGeneral.facebook, className: 'iconSocial icon-facebook2', target: '_black' }) : '';
       var iconTwitter = this.state.datosGeneral.twitter ? _react2.default.createElement('a', { href: this.state.datosGeneral.twitter, className: 'iconSocial icon-twitter', target: '_black' }) : '';

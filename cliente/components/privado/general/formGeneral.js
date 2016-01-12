@@ -21,14 +21,16 @@ module.exports = class FormGeneral extends React.Component {
       if (err) {
         console.log(err)
       } else {
-        this.setState({
-          nombre: data.body.nombre,
-          imagenPerfil: data.body.imagenPerfil,
-          descripcion: data.body.descripcion,
-          facebook: data.body.facebook,
-          twitter: data.body.twitter,
-          github: data.body.github
-        })
+        if (data.body) {
+          this.setState({
+            nombre: data.body.nombre,
+            imagenPerfil: data.body.imagenPerfil,
+            descripcion: data.body.descripcion,
+            facebook: data.body.facebook,
+            twitter: data.body.twitter,
+            github: data.body.github
+          })
+        }
       }
     })
   }

@@ -50,11 +50,13 @@ module.exports = class FormEditar extends React.Component {
       if (err) {
         console.log(err)
       } else {
-        this.setState({textoMarkdown: this.converHtmlToMarkdown(res.body.descripcion)})
-        this.setState({textoHtml: res.body.descripcion})
-        this.setState({tituloBase: res.body.titulo})
-        this.setState({imagenPrincipal: res.body.imagenPrincipal})
-        this.setState({datosBlog: res.body})
+        if (res.body) {
+          this.setState({textoMarkdown: this.converHtmlToMarkdown(res.body.descripcion)})
+          this.setState({textoHtml: res.body.descripcion})
+          this.setState({tituloBase: res.body.titulo})
+          this.setState({imagenPrincipal: res.body.imagenPrincipal})
+          this.setState({datosBlog: res.body})          
+        }
       }
     })
   }

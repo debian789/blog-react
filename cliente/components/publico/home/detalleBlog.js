@@ -18,8 +18,10 @@ module.exports = class DetalleBlog extends React.Component {
       if (err) {
         console.log(err)
       }else {
-        this.setState({datos: res.body})
-        this.setState({estado: true})
+        if (res.body) {
+          this.setState({datos: res.body})
+          this.setState({estado: true})
+        }
       }
     })
   }

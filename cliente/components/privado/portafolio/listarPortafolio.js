@@ -37,7 +37,9 @@ module.exports = class ListarPortafolio extends React.Component {
       if (err) {
         console.log(err)
       } else {
-        this.setState({listaPortafolio: data.body})
+        if (data.body) {
+          this.setState({listaPortafolio: data.body})
+        }
       }
     })
   }

@@ -29,7 +29,9 @@ module.exports = class Home extends React.Component {
       if (err) {
         console.log(err)
       }else {
-        this.setState({datosBlog: res.body})
+        if (res.body) {
+          this.setState({datosBlog: res.body})
+        }
       }
     })
   }
@@ -52,8 +54,7 @@ module.exports = class Home extends React.Component {
             <img src={ this.state.datos.imagenPrincipal } />
       </figure>)
     }
-    // <span>{ this.state.datos.fechaCreacion }</span>
-    // <span> by { this.state.datos.creador }</span>
+
     if (this.state.datos) {
       detalleBlogDatos = (
         <article className='itemBlog'>

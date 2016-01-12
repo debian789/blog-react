@@ -16,14 +16,15 @@ module.exports = React.createClass({
     }
   },
   componentWillMount: function () {
-    console.log('ejecuto esto antes de render !!!')
     request
     .get('/api/blog')
     .end((err, res) => {
       if (err) {
         console.log(err)
       } else {
-        this.setState({datos: res.body})
+        if (res.body) {
+          this.setState({datos: res.body})
+        }
       }
     })
   },

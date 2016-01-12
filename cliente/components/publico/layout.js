@@ -8,7 +8,7 @@ module.exports = class Layout extends React.Component {
     this.state = {
       datosGeneral: {
         nombre: '',
-        imagenPerfil: '',
+        imagenPerfil: false,
         descripcion: '',
         facebook: '',
         twitter: '',
@@ -23,7 +23,11 @@ module.exports = class Layout extends React.Component {
       if (err) {
         console.log(err)
       } else {
-        this.setState({datosGeneral: data.body})
+        if (data.body) {
+          if (data.body) {
+            this.setState({datosGeneral: data.body})
+          }
+        }
       }
     })
   }
