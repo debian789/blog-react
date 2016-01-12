@@ -1,7 +1,6 @@
 import React from 'react'
 import request from 'superagent'
 import marked from 'marked'
-import toMarkdown from 'to-markdown'
 import Layout from 'cliente/components/privado/layout'
 
 module.exports = class FormEditar extends React.Component {
@@ -9,18 +8,19 @@ module.exports = class FormEditar extends React.Component {
     super(props)
     this.state = {
       tituloBase: '',
+      textoEnMd: '',
       imagenPrincipal: '',
       textoMarkdown: '',
-      textoHtml: '',
+      textoEnHtml: '',
       datosBlog: {
         descripcion: ''
       }
     }
   }
-  handleTextoBase (event) {
+  handleDescripcion (event) {
     let textoIngresado = event.target.value
-    this.setState({textoMarkdown: textoIngresado})
-    this.setState({textoHtml: marked(textoIngresado)})
+    this.setState({textoEnMd: textoIngresado})
+    this.setState({textoEnHtml: marked(textoIngresado)})
   }
   handleTitulo (event) {
     this.setState({tituloBase: event.target.value})
@@ -51,8 +51,8 @@ module.exports = class FormEditar extends React.Component {
         console.log(err)
       } else {
         if (res.body) {
-          this.setState({textoMarkdown: this.converHtmlToMarkdown(res.body.descripcion)})
-          this.setState({textoHtml: res.body.descripcion})
+          this.setState({textoEnHtml: marked(res.body.descripcion)})
+          this.setState({textoEnMd: res.body.descripcion})
           this.setState({tituloBase: res.body.titulo})
           this.setState({imagenPrincipal: res.body.imagenPrincipal})
           this.setState({datosBlog: res.body})
@@ -60,9 +60,7 @@ module.exports = class FormEditar extends React.Component {
       }
     })
   }
-  converHtmlToMarkdown (data) {
-    return toMarkdown(data)
-  }
+
   handleSubmit (e) {
     e.preventDefault()
     let urlEditar = `/api/blog/${this.props.params.id}`
@@ -94,7 +92,7 @@ module.exports = class FormEditar extends React.Component {
       <form method='POST' onSubmit={this.handleSubmit.bind(this)}>
         <input type='hidden' name='titulo' value={this.state.tituloBase} />
         <input type='hidden' name='imagenPrincipal' value={this.state.imagenPrincipal} />
-        <textarea name='descripcion' className='displayHidden' value={this.state.textoHtml} ></textarea>
+        <textarea name='descripcion' className='displayHidden' value={this.state.textoEnMd} ></textarea>
         <button > Guardar </button>
       </form>
     )
@@ -111,13 +109,13 @@ module.exports = class FormEditar extends React.Component {
         <section className='panelIzq'>
           <input onChange={this.handleTitulo.bind(this)} placeholder='Titulo ' value={this.state.tituloBase} />
           <input onChange={this.handleImagenPrincipal.bind(this)} placeholder='URL Imagen principal ' value={this.state.imagenPrincipal} />
-          <textarea onChange={this.handleTextoBase.bind(this)} placeholder='Contenido ...' value={ this.state.textoMarkdown }></textarea>
+          <textarea onChange={this.handleDescripcion.bind(this)} placeholder='Contenido ...' value={ this.state.textoEnMd }></textarea>
         </section>
         <section className='panelDer'>
           <div className='barraAcciones'><a className='btnEditar' href={urlEliminar} onClick={this.handleEliminar.bind(this)}>Eliminar</a></div>
           <h1>{this.state.tituloBase}</h1>
           {figura}
-          <div dangerouslySetInnerHTML={{ __html: this.state.textoHtml}}/>
+          <div dangerouslySetInnerHTML={{ __html: this.state.textoEnHtml}}/>
         </section>
     </Layout>
   )

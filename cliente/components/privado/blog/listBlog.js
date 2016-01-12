@@ -1,6 +1,7 @@
 import React from 'react'
 import request from 'superagent'
 import {Link} from 'react-router'
+import marked from 'marked'
 import Layout from 'cliente/components/privado/layout'
 import ItemBlog from 'cliente/components/privado/blog/itemBlog'
 
@@ -64,7 +65,7 @@ module.exports = class Home extends React.Component {
           </div>
           <h2 >{ this.state.datos.titulo }</h2>
           {figura}
-          <DescripcionBlog descripcion= { this.state.datos.descripcion }/>
+          <DescripcionBlog descripcion= { marked(this.state.datos.descripcion) }/>
           <div></div>
         </article>
         )

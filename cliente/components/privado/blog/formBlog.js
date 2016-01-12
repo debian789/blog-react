@@ -7,14 +7,16 @@ module.exports = class FormBlog extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      textBase: '',
+      textoEnHTML: '',
+      textoEnMd: '',
       tituloBase: '',
       imagenPrincipal: ''
     }
   }
-  handleTextoBase (event) {
+  handleTextoMd (event) {
     let textoIngresado = event.target.value
-    this.setState({textBase: marked(textoIngresado)})
+    this.setState({textoEnHTML: marked(textoIngresado)})
+    this.setState({textoEnMd: textoIngresado})
   }
   handleTitulo (event) {
     this.setState({tituloBase: event.target.value})
@@ -50,7 +52,7 @@ module.exports = class FormBlog extends React.Component {
       <form method='POST' onSubmit={this.handleSubmit} >
         <input type='hidden' name='titulo' value={this.state.tituloBase} />
         <input type='hidden' name='imagenPrincipal' value={this.state.imagenPrincipal}  />
-        <textarea name='descripcion' className='displayHidden' value={this.state.textBase} ></textarea>
+        <textarea name='descripcion' className='displayHidden' value={this.state.textoEnMd} ></textarea>
         <button > Guardar </button>
       </form>
     )
@@ -63,14 +65,14 @@ module.exports = class FormBlog extends React.Component {
           <input onChange={this.handleImagenPrincipal.bind(this)} placeholder='URL Imagen principal' />
           <span className=''></span>
           <span className=''></span>
-          <textarea onChange={this.handleTextoBase.bind(this)} placeholder='Contenido ...' ></textarea>
+          <textarea onChange={this.handleTextoMd.bind(this)} placeholder='Contenido ...' ></textarea>
         </section>
         <section className='panelDer'>
           <h1>{this.state.tituloBase}</h1>
           <figure>
             <img src={this.state.imagenPrincipal} />
           </figure>
-          <div dangerouslySetInnerHTML={{ __html: this.state.textBase }}/>
+          <div dangerouslySetInnerHTML={{ __html: this.state.textoEnHTML }}/>
         </section>
     </Layout>
     )

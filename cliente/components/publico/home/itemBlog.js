@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
-
+import marked from 'marked'
 module.exports = class ItemBlog extends React.Component {
   render () {
     let figura = <div className='oculto'></div>
@@ -15,7 +15,7 @@ module.exports = class ItemBlog extends React.Component {
         <span>{ this.props.fechaCreacion }</span>
         <span> by { this.props.creador }</span>
         {figura}
-        <p dangerouslySetInnerHTML={{ __html: this.props.descripcion} }></p>
+        <p dangerouslySetInnerHTML={{ __html: marked(this.props.descripcion)} }></p>
       </article>
 
     )

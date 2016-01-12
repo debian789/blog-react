@@ -1,5 +1,6 @@
 import React from 'react'
 import request from 'superagent'
+import marked from 'marked'
 import Layout from 'cliente/components/publico/layout'
 
 module.exports = class DetalleBlog extends React.Component {
@@ -42,7 +43,7 @@ module.exports = class DetalleBlog extends React.Component {
           <h1 >{ this.state.datos.titulo }</h1>
           <hr/>
           { figura }
-          <p dangerouslySetInnerHTML={ {__html: this.state.datos.descripcion} }></p>
+          <p dangerouslySetInnerHTML={ {__html: marked(this.state.datos.descripcion)} }></p>
           <div></div>
         </article>
       )
