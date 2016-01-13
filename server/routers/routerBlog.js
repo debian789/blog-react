@@ -17,23 +17,23 @@ blog.post('/login', passport.authenticate('local', {
   failureRedirect: '/login'
 }))
 
-blog.get('/register', (req, res) => {
-  res.render('register')
-})
+// blog.get('/register', (req, res) => {
+//   res.render('register')
+// })
 
-blog.post('/register', (req, res, next) => {
-  console.log(req.body)
+// blog.post('/register', (req, res, next) => {
+//   console.log(req.body)
 
-  UserSchema.register(new UserSchema({username: req.body.username}), req.body.password, (err, account) => {
-    if (err) {
-      return res.render('register', {account: account})
-    }
+//   UserSchema.register(new UserSchema({username: req.body.username}), req.body.password, (err, account) => {
+//     if (err) {
+//       return res.render('register', {account: account})
+//     }
 
-    passport.authenticate('local')(req, res, () => {
-      res.redirect('/admin')
-    })
-  })
-})
+//     passport.authenticate('local')(req, res, () => {
+//       res.redirect('/admin')
+//     })
+//   })
+// })
 
 blog.get('/logout', (req, res) => {
   req.logout()
