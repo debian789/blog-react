@@ -31,23 +31,23 @@ blog.post('/login', _passport2.default.authenticate('local', {
   failureRedirect: '/login'
 }));
 
-blog.get('/register', function (req, res) {
-  res.render('register');
-});
+// blog.get('/register', (req, res) => {
+//   res.render('register')
+// })
 
-blog.post('/register', function (req, res, next) {
-  console.log(req.body);
+// blog.post('/register', (req, res, next) => {
+//   console.log(req.body)
 
-  _userSchema2.default.register(new _userSchema2.default({ username: req.body.username }), req.body.password, function (err, account) {
-    if (err) {
-      return res.render('register', { account: account });
-    }
+//   UserSchema.register(new UserSchema({username: req.body.username}), req.body.password, (err, account) => {
+//     if (err) {
+//       return res.render('register', {account: account})
+//     }
 
-    _passport2.default.authenticate('local')(req, res, function () {
-      res.redirect('/admin');
-    });
-  });
-});
+//     passport.authenticate('local')(req, res, () => {
+//       res.redirect('/admin')
+//     })
+//   })
+// })
 
 blog.get('/logout', function (req, res) {
   req.logout();
