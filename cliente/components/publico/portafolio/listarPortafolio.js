@@ -45,6 +45,7 @@ module.exports = class ListarPortafolio extends React.Component {
                   <figure >
                     <img src={data.imagenPrincipal} />
                   </figure>
+                  <p>{data.titulo}</p>
                 </div>
               )
             })

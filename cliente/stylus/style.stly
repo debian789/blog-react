@@ -518,8 +518,26 @@ nav
   margin 4em auto auto auto
   //text-align center
   div
+    background white
+    position relative
+    margin-bottom 1em
+    border-radius 4px
     figure
       width 100%
+      //border 1px solid blue
+      margin 0
+      img
+        border-radius 4px 4px 0 0
+    p
+      width 96%
+      padding-left 2%
+      padding-right 2%
+      padding-top 0.8em
+      padding-bottom 0.8em
+      margin 0
+      font-weight bold
+      border-radius 0 0 4px 4px 
+      color #888
       //border 1px solid red
   .itemPortafolio
     display inline-block

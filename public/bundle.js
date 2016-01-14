@@ -687,6 +687,11 @@ module.exports = function (_React$Component) {
                 'figure',
                 null,
                 _react2.default.createElement('img', { src: data.imagenPrincipal })
+              ),
+              _react2.default.createElement(
+                'p',
+                null,
+                data.titulo
               )
             );
           })
