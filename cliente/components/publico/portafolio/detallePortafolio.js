@@ -1,4 +1,5 @@
 import React from 'react'
+import marked from 'marked'
 
 module.exports = class detallePortafolio extends React.Component {
   render () {
@@ -16,7 +17,7 @@ module.exports = class detallePortafolio extends React.Component {
         <figure>
           <img src={this.props.datosDetalle.imagenPrincipal}/>
         </figure>
-        <p>{this.props.datosDetalle.descripcion}</p>
+        <p dangerouslySetInnerHTML={ {__html: marked(this.props.datosDetalle.descripcion) } }></p>
         <section className='caracteristicasPortafolio'>
           {cliente}
           {fecha}

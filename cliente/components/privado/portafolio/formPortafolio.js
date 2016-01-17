@@ -1,5 +1,6 @@
 import React from 'react'
 import request from 'superagent'
+import marked from 'marked'
 import Layout from 'cliente/components/privado/layout'
 
 module.exports = class FormPortafoli extends React.Component {
@@ -152,6 +153,10 @@ module.exports = class FormPortafoli extends React.Component {
             <div className='descripcionText'>
               <label>Descripción</label>
               <textarea onChange={this.handleDescripcion.bind(this)} name='descripcion' value={this.state.descripcion}></textarea>
+            </div>
+            <div className='descripcionText'>
+              <label>Descripción</label>
+              <div  dangerouslySetInnerHTML={{__html:marked(this.state.descripcion)}}></div>
             </div>
 
             <hr/>

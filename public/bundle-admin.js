@@ -554,6 +554,10 @@ var _layout = require('cliente/components/privado/layout');
 
 var _layout2 = _interopRequireDefault(_layout);
 
+var _marked = require('marked');
+
+var _marked2 = _interopRequireDefault(_marked);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -574,6 +578,7 @@ module.exports = function (_React$Component) {
       nombre: '',
       imagenPerfil: '',
       descripcion: '',
+      sobremi: '',
       facebook: '',
       twitter: '',
       github: ''
@@ -595,6 +600,7 @@ module.exports = function (_React$Component) {
               nombre: data.body.nombre,
               imagenPerfil: data.body.imagenPerfil,
               descripcion: data.body.descripcion,
+              sobremi: data.body.sobremi,
               facebook: data.body.facebook,
               twitter: data.body.twitter,
               github: data.body.github
@@ -619,6 +625,11 @@ module.exports = function (_React$Component) {
       this.setState({ descripcion: event.target.value });
     }
   }, {
+    key: 'handleSobremi',
+    value: function handleSobremi(event) {
+      this.setState({ sobremi: event.target.value });
+    }
+  }, {
     key: 'handleFacebook',
     value: function handleFacebook(event) {
       this.setState({ facebook: event.target.value.trim() });
@@ -641,6 +652,7 @@ module.exports = function (_React$Component) {
         nombre: event.target.elements.nombre.value,
         imagenPerfil: event.target.elements.imagenPerfil.value.trim(),
         descripcion: event.target.elements.descripcion.value,
+        sobremi: event.target.elements.sobremi.value,
         facebook: event.target.elements.facebook.value.trim(),
         twitter: event.target.elements.twitter.value.trim(),
         github: event.target.elements.github.value.trim()
@@ -732,6 +744,36 @@ module.exports = function (_React$Component) {
               ),
               _react2.default.createElement('textarea', { onChange: this.handleDescripcion.bind(this), name: 'descripcion', value: this.state.descripcion })
             ),
+            _react2.default.createElement(
+              'div',
+              { className: 'descripcionText' },
+              _react2.default.createElement(
+                'label',
+                null,
+                'Descripción visualización '
+              ),
+              _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: (0, _marked2.default)(this.state.descripcion) } })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'descripcionText' },
+              _react2.default.createElement(
+                'label',
+                null,
+                'Sobre mi '
+              ),
+              _react2.default.createElement('textarea', { onChange: this.handleSobremi.bind(this), name: 'sobremi', value: this.state.sobremi })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'descripcionText' },
+              _react2.default.createElement(
+                'label',
+                null,
+                'Sobre mi  visualización '
+              ),
+              _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: (0, _marked2.default)(this.state.sobremi) } })
+            ),
             _react2.default.createElement('hr', null),
             _react2.default.createElement(
               'div',
@@ -747,7 +789,7 @@ module.exports = function (_React$Component) {
   return FormGeneral;
 }(_react2.default.Component);
 
-},{"cliente/components/privado/layout":6,"react":217,"superagent":218}],6:[function(require,module,exports){
+},{"cliente/components/privado/layout":6,"marked":34,"react":217,"superagent":218}],6:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -883,6 +925,10 @@ var _react2 = _interopRequireDefault(_react);
 var _superagent = require('superagent');
 
 var _superagent2 = _interopRequireDefault(_superagent);
+
+var _marked = require('marked');
+
+var _marked2 = _interopRequireDefault(_marked);
 
 var _layout = require('cliente/components/privado/layout');
 
@@ -1123,6 +1169,16 @@ module.exports = function (_React$Component) {
               ),
               _react2.default.createElement('textarea', { onChange: this.handleDescripcion.bind(this), name: 'descripcion', value: this.state.descripcion })
             ),
+            _react2.default.createElement(
+              'div',
+              { className: 'descripcionText' },
+              _react2.default.createElement(
+                'label',
+                null,
+                'Descripción'
+              ),
+              _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: (0, _marked2.default)(this.state.descripcion) } })
+            ),
             _react2.default.createElement('hr', null),
             _react2.default.createElement(
               'div',
@@ -1138,7 +1194,7 @@ module.exports = function (_React$Component) {
   return FormPortafoli;
 }(_react2.default.Component);
 
-},{"cliente/components/privado/layout":6,"react":217,"superagent":218}],8:[function(require,module,exports){
+},{"cliente/components/privado/layout":6,"marked":34,"react":217,"superagent":218}],8:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();

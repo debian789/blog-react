@@ -7,54 +7,6 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _layout = require('cliente/components/publico/layout');
-
-var _layout2 = _interopRequireDefault(_layout);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-module.exports = function (_React$Component) {
-  _inherits(About, _React$Component);
-
-  function About() {
-    _classCallCheck(this, About);
-
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(About).apply(this, arguments));
-  }
-
-  _createClass(About, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        _layout2.default,
-        null,
-        _react2.default.createElement(
-          'div',
-          null,
-          'About !!!!'
-        )
-      );
-    }
-  }]);
-
-  return About;
-}(_react2.default.Component);
-
-},{"cliente/components/publico/layout":5,"react":216}],2:[function(require,module,exports){
-'use strict';
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
 var _superagent = require('superagent');
 
 var _superagent2 = _interopRequireDefault(_superagent);
@@ -155,7 +107,7 @@ module.exports = function (_React$Component) {
   return DetalleBlog;
 }(_react2.default.Component);
 
-},{"cliente/components/publico/layout":5,"marked":33,"react":216,"superagent":217}],3:[function(require,module,exports){
+},{"cliente/components/publico/layout":4,"marked":33,"react":216,"superagent":217}],2:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');
@@ -222,7 +174,7 @@ module.exports = _react2.default.createClass({
   }
 });
 
-},{"cliente/components/publico/home/itemBlog":4,"cliente/components/publico/layout":5,"react":216,"superagent":217}],4:[function(require,module,exports){
+},{"cliente/components/publico/home/itemBlog":3,"cliente/components/publico/layout":4,"react":216,"superagent":217}],3:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -293,7 +245,7 @@ module.exports = function (_React$Component) {
   return ItemBlog;
 }(_react2.default.Component);
 
-},{"marked":33,"react":216,"react-router":54}],5:[function(require,module,exports){
+},{"marked":33,"react":216,"react-router":54}],4:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -396,6 +348,24 @@ module.exports = function (_React$Component) {
               { to: '/portafolio', className: 'icon-stack' },
               ' Portafolio'
             )
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              _reactRouter.Link,
+              { to: '/sobre-mi', className: 'icon-stack' },
+              ' Sobre mi'
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              _reactRouter.Link,
+              { to: '/portafolio', className: 'icon-stack' },
+              ' Contacto'
+            )
           )
         ),
         _react2.default.createElement(
@@ -444,15 +414,13 @@ module.exports = function (_React$Component) {
           )
         )
       );
-      // <div><Link>Portafolio</Link></div>
-      // <div><Link>Contactame</Link></div>
     }
   }]);
 
   return Layout;
 }(_react2.default.Component);
 
-},{"react":216,"react-router":54,"superagent":217}],6:[function(require,module,exports){
+},{"react":216,"react-router":54,"superagent":217}],5:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -460,6 +428,10 @@ var _createClass = function () { function defineProperties(target, props) { for 
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
+
+var _marked = require('marked');
+
+var _marked2 = _interopRequireDefault(_marked);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -574,11 +546,7 @@ module.exports = function (_React$Component) {
           null,
           _react2.default.createElement('img', { src: this.props.datosDetalle.imagenPrincipal })
         ),
-        _react2.default.createElement(
-          'p',
-          null,
-          this.props.datosDetalle.descripcion
-        ),
+        _react2.default.createElement('p', { dangerouslySetInnerHTML: { __html: (0, _marked2.default)(this.props.datosDetalle.descripcion) } }),
         _react2.default.createElement(
           'section',
           { className: 'caracteristicasPortafolio' },
@@ -596,7 +564,7 @@ module.exports = function (_React$Component) {
   return detallePortafolio;
 }(_react2.default.Component);
 
-},{"react":216}],7:[function(require,module,exports){
+},{"marked":33,"react":216}],6:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -679,6 +647,16 @@ module.exports = function (_React$Component) {
         _react2.default.createElement(
           'section',
           { className: 'listaPortafolio' },
+          _react2.default.createElement(
+            'h1',
+            null,
+            'Portafolio'
+          ),
+          _react2.default.createElement(
+            'p',
+            null,
+            'Selección de mis últimos trabajos realizados '
+          ),
           this.state.listaPortafolio.map(function (data) {
             return _react2.default.createElement(
               'div',
@@ -704,7 +682,93 @@ module.exports = function (_React$Component) {
   return ListarPortafolio;
 }(_react2.default.Component);
 
-},{"cliente/components/publico/layout":5,"cliente/components/publico/portafolio/detallePortafolio":6,"react":216,"superagent":217}],8:[function(require,module,exports){
+},{"cliente/components/publico/layout":4,"cliente/components/publico/portafolio/detallePortafolio":5,"react":216,"superagent":217}],7:[function(require,module,exports){
+'use strict';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _superagent = require('superagent');
+
+var _superagent2 = _interopRequireDefault(_superagent);
+
+var _marked = require('marked');
+
+var _marked2 = _interopRequireDefault(_marked);
+
+var _layout = require('cliente/components/publico/layout');
+
+var _layout2 = _interopRequireDefault(_layout);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+module.exports = function (_React$Component) {
+  _inherits(SobreMi, _React$Component);
+
+  function SobreMi(props) {
+    _classCallCheck(this, SobreMi);
+
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(SobreMi).call(this, props));
+
+    _this.state = {
+      datos: {
+        sobremi: ''
+      }
+    };
+    return _this;
+  }
+
+  _createClass(SobreMi, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      var _this2 = this;
+
+      _superagent2.default.get('/api/general').end(function (err, data) {
+        if (err) {
+          console.log(err);
+        } else {
+          _this2.setState({ datos: data.body });
+        }
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _layout2.default,
+        null,
+        _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            'h2',
+            null,
+            'Sobre mi '
+          ),
+          _react2.default.createElement(
+            'p',
+            null,
+            'Conóceme un poco más sobre mi trabajo'
+          ),
+          _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: (0, _marked2.default)(this.state.datos.sobremi) } })
+        )
+      );
+    }
+  }]);
+
+  return SobreMi;
+}(_react2.default.Component);
+
+},{"cliente/components/publico/layout":4,"marked":33,"react":216,"superagent":217}],8:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');
@@ -723,17 +787,19 @@ var _detalleBlog = require('cliente/components/publico/home/detalleBlog');
 
 var _detalleBlog2 = _interopRequireDefault(_detalleBlog);
 
-var _about = require('cliente/components/publico/about');
-
-var _about2 = _interopRequireDefault(_about);
-
 var _listarPortafolio = require('cliente/components/publico/portafolio/listarPortafolio');
 
 var _listarPortafolio2 = _interopRequireDefault(_listarPortafolio);
 
+var _sobremi = require('cliente/components/publico/sobremi/sobremi');
+
+var _sobremi2 = _interopRequireDefault(_sobremi);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // activar en developer tools de chrom react
+
+// import About from 'cliente/components/publico/about'
 window.React = _react2.default;
 
 (0, _reactDom.render)(_react2.default.createElement(
@@ -742,10 +808,10 @@ window.React = _react2.default;
 	_react2.default.createElement(_reactRouter.Route, { component: _home2.default, path: '/' }),
 	_react2.default.createElement(_reactRouter.Route, { component: _detalleBlog2.default, path: '/blog/:id' }),
 	_react2.default.createElement(_reactRouter.Route, { component: _listarPortafolio2.default, path: '/portafolio' }),
-	_react2.default.createElement(_reactRouter.Route, { component: _about2.default, path: '/about' })
+	_react2.default.createElement(_reactRouter.Route, { component: _sobremi2.default, path: '/sobre-mi' })
 ), document.getElementById('container'));
 
-},{"cliente/components/publico/about":1,"cliente/components/publico/home/detalleBlog":2,"cliente/components/publico/home/home":3,"cliente/components/publico/portafolio/listarPortafolio":7,"react":216,"react-dom":34,"react-router":54}],9:[function(require,module,exports){
+},{"cliente/components/publico/home/detalleBlog":1,"cliente/components/publico/home/home":2,"cliente/components/publico/portafolio/listarPortafolio":6,"cliente/components/publico/sobremi/sobremi":7,"react":216,"react-dom":34,"react-router":54}],9:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};

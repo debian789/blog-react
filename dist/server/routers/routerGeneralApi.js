@@ -34,6 +34,7 @@ general.post('/general', validarAutenticacion, function (req, res) {
     nombre: req.body.nombre,
     imagenPerfil: req.body.imagenPerfil,
     descripcion: req.body.descripcion,
+    sobremi: req.body.sobremi,
     facebook: req.body.facebook,
     twitter: req.body.twitter,
     github: req.body.github

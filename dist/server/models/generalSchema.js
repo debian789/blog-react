@@ -14,6 +14,7 @@ var GeneralSchema = new _mongoose2.default.Schema({
   nombre: { type: String },
   imagenPerfil: { type: String },
   descripcion: { type: String },
+  sobremi: { type: String },
   facebook: { type: String },
   twitter: { type: String },
   github: { type: String }

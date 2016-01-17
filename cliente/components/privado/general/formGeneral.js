@@ -1,6 +1,7 @@
 import React from 'react'
 import request from 'superagent'
 import Layout from 'cliente/components/privado/layout'
+import marked from 'marked'
 
 module.exports = class FormGeneral extends React.Component {
   constructor (props) {
@@ -9,6 +10,7 @@ module.exports = class FormGeneral extends React.Component {
       nombre: '',
       imagenPerfil: '',
       descripcion: '',
+      sobremi: '',
       facebook: '',
       twitter: '',
       github: ''
@@ -26,6 +28,7 @@ module.exports = class FormGeneral extends React.Component {
             nombre: data.body.nombre,
             imagenPerfil: data.body.imagenPerfil,
             descripcion: data.body.descripcion,
+            sobremi: data.body.sobremi,
             facebook: data.body.facebook,
             twitter: data.body.twitter,
             github: data.body.github
@@ -42,6 +45,9 @@ module.exports = class FormGeneral extends React.Component {
   }
   handleDescripcion (event) {
     this.setState({descripcion: event.target.value})
+  }
+  handleSobremi (event) {
+    this.setState({sobremi: event.target.value})
   }
   handleFacebook (event) {
     this.setState({facebook: event.target.value.trim()})
@@ -61,6 +67,7 @@ module.exports = class FormGeneral extends React.Component {
       nombre: event.target.elements.nombre.value,
       imagenPerfil: event.target.elements.imagenPerfil.value.trim(),
       descripcion: event.target.elements.descripcion.value,
+      sobremi: event.target.elements.sobremi.value,
       facebook: event.target.elements.facebook.value.trim(),
       twitter: event.target.elements.twitter.value.trim(),
       github: event.target.elements.github.value.trim()
@@ -105,6 +112,19 @@ module.exports = class FormGeneral extends React.Component {
             <div className='descripcionText'>
               <label>Descripción</label>
               <textarea onChange={this.handleDescripcion.bind(this)} name='descripcion' value={this.state.descripcion}></textarea>
+            </div>
+            <div className='descripcionText'>
+              <label>Descripción visualización </label>
+              <div  dangerouslySetInnerHTML={{__html: marked(this.state.descripcion)}} ></div>
+            </div>
+            <div className='descripcionText'>
+              <label>Sobre mi </label>
+              <textarea onChange={this.handleSobremi.bind(this)} name='sobremi' value={this.state.sobremi}></textarea>
+            </div>
+
+            <div className='descripcionText'>
+              <label>Sobre mi  visualización </label>
+              <div dangerouslySetInnerHTML={{__html: marked(this.state.sobremi)}}></div>
             </div>
             <hr/>
             <div>

@@ -38,6 +38,8 @@ module.exports = class ListarPortafolio extends React.Component {
     return (
       <Layout>
         <section className='listaPortafolio'>
+          <h1>Portafolio</h1>
+          <p>Selección de mis últimos trabajos realizados </p>
           {
             this.state.listaPortafolio.map((data) => {
               return (
