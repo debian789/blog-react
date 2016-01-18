@@ -596,79 +596,83 @@ module.exports = function (_React$Component) {
         _layout2.default,
         null,
         _react2.default.createElement(
-          'table',
-          null,
+          'section',
+          { className: 'listContacto' },
           _react2.default.createElement(
-            'thead',
+            'table',
             null,
             _react2.default.createElement(
-              'tr',
+              'thead',
               null,
               _react2.default.createElement(
-                'th',
-                null,
-                'Nombre'
-              ),
-              _react2.default.createElement(
-                'th',
-                null,
-                'Email'
-              ),
-              _react2.default.createElement(
-                'th',
-                null,
-                'Asunto'
-              ),
-              _react2.default.createElement(
-                'th',
-                null,
-                'Consulta'
-              ),
-              _react2.default.createElement(
-                'th',
-                null,
-                'Acción'
-              )
-            )
-          ),
-          _react2.default.createElement(
-            'tbody',
-            null,
-            this.state.contactos.map(function (registros) {
-              return _react2.default.createElement(
                 'tr',
-                { key: registros._id },
+                null,
                 _react2.default.createElement(
-                  'td',
+                  'th',
                   null,
-                  registros.nombre
+                  'Nombre'
                 ),
                 _react2.default.createElement(
-                  'td',
+                  'th',
                   null,
-                  registros.email
+                  'Email'
                 ),
                 _react2.default.createElement(
-                  'td',
+                  'th',
                   null,
-                  registros.asunto
+                  'Asunto'
                 ),
                 _react2.default.createElement(
-                  'td',
+                  'th',
                   null,
-                  registros.consulta
+                  'Consulta'
                 ),
                 _react2.default.createElement(
-                  'td',
+                  'th',
                   null,
-                  _react2.default.createElement(
-                    'span',
-                    { id: registros.id },
-                    ' Eliminar '
-                  )
+                  'Acción'
                 )
-              );
-            })
+              )
+            ),
+            _react2.default.createElement(
+              'tbody',
+              null,
+              this.state.contactos.map(function (registros) {
+                return _react2.default.createElement(
+                  'tr',
+                  { key: registros._id },
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    registros.nombre
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    registros.email
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    registros.asunto
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    registros.consulta
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    _react2.default.createElement(
+                      'span',
+                      { id: registros.id },
+                      ' Eliminar '
+                    )
+                  )
+                );
+              })
+            )
           )
         )
       );

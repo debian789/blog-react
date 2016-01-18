@@ -23,33 +23,34 @@ module.exports = class ListarContactos extends React.Component {
   render () {
     return (
       <Layout>
-        <table>
-          <thead>
-
-          <tr>
-            <th>Nombre</th>
-            <th>Email</th>
-            <th>Asunto</th>
-            <th>Consulta</th>
-            <th>Acción</th>
-          </tr>
-          </thead>
-          <tbody>
-          {
-            this.state.contactos.map((registros) => {
-              return (
-                <tr key={registros._id}>
-                  <td>{registros.nombre}</td>
-                  <td>{registros.email}</td>
-                  <td>{registros.asunto}</td>
-                  <td>{registros.consulta}</td>
-                  <td><span id={registros.id}> Eliminar </span></td>
-                </tr>
-              )
-            })
-          }
-          </tbody>
-        </table>
+        <section className='listContacto'>
+          <table>
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Asunto</th>
+                <th>Consulta</th>
+                <th>Acción</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                this.state.contactos.map((registros) => {
+                  return (
+                    <tr key={registros._id}>
+                      <td>{registros.nombre}</td>
+                      <td>{registros.email}</td>
+                      <td>{registros.asunto}</td>
+                      <td>{registros.consulta}</td>
+                      <td><span id={registros.id}> Eliminar </span></td>
+                    </tr>
+                  )
+                })
+              }
+            </tbody>
+          </table>
+        </section>
       </Layout>
     )
   }
