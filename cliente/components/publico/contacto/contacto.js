@@ -67,7 +67,7 @@ module.exports = class Contacto extends React.Component {
     let iconFacebook = this.state.datosGeneral.facebook ? <a href={this.state.datosGeneral.facebook} className='iconSocial icon-facebook2' target='_black'></a> : ''
     let iconTwitter = this.state.datosGeneral.twitter ? <a href={this.state.datosGeneral.twitter} className='iconSocial icon-twitter' target='_black'></a> : ''
     let iconGithub = this.state.datosGeneral.github ? <a href={this.state.datosGeneral.github} className='iconSocial icon-github' target='_black'></a> : ''
-    let contactoMensaje = this.state.datosGeneral.mensajeContacto ? <div dangerouslySetInnerHTML={{__html: marked(this.state.datosGeneral.mensajeContacto)}}/> : ''
+    let contactoMensaje = this.state.datosGeneral.mensajeContacto ? <div className='contactoMensaje' dangerouslySetInnerHTML={{__html: marked(this.state.datosGeneral.mensajeContacto)}}/> : ''
     return (
         <Layout>
           <h2>Contacto</h2>
@@ -92,7 +92,7 @@ module.exports = class Contacto extends React.Component {
                   <textarea onChange={this.handleConsulta.bind(this)} type='text' name='consulta' value={this.state.consulta} />
                 </div>
               <div>
-                <input type='submit' value='Enviar' />
+                <input type='submit' value='Enviar' className='btnEditar'/>
               </div>
             </form>
 

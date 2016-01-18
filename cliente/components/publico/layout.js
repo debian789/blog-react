@@ -2,6 +2,7 @@ import React from 'react'
 import {Link} from 'react-router'
 import request from 'superagent'
 import marked from 'marked'
+import Hammer from 'hammerjs'
 
 module.exports = class Layout extends React.Component {
   constructor (props) {
@@ -32,6 +33,25 @@ module.exports = class Layout extends React.Component {
       }
     })
   }
+  handleMostrar (event) {
+    let sidePanel = this.refs.sidePanel
+    sidePanel.classList.toggle('open')
+  }
+  componentDidMount () {
+    //debugger
+    let mainPanel = this.refs.mainPanel
+    let sidePanel = this.refs.sidePanel
+    let hammerPanel = new Hammer(mainPanel)
+    hammerPanel
+    .on('swiperight', function (e) {
+      sidePanel.classList.toggle('open')
+    })
+    .on('swipeleft', function (e) {
+      sidePanel.classList.toggle('open')
+    })
+  }
+
+
   render () {
     let urlImagen = this.state.datosGeneral.imagenPerfil ? this.state.datosGeneral.imagenPerfil : '/static/img/default_perfil.jpg'
     let iconFacebook = this.state.datosGeneral.facebook ? <a href={this.state.datosGeneral.facebook} className='iconSocial icon-facebook2' target='_black'></a> : ''
@@ -40,16 +60,16 @@ module.exports = class Layout extends React.Component {
     return (
       <section>
         <div id='barraNavegacion' >
-          <span id='mostrar' className='icon-menu'></span>
+          <span id='mostrar' className='icon-menu' onClick={this.handleMostrar.bind(this)}></span>
           <span id='tituloBarra'>{this.props.tituloBarra}</span> <span id='subBtn'></span>
         </div>
-        <nav id='sidePanel'>
+        <nav id='sidePanel' ref='sidePanel'>
           <div><Link to='/' className='icon-news'> Blog</Link></div>
           <div><Link to='/portafolio' className='icon-stack'> Portafolio</Link></div>
           <div><Link to='/sobre-mi' className='icon-stack'> Sobre mi</Link></div>
           <div><Link to='/contacto' className='icon-stack'> Contacto</Link></div>
         </nav>
-        <section id='mainPanel'>
+        <section id='mainPanel' ref='mainPanel'>
           <section className='contenidoLateral'>
             <article>
               <div className='cuadroImagen'>

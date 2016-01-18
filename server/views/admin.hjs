@@ -13,29 +13,7 @@
     <script>hljs.initHighlightingOnLoad();</script>
     <script  type="text/javascript" src='bundle-admin.js'></script>
     <script type="text/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.4/hammer.min.js"></script>
 
-    <script type="text/javascript">
-  (function(){
-  var mainPanel = document.getElementById('mainPanel');
-  var sidePanel = document.getElementById('sidePanel');
-  var mostrarBtn = document.getElementById('mostrar');
-
-  mostrarBtn.addEventListener('click',function(e){
-    sidePanel.classList.toggle('open');
-  })
-
-  var hammerPanel = new Hammer(mainPanel);
-
-  hammerPanel
-    .on('swiperight', function(e) {
-      sidePanel.classList.toggle('open');
-    })
-    .on('swipeleft', function(e) {
-      sidePanel.classList.toggle('open');
-    });
-}());
-</script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

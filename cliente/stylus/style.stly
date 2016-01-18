@@ -435,17 +435,31 @@ nav
   h1
     margin 0
     float left
-  .btnEditar
-    //background #63ACEA
-    border-radius 4px
-    display inline-block
-    padding 0.5em 1em 0.5em 1em
-    background #ddd
-    border 0
-    border-bottom 2px solid #ccc
-    text-decoration none
-    color #888
-    margin-left 0.5em
+.contactoMensaje
+  // border 1px solid red
+  position relative
+  margin-bottom 2em
+  width 80%
+  margin-left auto
+  margin-right auto
+  p
+    width 100%
+  figure
+    width 100%
+  iframe
+    width 100%
+
+.btnEditar
+  //background #63ACEA
+  border-radius 4px
+  display inline-block
+  padding 0.5em 1em 0.5em 1em
+  background #ddd
+  border 0
+  border-bottom 2px solid #ccc
+  text-decoration none
+  color #888
+  margin-left 0.5em
 .itemListIzq
   width 98%
   margin-left 1%
@@ -463,6 +477,25 @@ nav
       display inline-block
       width 100%
       color #2C89C4
+.cuadroSeguir
+  margin-top 3em
+  //border 1px solid red
+  text-align center
+  p
+    text-align center
+    font-size 1.8em
+  div
+    //border 1px solid red
+    a
+      border-radius 50%
+      padding 0.7em
+      font-size 1.5em
+      color #888
+      text-decoration none
+      border 1px solid #888
+      display inline-block
+      margin-left 0.2em
+      margin-right 0.2em
 .itemListDer
   width 98%
   margin-left 1%
@@ -518,12 +551,12 @@ nav
     overflow-x hidden
 .estiloFormContacto
   text-align center
-  width 80%
+  width 96%
   margin auto
   padding-top 2em
-  padding-bottom 2em 
-  //border 1px solid red
+  padding-bottom 2em
   background #E0E0E0
+  //border 1px solid red
   div
     //padding 2%
     margin-bottom 1.7em
@@ -534,10 +567,10 @@ nav
       width 100%
       font-weight bold
     input[type=text],textarea
-      width 60%
+      width 90%
       border-radius 4px
       border 0
-      padding 1%
+      padding 0.8em
 .panelDer
   width 49%
   //border 1px solid blue
@@ -562,6 +595,9 @@ nav
   width 96%
   margin 4em auto auto auto
   //text-align center
+  .mensajePortafolio
+    //border 1px solid red
+    margin-bottom 1.5em
   div
     background white
     position relative
