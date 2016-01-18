@@ -24,6 +24,10 @@ var _routerBlog = require('server/routers/routerBlog');
 
 var _routerBlog2 = _interopRequireDefault(_routerBlog);
 
+var _routerContactoApi = require('server/routers/routerContactoApi');
+
+var _routerContactoApi2 = _interopRequireDefault(_routerContactoApi);
+
 var _mongooseConfig = require('server/config/mongooseConfig');
 
 var _mongooseConfig2 = _interopRequireDefault(_mongooseConfig);
@@ -98,6 +102,7 @@ app.use('/', _routerBlog2.default);
 app.use('/api', _routerBlogApi2.default);
 app.use('/api', _routerGeneralApi2.default);
 app.use('/api', _routerPortafolioApi2.default);
+app.use('/api', _routerContactoApi2.default);
 
 server.listen(port);
 console.log('server iniciado puerto ' + port);

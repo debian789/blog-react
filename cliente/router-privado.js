@@ -7,6 +7,7 @@ import formEditar from 'cliente/components/privado/blog/formEditar'
 import formGeneral from 'cliente/components/privado/general/formGeneral'
 import formPortafolio from 'cliente/components/privado/portafolio/formPortafolio'
 import portafolioListar from 'cliente/components/privado/portafolio/listarPortafolio'
+import ListarContactos from 'cliente/components/privado/contacto/listarContactos'
 
 window.React = React
 
@@ -20,5 +21,6 @@ render((
     <Route component = { formPortafolio } path='/portafolio' />
     <Route component = { formPortafolio } path='/portafolio/:id' />
     <Route component = { portafolioListar } path='/portafolio-listar' />
+    <Route component = { ListarContactos } path='/contacto-listar' />
   </Router>
 ), document.getElementById('container'))

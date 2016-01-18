@@ -11,6 +11,7 @@ module.exports = class Layout extends React.Component {
           <div><a href='/'><span className='icon-news'></span> Blog </a></div>
           <div><Link to='/'><span className='icon-list2'></span> Litar blog</Link></div>
           <div><Link to='/portafolio-listar'><span className='icon-stack'></span> Portafolio</Link></div>
+          <div><Link to='/contacto-listar'><span className='icon-stack'></span> Contactos </Link></div>
           <div><Link to='/general'><span className='icon-cog'></span></Link></div>
           <div><a href='/logout'><span className='icon-exit'></span> Salir</a></div>
         </nav>

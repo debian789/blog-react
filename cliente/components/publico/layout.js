@@ -46,7 +46,7 @@ module.exports = class Layout extends React.Component {
           <div><Link to='/' className='icon-news'> Blog</Link></div>
           <div><Link to='/portafolio' className='icon-stack'> Portafolio</Link></div>
           <div><Link to='/sobre-mi' className='icon-stack'> Sobre mi</Link></div>
-          <div><Link to='/portafolio' className='icon-stack'> Contacto</Link></div>
+          <div><Link to='/contacto' className='icon-stack'> Contacto</Link></div>
         </nav>
         <section id='mainPanel'>
           <section className='contenidoLateral'>

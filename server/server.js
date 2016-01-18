@@ -5,6 +5,7 @@ import blogApi from 'server/routers/routerBlogApi'
 import generalApi from 'server/routers/routerGeneralApi'
 import portafolioApi from 'server/routers/routerPortafolioApi'
 import blog from 'server/routers/routerBlog'
+import contactoApi from 'server/routers/routerContactoApi'
 import mongooseConfig from 'server/config/mongooseConfig'
 import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
@@ -55,6 +56,7 @@ app.use('/', blog)
 app.use('/api', blogApi)
 app.use('/api', generalApi)
 app.use('/api', portafolioApi)
+app.use('/api', contactoApi)
 
 server.listen(port)
 console.log('server iniciado puerto ' + port)
