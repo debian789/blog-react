@@ -70,8 +70,10 @@ module.exports = class Contacto extends React.Component {
     let contactoMensaje = this.state.datosGeneral.mensajeContacto ? <div className='contactoMensaje' dangerouslySetInnerHTML={{__html: marked(this.state.datosGeneral.mensajeContacto)}}/> : ''
     return (
         <Layout>
-          <h2>Contacto</h2>
-          <hr/>
+          <section className='seccionContacto'>
+
+          <h1>Contacto</h1>
+
           {contactoMensaje}
           <section className='estiloFormContacto'>
             <form onSubmit={this.handleSubmit.bind(this)}>
@@ -92,7 +94,7 @@ module.exports = class Contacto extends React.Component {
                   <textarea onChange={this.handleConsulta.bind(this)} type='text' name='consulta' value={this.state.consulta} />
                 </div>
               <div>
-                <input type='submit' value='Enviar' className='btnEditar'/>
+                <input type='submit' value='Enviar' className='btnAccion'/>
               </div>
             </form>
 
@@ -104,6 +106,7 @@ module.exports = class Contacto extends React.Component {
               {iconTwitter}
               {iconGithub}
             </div>
+          </section>
           </section>
         </Layout>
       )

@@ -25,11 +25,11 @@ module.exports = class SobreMi extends React.Component {
   render () {
     return (
       <Layout>
-        <div>
-          <h2>Sobre mi </h2>
-          <p>Conóceme un poco más sobre mi trabajo</p>
+        <section className='sobreMiListado'>
+          <h1>Sobre mi </h1>
+          <p className='mensajeSobreMi'>Conóceme un poco más sobre mi trabajo</p>
           <div dangerouslySetInnerHTML={{__html: marked(this.state.datos.sobremi)}}></div>
-        </div>
+        </section>
       </Layout>
     )
   }

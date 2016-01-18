@@ -113,79 +113,82 @@ module.exports = function (_React$Component) {
         _layout2.default,
         null,
         _react2.default.createElement(
-          'h2',
-          null,
-          'Contacto'
-        ),
-        _react2.default.createElement('hr', null),
-        contactoMensaje,
-        _react2.default.createElement(
           'section',
-          { className: 'estiloFormContacto' },
+          { className: 'seccionContacto' },
           _react2.default.createElement(
-            'form',
-            { onSubmit: this.handleSubmit.bind(this) },
-            _react2.default.createElement(
-              'div',
-              null,
-              _react2.default.createElement(
-                'label',
-                null,
-                'Tu Nombre (Requerido)'
-              ),
-              _react2.default.createElement('input', { onChange: this.handleNombre.bind(this), type: 'text', name: 'nombre', value: this.state.nombre, required: true })
-            ),
-            _react2.default.createElement(
-              'div',
-              null,
-              _react2.default.createElement(
-                'label',
-                null,
-                'Tu Email (Requerido)'
-              ),
-              _react2.default.createElement('input', { onChange: this.handleEmail.bind(this), type: 'text', name: 'email', value: this.state.email, required: true })
-            ),
-            _react2.default.createElement(
-              'div',
-              null,
-              _react2.default.createElement(
-                'label',
-                null,
-                'Asunto:'
-              ),
-              _react2.default.createElement('input', { onChange: this.handleAsunto.bind(this), type: 'text', name: 'asunto', value: this.state.asunto })
-            ),
-            _react2.default.createElement(
-              'div',
-              null,
-              _react2.default.createElement(
-                'label',
-                null,
-                'Tu consulta: (Requerido)'
-              ),
-              _react2.default.createElement('textarea', { onChange: this.handleConsulta.bind(this), type: 'text', name: 'consulta', value: this.state.consulta })
-            ),
-            _react2.default.createElement(
-              'div',
-              null,
-              _react2.default.createElement('input', { type: 'submit', value: 'Enviar', className: 'btnEditar' })
-            )
-          )
-        ),
-        _react2.default.createElement(
-          'section',
-          { className: 'cuadroSeguir' },
-          _react2.default.createElement(
-            'p',
+            'h1',
             null,
-            'También pudes seguirme en '
+            'Contacto'
+          ),
+          contactoMensaje,
+          _react2.default.createElement(
+            'section',
+            { className: 'estiloFormContacto' },
+            _react2.default.createElement(
+              'form',
+              { onSubmit: this.handleSubmit.bind(this) },
+              _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                  'label',
+                  null,
+                  'Tu Nombre (Requerido)'
+                ),
+                _react2.default.createElement('input', { onChange: this.handleNombre.bind(this), type: 'text', name: 'nombre', value: this.state.nombre, required: true })
+              ),
+              _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                  'label',
+                  null,
+                  'Tu Email (Requerido)'
+                ),
+                _react2.default.createElement('input', { onChange: this.handleEmail.bind(this), type: 'text', name: 'email', value: this.state.email, required: true })
+              ),
+              _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                  'label',
+                  null,
+                  'Asunto:'
+                ),
+                _react2.default.createElement('input', { onChange: this.handleAsunto.bind(this), type: 'text', name: 'asunto', value: this.state.asunto })
+              ),
+              _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                  'label',
+                  null,
+                  'Tu consulta: (Requerido)'
+                ),
+                _react2.default.createElement('textarea', { onChange: this.handleConsulta.bind(this), type: 'text', name: 'consulta', value: this.state.consulta })
+              ),
+              _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement('input', { type: 'submit', value: 'Enviar', className: 'btnAccion' })
+              )
+            )
           ),
           _react2.default.createElement(
-            'div',
-            null,
-            iconFacebook,
-            iconTwitter,
-            iconGithub
+            'section',
+            { className: 'cuadroSeguir' },
+            _react2.default.createElement(
+              'p',
+              null,
+              'También pudes seguirme en '
+            ),
+            _react2.default.createElement(
+              'div',
+              null,
+              iconFacebook,
+              iconTwitter,
+              iconGithub
+            )
           )
         )
       );
@@ -967,16 +970,16 @@ module.exports = function (_React$Component) {
         _layout2.default,
         null,
         _react2.default.createElement(
-          'div',
-          null,
+          'section',
+          { className: 'sobreMiListado' },
           _react2.default.createElement(
-            'h2',
+            'h1',
             null,
             'Sobre mi '
           ),
           _react2.default.createElement(
             'p',
-            null,
+            { className: 'mensajeSobreMi' },
             'Conóceme un poco más sobre mi trabajo'
           ),
           _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: (0, _marked2.default)(this.state.datos.sobremi) } })

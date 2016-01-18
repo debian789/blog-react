@@ -270,6 +270,12 @@ nav
   .descripcionText
     margin-bottom 1em
     width 100%
+    div
+      p
+        img
+          width 100%
+      iframe
+        width 100%
   div
     margin-bottom 1em
     width 100%
@@ -417,6 +423,10 @@ nav
     width 90%
     margin 1em auto
     text-align center
+    img
+      width 100%
+  iframe
+    width 100%
   .iconSocial
     display inline-block
     border-radius 50%
@@ -439,13 +449,14 @@ nav
   // border 1px solid red
   position relative
   margin-bottom 2em
-  width 80%
+  width 96%
   margin-left auto
   margin-right auto
+  //overflow-x hidden
   p
     width 100%
-  figure
-    width 100%
+    img
+      width 100%
   iframe
     width 100%
 
@@ -459,6 +470,17 @@ nav
   border-bottom 2px solid #ccc
   text-decoration none
   color #888
+  margin-left 0.5em
+.btnAccion
+  //background #63ACEA
+  border-radius 4px
+  display inline-block
+  padding 1em 3em 1em 3em
+  background #6EB5ED
+  border 0
+  border-bottom 2px solid #ccc
+  text-decoration none
+  color white
   margin-left 0.5em
 .itemListIzq
   width 98%
@@ -549,6 +571,12 @@ nav
     right 0
     overflow auto
     overflow-x hidden
+.seccionContacto
+  h1
+    text-align center
+    margin 0
+    margin-top 2em
+    margin-bottom 2em
 .estiloFormContacto
   text-align center
   width 96%
@@ -590,6 +618,23 @@ nav
   overflow-x hidden
   bottom 2.5em
   vertical-align top
+.sobreMiListado
+  //border 1px solid red
+  text-align center
+  h1
+    margin 0
+    margin-top 2em
+  .mensajeSobreMi
+    text-align center
+    margin-bottom 2em
+  div
+    margin auto
+    width 96%
+    iframe
+      width 100%
+    p
+      img
+        width 100%
 .listaPortafolio
   //border 1px solid red
   width 96%
