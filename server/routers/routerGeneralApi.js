@@ -26,7 +26,8 @@ general.post('/general', validarAutenticacion, (req, res) => {
     sobremi: req.body.sobremi,
     facebook: req.body.facebook,
     twitter: req.body.twitter,
-    github: req.body.github
+    github: req.body.github,
+    mensajeContacto: req.body.mensajeContacto
   }, {new: true, upsert: true}, (err) => {
     if (err) {
       return res.json(err)

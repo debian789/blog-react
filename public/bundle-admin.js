@@ -726,7 +726,8 @@ module.exports = function (_React$Component) {
       sobremi: '',
       facebook: '',
       twitter: '',
-      github: ''
+      github: '',
+      mensajeContacto: ''
     };
     return _this;
   }
@@ -748,7 +749,8 @@ module.exports = function (_React$Component) {
               sobremi: data.body.sobremi,
               facebook: data.body.facebook,
               twitter: data.body.twitter,
-              github: data.body.github
+              github: data.body.github,
+              mensajeContacto: data.body.mensajeContacto
             });
           }
         }
@@ -790,6 +792,11 @@ module.exports = function (_React$Component) {
       this.setState({ github: event.target.value.trim() });
     }
   }, {
+    key: 'handleMensajeContacto',
+    value: function handleMensajeContacto(event) {
+      this.setState({ mensajeContacto: event.target.value });
+    }
+  }, {
     key: 'handleSubmit',
     value: function handleSubmit(event) {
       event.preventDefault();
@@ -800,7 +807,8 @@ module.exports = function (_React$Component) {
         sobremi: event.target.elements.sobremi.value,
         facebook: event.target.elements.facebook.value.trim(),
         twitter: event.target.elements.twitter.value.trim(),
-        github: event.target.elements.github.value.trim()
+        github: event.target.elements.github.value.trim(),
+        mensajeContacto: event.target.elements.mensajeContacto.value
         //  _id: event.target.elements._id.value.trim()
       }).end(function (err, res) {
         if (err) {
@@ -879,6 +887,7 @@ module.exports = function (_React$Component) {
               ),
               _react2.default.createElement('input', { onChange: this.handleGithub.bind(this), type: 'text', name: 'github', value: this.state.github })
             ),
+            _react2.default.createElement('hr', null),
             _react2.default.createElement(
               'div',
               { className: 'descripcionText' },
@@ -899,6 +908,7 @@ module.exports = function (_React$Component) {
               ),
               _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: (0, _marked2.default)(this.state.descripcion) } })
             ),
+            _react2.default.createElement('hr', null),
             _react2.default.createElement(
               'div',
               { className: 'descripcionText' },
@@ -918,6 +928,27 @@ module.exports = function (_React$Component) {
                 'Sobre mi  visualización '
               ),
               _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: (0, _marked2.default)(this.state.sobremi) } })
+            ),
+            _react2.default.createElement('hr', null),
+            _react2.default.createElement(
+              'div',
+              { className: 'descripcionText' },
+              _react2.default.createElement(
+                'label',
+                null,
+                'Mensaje en la vista de contacto '
+              ),
+              _react2.default.createElement('textarea', { onChange: this.handleMensajeContacto.bind(this), name: 'mensajeContacto', value: this.state.mensajeContacto })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'descripcionText' },
+              _react2.default.createElement(
+                'label',
+                null,
+                'Visualización del mensaje de contacto '
+              ),
+              _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: (0, _marked2.default)(this.state.mensajeContacto) } })
             ),
             _react2.default.createElement('hr', null),
             _react2.default.createElement(
@@ -1228,7 +1259,7 @@ module.exports = function (_React$Component) {
           _react2.default.createElement(
             'h1',
             null,
-            'Configuraciones Generales '
+            'Portafolio Administrar '
           ),
           _react2.default.createElement('hr', null),
           _react2.default.createElement(
@@ -1330,7 +1361,7 @@ module.exports = function (_React$Component) {
               _react2.default.createElement(
                 'label',
                 null,
-                'Descripción'
+                'Descripción visualización'
               ),
               _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: (0, _marked2.default)(this.state.descripcion) } })
             ),

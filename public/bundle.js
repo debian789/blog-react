@@ -15,6 +15,10 @@ var _superagent = require('superagent');
 
 var _superagent2 = _interopRequireDefault(_superagent);
 
+var _marked = require('marked');
+
+var _marked2 = _interopRequireDefault(_marked);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -35,12 +39,31 @@ module.exports = function (_React$Component) {
       nombre: '',
       email: '',
       asunto: '',
-      consulta: ''
+      consulta: '',
+      datosGeneral: {
+        github: '',
+        facebook: '',
+        twitter: '',
+        mensajeContacto: ''
+      }
     };
     return _this;
   }
 
   _createClass(Contacto, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      var _this2 = this;
+
+      _superagent2.default.get('/api/general').end(function (err, datos) {
+        if (err) {
+          console.log(err);
+        } else {
+          _this2.setState({ datosGeneral: datos.body });
+        }
+      });
+    }
+  }, {
     key: 'handleNombre',
     value: function handleNombre(event) {
       this.setState({ nombre: event.target.value });
@@ -82,6 +105,10 @@ module.exports = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var iconFacebook = this.state.datosGeneral.facebook ? _react2.default.createElement('a', { href: this.state.datosGeneral.facebook, className: 'iconSocial icon-facebook2', target: '_black' }) : '';
+      var iconTwitter = this.state.datosGeneral.twitter ? _react2.default.createElement('a', { href: this.state.datosGeneral.twitter, className: 'iconSocial icon-twitter', target: '_black' }) : '';
+      var iconGithub = this.state.datosGeneral.github ? _react2.default.createElement('a', { href: this.state.datosGeneral.github, className: 'iconSocial icon-github', target: '_black' }) : '';
+      var contactoMensaje = this.state.datosGeneral.mensajeContacto ? _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: (0, _marked2.default)(this.state.datosGeneral.mensajeContacto) } }) : '';
       return _react2.default.createElement(
         _layout2.default,
         null,
@@ -90,10 +117,11 @@ module.exports = function (_React$Component) {
           null,
           'Contacto'
         ),
-        _react2.default.createElement('p', null),
+        _react2.default.createElement('hr', null),
+        contactoMensaje,
         _react2.default.createElement(
           'section',
-          null,
+          { className: 'estiloFormContacto' },
           _react2.default.createElement(
             'form',
             { onSubmit: this.handleSubmit.bind(this) },
@@ -117,7 +145,6 @@ module.exports = function (_React$Component) {
               ),
               _react2.default.createElement('input', { onChange: this.handleEmail.bind(this), type: 'text', name: 'email', value: this.state.email, required: true })
             ),
-            _react2.default.createElement('hr', null),
             _react2.default.createElement(
               'div',
               null,
@@ -136,13 +163,29 @@ module.exports = function (_React$Component) {
                 null,
                 'Tu consulta: (Requerido)'
               ),
-              _react2.default.createElement('input', { onChange: this.handleConsulta.bind(this), type: 'text', name: 'consulta', value: this.state.consulta })
+              _react2.default.createElement('textarea', { onChange: this.handleConsulta.bind(this), type: 'text', name: 'consulta', value: this.state.consulta })
             ),
             _react2.default.createElement(
               'div',
               null,
               _react2.default.createElement('input', { type: 'submit', value: 'Enviar' })
             )
+          )
+        ),
+        _react2.default.createElement(
+          'section',
+          { className: 'cuadroSeguir' },
+          _react2.default.createElement(
+            'p',
+            null,
+            'También pudes seguirme en '
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            iconFacebook,
+            iconTwitter,
+            iconGithub
           )
         )
       );
@@ -152,7 +195,7 @@ module.exports = function (_React$Component) {
   return Contacto;
 }(_react2.default.Component);
 
-},{"cliente/components/publico/layout":5,"react":217,"superagent":218}],2:[function(require,module,exports){
+},{"cliente/components/publico/layout":5,"marked":34,"react":217,"superagent":218}],2:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -414,6 +457,10 @@ var _superagent = require('superagent');
 
 var _superagent2 = _interopRequireDefault(_superagent);
 
+var _marked = require('marked');
+
+var _marked2 = _interopRequireDefault(_marked);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -550,11 +597,7 @@ module.exports = function (_React$Component) {
                   )
                 )
               ),
-              _react2.default.createElement(
-                'p',
-                null,
-                this.state.datosGeneral.descripcion
-              ),
+              _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: (0, _marked2.default)(this.state.datosGeneral.descripcion) } }),
               _react2.default.createElement('hr', { className: 'lineaAutor' }),
               iconFacebook,
               iconTwitter,
@@ -574,7 +617,7 @@ module.exports = function (_React$Component) {
   return Layout;
 }(_react2.default.Component);
 
-},{"react":217,"react-router":55,"superagent":218}],6:[function(require,module,exports){
+},{"marked":34,"react":217,"react-router":55,"superagent":218}],6:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();

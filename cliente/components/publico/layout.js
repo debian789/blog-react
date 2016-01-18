@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router'
 import request from 'superagent'
+import marked from 'marked'
 
 module.exports = class Layout extends React.Component {
   constructor (props) {
@@ -58,7 +59,7 @@ module.exports = class Layout extends React.Component {
                 </figure>
                 <div className='nombreProfesion'><span>{this.state.datosGeneral.nombre} </span></div>
               </div>
-              <p>{this.state.datosGeneral.descripcion}</p>
+              <div dangerouslySetInnerHTML={{__html: marked(this.state.datosGeneral.descripcion)}}></div>
               <hr className='lineaAutor'/>
               {iconFacebook}
               {iconTwitter}

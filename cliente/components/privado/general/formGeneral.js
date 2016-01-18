@@ -13,7 +13,8 @@ module.exports = class FormGeneral extends React.Component {
       sobremi: '',
       facebook: '',
       twitter: '',
-      github: ''
+      github: '',
+      mensajeContacto: ''
     }
   }
   componentWillMount () {
@@ -31,7 +32,8 @@ module.exports = class FormGeneral extends React.Component {
             sobremi: data.body.sobremi,
             facebook: data.body.facebook,
             twitter: data.body.twitter,
-            github: data.body.github
+            github: data.body.github,
+            mensajeContacto: data.body.mensajeContacto
           })
         }
       }
@@ -58,6 +60,9 @@ module.exports = class FormGeneral extends React.Component {
   handleGithub (event) {
     this.setState({github: event.target.value.trim()})
   }
+  handleMensajeContacto (event) {
+    this.setState({mensajeContacto: event.target.value})
+  }
 
   handleSubmit (event) {
     event.preventDefault()
@@ -70,7 +75,8 @@ module.exports = class FormGeneral extends React.Component {
       sobremi: event.target.elements.sobremi.value,
       facebook: event.target.elements.facebook.value.trim(),
       twitter: event.target.elements.twitter.value.trim(),
-      github: event.target.elements.github.value.trim()
+      github: event.target.elements.github.value.trim(),
+      mensajeContacto: event.target.elements.mensajeContacto.value
     //  _id: event.target.elements._id.value.trim()
     })
     .end((err, res) => {
@@ -109,6 +115,7 @@ module.exports = class FormGeneral extends React.Component {
               <label>Url Github</label>
               <input onChange={this.handleGithub.bind(this)} type='text' name='github' value={this.state.github} />
             </div>
+            <hr/>
             <div className='descripcionText'>
               <label>Descripción</label>
               <textarea onChange={this.handleDescripcion.bind(this)} name='descripcion' value={this.state.descripcion}></textarea>
@@ -117,6 +124,7 @@ module.exports = class FormGeneral extends React.Component {
               <label>Descripción visualización </label>
               <div  dangerouslySetInnerHTML={{__html: marked(this.state.descripcion)}} ></div>
             </div>
+            <hr/>
             <div className='descripcionText'>
               <label>Sobre mi </label>
               <textarea onChange={this.handleSobremi.bind(this)} name='sobremi' value={this.state.sobremi}></textarea>
@@ -125,6 +133,16 @@ module.exports = class FormGeneral extends React.Component {
             <div className='descripcionText'>
               <label>Sobre mi  visualización </label>
               <div dangerouslySetInnerHTML={{__html: marked(this.state.sobremi)}}></div>
+            </div>
+            <hr/>
+            <div className='descripcionText'>
+              <label>Mensaje en la vista de contacto </label>
+              <textarea onChange={this.handleMensajeContacto.bind(this)} name='mensajeContacto' value={this.state.mensajeContacto}></textarea>
+            </div>
+
+            <div className='descripcionText'>
+              <label>Visualización del mensaje de contacto </label>
+              <div dangerouslySetInnerHTML={{__html: marked(this.state.mensajeContacto)}}></div>
             </div>
             <hr/>
             <div>

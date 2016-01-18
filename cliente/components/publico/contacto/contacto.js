@@ -1,6 +1,7 @@
 import React from 'react'
 import Layout from 'cliente/components/publico/layout'
 import request from 'superagent'
+import marked from 'marked'
 
 module.exports = class Contacto extends React.Component {
   constructor (props) {
@@ -9,8 +10,26 @@ module.exports = class Contacto extends React.Component {
       nombre: '',
       email: '',
       asunto: '',
-      consulta: ''
+      consulta: '',
+      datosGeneral: {
+        github: '',
+        facebook: '',
+        twitter: '',
+        mensajeContacto: ''
+      }
     }
+  }
+
+  componentWillMount () {
+    request
+    .get('/api/general')
+    .end((err, datos) => {
+      if (err) {
+        console.log(err)
+      } else {
+        this.setState({datosGeneral: datos.body})
+      }
+    })
   }
   handleNombre (event) {
     this.setState({nombre: event.target.value})
@@ -45,11 +64,16 @@ module.exports = class Contacto extends React.Component {
     })
   }
   render () {
-      return (
+    let iconFacebook = this.state.datosGeneral.facebook ? <a href={this.state.datosGeneral.facebook} className='iconSocial icon-facebook2' target='_black'></a> : ''
+    let iconTwitter = this.state.datosGeneral.twitter ? <a href={this.state.datosGeneral.twitter} className='iconSocial icon-twitter' target='_black'></a> : ''
+    let iconGithub = this.state.datosGeneral.github ? <a href={this.state.datosGeneral.github} className='iconSocial icon-github' target='_black'></a> : ''
+    let contactoMensaje = this.state.datosGeneral.mensajeContacto ? <div dangerouslySetInnerHTML={{__html: marked(this.state.datosGeneral.mensajeContacto)}}/> : ''
+    return (
         <Layout>
           <h2>Contacto</h2>
-          <p></p>
-          <section>
+          <hr/>
+          {contactoMensaje}
+          <section className='estiloFormContacto'>
             <form onSubmit={this.handleSubmit.bind(this)}>
               <div>
                 <label>Tu Nombre (Requerido)</label>
@@ -59,19 +83,27 @@ module.exports = class Contacto extends React.Component {
                 <label>Tu Email (Requerido)</label>
                 <input onChange={this.handleEmail.bind(this)} type='text' name='email' value={this.state.email} required />
               </div>
-              <hr/>
                 <div>
                   <label>Asunto:</label>
-                  <input onChange={this.handleAsunto.bind(this)} type='text' name='asunto' value={this.state.asunto}  />
+                  <input onChange={this.handleAsunto.bind(this)} type='text' name='asunto' value={this.state.asunto} />
                 </div>
                 <div>
                   <label>Tu consulta: (Requerido)</label>
-                  <input onChange={this.handleConsulta.bind(this)} type='text' name='consulta' value={this.state.consulta}  />
+                  <textarea onChange={this.handleConsulta.bind(this)} type='text' name='consulta' value={this.state.consulta} />
                 </div>
               <div>
                 <input type='submit' value='Enviar' />
               </div>
             </form>
+
+          </section>
+          <section className='cuadroSeguir'>
+            <p>También pudes seguirme en </p>
+            <div>
+              {iconFacebook}
+              {iconTwitter}
+              {iconGithub}
+            </div>
           </section>
         </Layout>
       )

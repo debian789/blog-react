@@ -115,7 +115,7 @@ module.exports = class FormPortafoli extends React.Component {
     return (
       <Layout>
         <section className='estiloForm'>
-          <h1>Configuraciones Generales </h1>
+          <h1>Portafolio Administrar </h1>
           <hr/>
           <form onSubmit={this.handleSubmit.bind(this)}>
             <div>
@@ -155,7 +155,7 @@ module.exports = class FormPortafoli extends React.Component {
               <textarea onChange={this.handleDescripcion.bind(this)} name='descripcion' value={this.state.descripcion}></textarea>
             </div>
             <div className='descripcionText'>
-              <label>Descripción</label>
+              <label>Descripción visualización</label>
               <div  dangerouslySetInnerHTML={{__html:marked(this.state.descripcion)}}></div>
             </div>
 

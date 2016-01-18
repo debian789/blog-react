@@ -17,7 +17,8 @@ var GeneralSchema = new _mongoose2.default.Schema({
   sobremi: { type: String },
   facebook: { type: String },
   twitter: { type: String },
-  github: { type: String }
+  github: { type: String },
+  mensajeContacto: { type: String }
 });
 
 exports.default = _mongoose2.default.model('General', GeneralSchema);
